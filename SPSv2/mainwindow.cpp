@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->textBrowser_1->setText("Type Something Into the Box Above!");
+    ui->textBrowser_1->setText("Hi, I'm SPSv2");
 }
 
 MainWindow::~MainWindow()
@@ -18,7 +18,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_textEdit_textChanged()
 {
     QString newText;
-    newText = ui->textEdit->toPlainText();
+    newText = "Boat: " +  ui->textEdit->toPlainText();
     ui->textBrowser_1->setText(newText);
 }
 
