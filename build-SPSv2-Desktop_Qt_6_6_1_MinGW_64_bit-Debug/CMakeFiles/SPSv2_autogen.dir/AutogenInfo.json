@@ -251,9 +251,9 @@
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customwidgets.h",
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customgraphicswidget.h",
 			"MU",
-			"EWIEGA46WW/moc_customwidgets.cpp",
+			"EWIEGA46WW/moc_customgraphicswidget.cpp",
 			null
 		],
 		[
@@ -295,6 +295,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2",
 		"C:/Qt/6.6.1/mingw_64/include/QtCore",
 		"C:/Qt/6.6.1/mingw_64/include",
 		"C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++",
@@ -340,7 +341,7 @@
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customwidgets.cpp",
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customgraphicswidget.cpp",
 			"MU",
 			null
 		],

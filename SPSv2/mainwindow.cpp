@@ -26,4 +26,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::item_view_item_path_enter(QString itemPath){
     qDebug() << itemPath;
+
+    if (Scene->items().count() > 0) Scene->clear();
+    QPixmap Image(itemPath);
+    Scene->addPixmap(Image);
+    Scene->setSceneRect(Image.rect());
+    ui->networkInterface->setScene(Scene);
+    ui->networkInterface->setSceneRect(Scene->sceneRect());
+    ui->networkInterface->fitInView(Scene->sceneRect(), Qt::KeepAspectRatio);
+    ui->networkInterface->viewport()->update();
+    ui->networkInterface->update();
+    ui->networkInterface->show();
 }

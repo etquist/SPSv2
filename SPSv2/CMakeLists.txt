@@ -24,7 +24,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         dataHandling.h
-        customwidgets.h customwidgets.cpp
+        customgraphicswidget.h customgraphicswidget.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET SPSv2 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -45,6 +45,9 @@ else()
 endif()
 
 target_link_libraries(SPSv2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_include_directories(SPSv2 PRIVATE
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/>
+)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

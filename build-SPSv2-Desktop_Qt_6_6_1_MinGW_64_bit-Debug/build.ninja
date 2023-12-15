@@ -53,7 +53,7 @@ build CMakeFiles/SPSv2.dir/SPSv2_autogen/mocs_compilation.cpp.obj: CXX_COMPILER_
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\SPSv2.dir\SPSv2_autogen\mocs_compilation.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
+  INCLUDES = -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/include" -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\SPSv2.dir
   OBJECT_FILE_DIR = CMakeFiles\SPSv2.dir\SPSv2_autogen
 
@@ -61,7 +61,7 @@ build CMakeFiles/SPSv2.dir/main.cpp.obj: CXX_COMPILER__SPSv2_unscanned_Debug C$:
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\SPSv2.dir\main.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
+  INCLUDES = -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/include" -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\SPSv2.dir
   OBJECT_FILE_DIR = CMakeFiles\SPSv2.dir
 
@@ -69,15 +69,15 @@ build CMakeFiles/SPSv2.dir/mainwindow.cpp.obj: CXX_COMPILER__SPSv2_unscanned_Deb
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\SPSv2.dir\mainwindow.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
+  INCLUDES = -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/include" -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\SPSv2.dir
   OBJECT_FILE_DIR = CMakeFiles\SPSv2.dir
 
-build CMakeFiles/SPSv2.dir/customwidgets.cpp.obj: CXX_COMPILER__SPSv2_unscanned_Debug C$:/Users/ethan/OneDrive/Desktop/College/Graduate$ School/Research/Shipboard$ Power$ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customwidgets.cpp || cmake_object_order_depends_target_SPSv2
+build CMakeFiles/SPSv2.dir/customgraphicswidget.cpp.obj: CXX_COMPILER__SPSv2_unscanned_Debug C$:/Users/ethan/OneDrive/Desktop/College/Graduate$ School/Research/Shipboard$ Power$ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customgraphicswidget.cpp || cmake_object_order_depends_target_SPSv2
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\SPSv2.dir\customwidgets.cpp.obj.d
+  DEP_FILE = CMakeFiles\SPSv2.dir\customgraphicswidget.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
+  INCLUDES = -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/include" -I"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\SPSv2.dir
   OBJECT_FILE_DIR = CMakeFiles\SPSv2.dir
 
@@ -89,7 +89,7 @@ build CMakeFiles/SPSv2.dir/customwidgets.cpp.obj: CXX_COMPILER__SPSv2_unscanned_
 #############################################
 # Link the executable SPSv2.exe
 
-build SPSv2.exe: CXX_EXECUTABLE_LINKER__SPSv2_Debug CMakeFiles/SPSv2.dir/SPSv2_autogen/mocs_compilation.cpp.obj CMakeFiles/SPSv2.dir/main.cpp.obj CMakeFiles/SPSv2.dir/mainwindow.cpp.obj CMakeFiles/SPSv2.dir/customwidgets.cpp.obj | C$:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.6.1/mingw_64/lib/libQt6EntryPoint.a || SPSv2_autogen SPSv2_autogen_timestamp_deps
+build SPSv2.exe: CXX_EXECUTABLE_LINKER__SPSv2_Debug CMakeFiles/SPSv2.dir/SPSv2_autogen/mocs_compilation.cpp.obj CMakeFiles/SPSv2.dir/main.cpp.obj CMakeFiles/SPSv2.dir/mainwindow.cpp.obj CMakeFiles/SPSv2.dir/customgraphicswidget.cpp.obj | C$:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.6.1/mingw_64/lib/libQt6EntryPoint.a || SPSv2_autogen SPSv2_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.6.1/mingw_64/lib/libQt6Gui.a  C:/Qt/6.6.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.6.1/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -192,7 +192,7 @@ build SPSv2_autogen/timestamp SPSv2_autogen/mocs_compilation.cpp | ${cmake_ninja
 #############################################
 # Phony custom command for CMakeFiles\SPSv2_autogen_timestamp_deps
 
-build CMakeFiles/SPSv2_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/SPSv2_autogen_timestamp_deps: phony C$:/Qt/6.6.1/mingw_64/./bin/moc.exe C$:/Qt/6.6.1/mingw_64/./bin/uic.exe C$:/Qt/6.6.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a
+build CMakeFiles/SPSv2_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/SPSv2_autogen_timestamp_deps: phony C$:/Qt/6.6.1/mingw_64/./bin/moc.exe C$:/Qt/6.6.1/mingw_64/./bin/uic.exe C$:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Core.a
 
 
 #############################################

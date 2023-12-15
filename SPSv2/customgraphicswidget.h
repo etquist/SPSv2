@@ -1,7 +1,7 @@
-#ifndef CUSTOMWIDGETS_H
-#define CUSTOMWIDGETS_H
+#ifndef CUSTOMGRAPHICSWIDGET_H
+#define CUSTOMGRAPHICSWIDGET_H
 
-
+#include <QWidget>
 #include <QGraphicsView>
 #include <QListView>
 #include <QListWidget>
@@ -10,23 +10,15 @@
 #include <QDragMoveEvent>
 #include <QDropEvent>
 
-
-class customWidgets
+class customGraphicsWidget : public QGraphicsView
 {
-public:
-    customWidgets();
-};
-
-
-class customGraphicsInterface : public QGraphicsView
-{
-    Q_OBJECT
+Q_OBJECT
 
 signals:
     void itemDrop(QString);
 
 public:
-    explicit customGraphicsInterface(QWidget *widget = nullptr);
+    explicit customGraphicsWidget(QWidget *widget = nullptr);
 
 protected:
     void dropEvent(QDropEvent *event) override;
@@ -37,4 +29,4 @@ protected:
     using QGraphicsView::QGraphicsView;
 };
 
-#endif // CUSTOMWIDGETS_H
+#endif // CUSTOMGRAPHICSWIDGET_H

@@ -157,7 +157,7 @@
        </spacer>
       </item>
       <item row="3" column="2" rowspan="3">
-       <widget class="customGraphicsInterface" name="networkInterface">
+       <widget class="customGraphicsWidget" name="networkInterface">
         <property name="lineWidth">
          <number>3</number>
         </property>
@@ -200,6 +200,12 @@
       </item>
       <item row="4" column="0">
        <widget class="QListWidget" name="listWidget">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="dragEnabled">
          <bool>true</bool>
         </property>
@@ -225,7 +231,14 @@
        </spacer>
       </item>
       <item row="4" column="4">
-       <widget class="QListWidget" name="listWidget_2"/>
+       <widget class="QListWidget" name="listWidget_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -237,7 +250,7 @@
      <x>0</x>
      <y>0</y>
      <width>817</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -245,9 +258,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>customGraphicsInterface</class>
+   <class>customGraphicsWidget</class>
    <extends>QGraphicsView</extends>
-   <header location="global">customwidgets.h</header>
+   <header location="global">customgraphicswidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

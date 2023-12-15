@@ -1,16 +1,13 @@
-#include "customwidgets.h"
-
-customWidgets::customWidgets() {}
-
+#include "customgraphicswidget.h"
 
 // This is a custom class to allow drag & drop interaction
 //      with the graphics interface instance
-customGraphicsInterface::customGraphicsInterface(QWidget *widget) : QGraphicsView(widget)
+customGraphicsWidget::customGraphicsWidget(QWidget *widget) : QGraphicsView(widget)
 {
     setAcceptDrops(true);
 }
 
-void customGraphicsInterface::dropEvent(QDropEvent *event)
+void customGraphicsWidget::dropEvent(QDropEvent *event)
 {
     if (event->source() == this) return;
 
@@ -20,18 +17,18 @@ void customGraphicsInterface::dropEvent(QDropEvent *event)
     emit itemDrop(itemPath);
 }
 
-void customGraphicsInterface::dragEnterEvent(QDragEnterEvent *event)
+void customGraphicsWidget::dragEnterEvent(QDragEnterEvent *event)
 {
     event->accept();
     event->acceptProposedAction();
 }
 
-void customGraphicsInterface::dragLeaveEvent(QDragLeaveEvent *event)
+void customGraphicsWidget::dragLeaveEvent(QDragLeaveEvent *event)
 {
     event->accept();
 }
 
-void customGraphicsInterface::dragMoveEvent(QDragMoveEvent *event)
+void customGraphicsWidget::dragMoveEvent(QDragMoveEvent *event)
 {
     event->accept();
     event->acceptProposedAction();

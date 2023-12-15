@@ -21,7 +21,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
-#include <customwidgets.h>
+#include <customgraphicswidget.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -40,7 +40,7 @@ public:
     QPushButton *pushButton;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer;
-    customGraphicsInterface *networkInterface;
+    customGraphicsWidget *networkInterface;
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *verticalSpacer_3;
     QListWidget *listWidget;
@@ -122,7 +122,7 @@ public:
 
         gridLayout->addItem(verticalSpacer, 3, 4, 1, 1);
 
-        networkInterface = new customGraphicsInterface(centralwidget);
+        networkInterface = new customGraphicsWidget(centralwidget);
         networkInterface->setObjectName("networkInterface");
         networkInterface->setLineWidth(3);
         networkInterface->setInteractive(true);
@@ -140,6 +140,11 @@ public:
 
         listWidget = new QListWidget(centralwidget);
         listWidget->setObjectName("listWidget");
+        QSizePolicy sizePolicy3(QSizePolicy::Maximum, QSizePolicy::Expanding);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(listWidget->sizePolicy().hasHeightForWidth());
+        listWidget->setSizePolicy(sizePolicy3);
         listWidget->setDragEnabled(true);
         listWidget->setDragDropMode(QAbstractItemView::DragDrop);
 
@@ -151,6 +156,8 @@ public:
 
         listWidget_2 = new QListWidget(centralwidget);
         listWidget_2->setObjectName("listWidget_2");
+        sizePolicy3.setHeightForWidth(listWidget_2->sizePolicy().hasHeightForWidth());
+        listWidget_2->setSizePolicy(sizePolicy3);
 
         gridLayout->addWidget(listWidget_2, 4, 4, 1, 1);
 
@@ -160,7 +167,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 817, 26));
+        menubar->setGeometry(QRect(0, 0, 817, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
