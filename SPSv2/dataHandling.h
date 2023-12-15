@@ -1,0 +1,4 @@
+#ifndef DATAHANDLING_H
+#define DATAHANDLING_H
+
+#endif // DATAHANDLING_H

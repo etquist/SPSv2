@@ -1,12 +1,22 @@
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
+#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->textBrowser_1->setText("Hi, I'm SPSv2");
+
+
+    QDir Image_Dir(QCoreApplication::applicationDirPath() + "/Images/");
+
+    for (const QFileInfo &fileinfo : Image_Dir.entryInfoList(QDir::Files))
+    {
+        ui->listWidget->addItem(fileinfo.absoluteFilePath());
+    }
+    Scene = new QGraphicsScene(this);
+
+    connect(ui->networkInterface, SIGNAL(itemDrop(QString)), this, SLOT(item_view_item_path_enter(QString)));
 }
 
 MainWindow::~MainWindow()
@@ -14,11 +24,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_textEdit_textChanged()
-{
-    QString newText;
-    newText = "Boat: " +  ui->textEdit->toPlainText();
-    ui->textBrowser_1->setText(newText);
+void MainWindow::item_view_item_path_enter(QString itemPath){
+    qDebug() << itemPath;
 }
-
