@@ -15,7 +15,7 @@ class customGraphicsWidget : public QGraphicsView
 Q_OBJECT
 
 signals:
-    void itemDrop(QString);
+    void itemDrop(QString, QPointF);
 
 public:
     explicit customGraphicsWidget(QWidget *widget = nullptr);

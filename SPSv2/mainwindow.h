@@ -9,6 +9,7 @@
 #include <QCoreApplication>
 #include <QPixmap>
 #include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
 
 
 
@@ -27,7 +28,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void item_view_item_path_enter(QString itemPath);
+    void item_view_item_path_enter(QString itemPath, QPointF dropPos);
 
 private:
     Ui::MainWindow *ui;

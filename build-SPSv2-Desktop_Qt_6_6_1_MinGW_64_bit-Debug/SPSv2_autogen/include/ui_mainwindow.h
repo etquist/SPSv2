@@ -10,7 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QIcon>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
@@ -19,6 +19,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
@@ -32,6 +33,11 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionOpen;
+    QAction *actionSave;
+    QAction *actionSave_As;
+    QAction *actionOpen_Documentation;
+    QAction *actionNew;
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
@@ -39,9 +45,6 @@ public:
     QListWidget *listWidget_2;
     QFrame *Toolbar;
     QHBoxLayout *horizontalLayout;
-    QToolButton *toolButton_3;
-    QToolButton *toolButton_2;
-    QToolButton *toolButton;
     QSpacerItem *horizontalSpacer_3;
     QToolButton *toolButton_4;
     QToolButton *toolButton_5;
@@ -62,6 +65,9 @@ public:
     QLabel *catalogueLabel;
     QTableWidget *tableWidget;
     QMenuBar *menubar;
+    QMenu *menuFile;
+    QMenu *menuSave;
+    QMenu *menuOpen;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -69,6 +75,16 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(817, 483);
+        actionOpen = new QAction(MainWindow);
+        actionOpen->setObjectName("actionOpen");
+        actionSave = new QAction(MainWindow);
+        actionSave->setObjectName("actionSave");
+        actionSave_As = new QAction(MainWindow);
+        actionSave_As->setObjectName("actionSave_As");
+        actionOpen_Documentation = new QAction(MainWindow);
+        actionOpen_Documentation->setObjectName("actionOpen_Documentation");
+        actionNew = new QAction(MainWindow);
+        actionNew->setObjectName("actionNew");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -103,23 +119,6 @@ public:
         Toolbar->setMidLineWidth(2);
         horizontalLayout = new QHBoxLayout(Toolbar);
         horizontalLayout->setObjectName("horizontalLayout");
-        toolButton_3 = new QToolButton(Toolbar);
-        toolButton_3->setObjectName("toolButton_3");
-
-        horizontalLayout->addWidget(toolButton_3);
-
-        toolButton_2 = new QToolButton(Toolbar);
-        toolButton_2->setObjectName("toolButton_2");
-        QIcon icon(QIcon::fromTheme(QString::fromUtf8("document-save-as")));
-        toolButton_2->setIcon(icon);
-
-        horizontalLayout->addWidget(toolButton_2);
-
-        toolButton = new QToolButton(Toolbar);
-        toolButton->setObjectName("toolButton");
-
-        horizontalLayout->addWidget(toolButton);
-
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_3);
@@ -234,10 +233,25 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 817, 22));
+        menuFile = new QMenu(menubar);
+        menuFile->setObjectName("menuFile");
+        menuSave = new QMenu(menubar);
+        menuSave->setObjectName("menuSave");
+        menuOpen = new QMenu(menubar);
+        menuOpen->setObjectName("menuOpen");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuFile->menuAction());
+        menubar->addAction(menuSave->menuAction());
+        menubar->addAction(menuOpen->menuAction());
+        menuFile->addAction(actionNew);
+        menuFile->addAction(actionOpen);
+        menuFile->addAction(actionSave);
+        menuFile->addAction(actionSave_As);
+        menuFile->addAction(actionOpen_Documentation);
 
         retranslateUi(MainWindow);
 
@@ -247,9 +261,11 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        toolButton_3->setText(QCoreApplication::translate("MainWindow", "FILE", nullptr));
-        toolButton_2->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
-        toolButton->setText(QCoreApplication::translate("MainWindow", "Open", nullptr));
+        actionOpen->setText(QCoreApplication::translate("MainWindow", "Open", nullptr));
+        actionSave->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
+        actionSave_As->setText(QCoreApplication::translate("MainWindow", "Save As", nullptr));
+        actionOpen_Documentation->setText(QCoreApplication::translate("MainWindow", "Help", nullptr));
+        actionNew->setText(QCoreApplication::translate("MainWindow", "New", nullptr));
         toolButton_4->setText(QCoreApplication::translate("MainWindow", "Define New Catalogue Entry", nullptr));
         toolButton_5->setText(QCoreApplication::translate("MainWindow", "Import Components", nullptr));
         toolButton_6->setText(QCoreApplication::translate("MainWindow", "Import Catalogue", nullptr));
@@ -258,6 +274,9 @@ public:
         toolButton_9->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Components", nullptr));
         catalogueLabel->setText(QCoreApplication::translate("MainWindow", "Catalogue", nullptr));
+        menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
+        menuSave->setTitle(QCoreApplication::translate("MainWindow", "Save", nullptr));
+        menuOpen->setTitle(QCoreApplication::translate("MainWindow", "Open", nullptr));
     } // retranslateUi
 
 };

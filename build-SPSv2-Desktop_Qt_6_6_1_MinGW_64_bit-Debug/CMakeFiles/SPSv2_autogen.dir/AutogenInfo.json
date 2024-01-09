@@ -251,15 +251,33 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/commonmodegrid.h",
+			"MU",
+			"EWIEGA46WW/moc_commonmodegrid.cpp",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/component.h",
+			"MU",
+			"EWIEGA46WW/moc_component.cpp",
+			null
+		],
+		[
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customgraphicswidget.h",
 			"MU",
 			"EWIEGA46WW/moc_customgraphicswidget.cpp",
 			null
 		],
 		[
-			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/dataHandling.h",
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/grid.h",
 			"MU",
-			"EWIEGA46WW/moc_dataHandling.cpp",
+			"EWIEGA46WW/moc_grid.cpp",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/gridnode.h",
+			"MU",
+			"EWIEGA46WW/moc_gridnode.cpp",
 			null
 		],
 		[
@@ -341,7 +359,27 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/commonmodegrid.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/component.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customgraphicswidget.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/grid.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/gridnode.cpp",
 			"MU",
 			null
 		],

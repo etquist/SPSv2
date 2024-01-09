@@ -14,7 +14,9 @@ void customGraphicsWidget::dropEvent(QDropEvent *event)
     QListWidget *listwidget = qobject_cast<QListWidget*>(event->source());
 
     QString itemPath = listwidget->currentItem()->text();
-    emit itemDrop(itemPath);
+    QPointF dropPosition = event->position();
+
+    emit itemDrop(itemPath, dropPosition);
 }
 
 void customGraphicsWidget::dragEnterEvent(QDragEnterEvent *event)

@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
     Scene = new QGraphicsScene(this);
 
-    connect(ui->networkInterface, SIGNAL(itemDrop(QString)), this, SLOT(item_view_item_path_enter(QString)));
+    connect(ui->networkInterface, SIGNAL(itemDrop(QString, QPointF)), this, SLOT(item_view_item_path_enter(QString, QPointF)));
 }
 
 MainWindow::~MainWindow()
@@ -24,17 +24,33 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::item_view_item_path_enter(QString itemPath){
+void MainWindow::item_view_item_path_enter(QString itemPath, QPointF itemPos){
     qDebug() << itemPath;
+    qDebug() << itemPos;
 
-    if (Scene->items().count() > 0) Scene->clear();
-    QPixmap Image(itemPath);
-    Scene->addPixmap(Image);
-    Scene->setSceneRect(Image.rect());
+    if (Scene->items().count() > 6) Scene->clear();
+    QPixmap *Image = new QPixmap(itemPath);
+
+    QGraphicsPixmapItem *graphicalItem = new QGraphicsPixmapItem(*Image);
+    graphicalItem->setTransformOriginPoint(graphicalItem->boundingRect().center());
+
+    qreal width = 100;  //ui->networkInterface->width() * 0.1;
+    qreal height = 100;
+    QSizeF desiredSize(width, height);
+
+    graphicalItem->setTransform(QTransform().scale(desiredSize.width() / graphicalItem->pixmap().width(),
+                                                   desiredSize.height() / graphicalItem->pixmap().height()));
+
+    // Need to adjust the position definition for the width and height of the iamge
+    itemPos.setX(itemPos.rx()-width/2);
+    itemPos.setY(itemPos.ry()-height/2);
+    graphicalItem->moveBy(itemPos.rx(), itemPos.ry());
+    qDebug() << "Position: " << graphicalItem->pos();
+    Scene->addItem(graphicalItem);
+
     ui->networkInterface->setScene(Scene);
-    ui->networkInterface->setSceneRect(Scene->sceneRect());
-    ui->networkInterface->fitInView(Scene->sceneRect(), Qt::KeepAspectRatio);
-    ui->networkInterface->viewport()->update();
-    ui->networkInterface->update();
+    // ui->networkInterface->fitInView(rectScene, Qt::KeepAspectRatio);
     ui->networkInterface->show();
+    ui->networkInterface->centerOn(0, 0);
+    ui->networkInterface->resetTransform();
 }

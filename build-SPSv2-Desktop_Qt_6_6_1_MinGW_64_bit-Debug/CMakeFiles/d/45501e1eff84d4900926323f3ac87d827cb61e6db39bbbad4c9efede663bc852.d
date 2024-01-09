@@ -163,6 +163,7 @@ SPSv2_autogen/timestamp: \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpainter.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/qpainterpath.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpixelformat.h \
@@ -183,6 +184,7 @@ SPSv2_autogen/timestamp: \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListView \
@@ -195,6 +197,7 @@ SPSv2_autogen/timestamp: \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsview.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
