@@ -10,28 +10,37 @@
 class Grid
 {
 public:
-    Grid();
+    Grid(std::string catalogFilepath, std::string componentsListFilepath);
 
+    ~Grid();
 
     // Connectivity Table between components
     // Note - likely shouldn't be a connectivity table because that will get very large very fast (O(n^2)).
     //          A general tree should work well for this, but may require a custom implementation.
 
 
-    // Components list
-    std::vector<component*> componentsList;
+    // Active components placed in the microgrid
+    // Vector of pointers to dynamic instances of components
+    std::vector<component*> activeComponents;
 
-    // Catalogue
-    std::vector<gridNode*> Catalogue;
+    // Components list that appears on the left side of the screen that the user can select and filter from
+    // A vector of serial numbers to the component instances
+    std::vector<int> componentsList;
 
-
+    // Catalog
+    // Catalog is a vector of serial numbers to lookup within an external data file
+    std::vector<int> Catalog;
 
     // Common mode equivalent model
     commonModeGrid* cmEqModel;
 
 
+    void addNewComponent(); // New components list entry
+    void addNewCatalog();   // New catalogue entry
+
 
 private:
-
+    int findNumCatalogEntries(std::string catalogFilepath);    // Looks for the catalog data file and returns the number of entries for initialization
+    int findNumComponents(std::string componentsListFilepath); // Looks for the components list data file and returns the number of entries for initialization
 };
 #endif // GRID_H
