@@ -3,6 +3,14 @@ Shipboard Power Simulator
 
 
 # Work In Progress
-- Change the network interface so that a dropped item can be selected and dragged to a new location within the window.
-- Change the components list so that instead of filepaths, it contains names, which are references to entries in a database
-- Make a database
+1. Drag and Drop / general editing ability for the grid structure in an interactive window: 
+(  1a  ) Custom QLabel implementation which will hold the component information (instances from the catalogue), and provide the relevant information to the interactive window
+(  1b  ) Custom window implementaiton which allows for specific clicking and drag/drop behaviors
+2. Back end development for data storage and handling, and microgrid solving:
+(  2a  ) Custom tree implementation for connectivity information
+(  2b  ) Custom catalogue and componentsList (rats list) implementation
+(  2c  ) Database selection and development (TOAD) and defining connections between the local memory and device storage
+3. General UI improvements:
+(  3a  ) Tabs to access multiple windows
+ 
+
