@@ -10,13 +10,17 @@ class component : public QLabel
 {
     Q_OBJECT
 public:
-    explicit component(QObject *parent = nullptr);
+    explicit component(QLabel *parent = nullptr);
 
+    std::string name; // name of the component
+
+    gridNode getTypeData(); // Returns all of the type data for the referenced node
 signals:
 
 
 private:
     gridNode* componentTypeRef;  // Reference to the node which contains all the information for this type of component (catalogue entry)
+
 
 };
 

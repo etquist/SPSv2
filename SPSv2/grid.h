@@ -12,11 +12,15 @@ class Grid
 public:
     Grid(std::string catalogFilepath, std::string componentsListFilepath);
 
-    ~Grid();
+    ~Grid();    // must deal with the bus list
 
-    // Connectivity Table between components
-    // Note - likely shouldn't be a connectivity table because that will get very large very fast (O(n^2)).
-    //          A general tree should work well for this, but may require a custom implementation.
+    struct busListElement{
+        gridBus* bus;
+        double busVoltage;
+    };
+
+    // Bus list, with each element including a bus node reference and the its voltage
+    std::vector<busListElement> busList;
 
 
     // Active components placed in the microgrid

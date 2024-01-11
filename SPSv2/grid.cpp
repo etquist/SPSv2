@@ -22,22 +22,22 @@ Grid::~Grid(){
 }
 
 // New components list entry
-void addNewComponent(){
+void Grid::addNewComponent(){
 
 }
 
 // New catalogue entry
-void addNewCatalog(){
+void Grid::addNewCatalog(){
 
 }
 
 // Looks for the catalog data file and returns the number of entries for initialization
-int findNumCatalogEntries(std::string catalogFilepath){
+int Grid::findNumCatalogEntries(std::string catalogFilepath){
     return NULL;
 }
 
 // Looks for the components list data file and returns the number of entries for initialization
-int findNumComponents(std::string componentsListFilepath){
+int Grid::findNumComponents(std::string componentsListFilepath){
     return NULL;
 }
 

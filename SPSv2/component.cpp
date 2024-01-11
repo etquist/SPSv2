@@ -1,5 +1,13 @@
 #include "component.h"
 
-component::component(QObject *parent)
-    : QObject{parent}
+component::component(QLabel *parent)
+    : QLabel{parent}
 {}
+
+
+gridNode component::getTypeData(){
+    assert(false);
+
+    gridNode temp;  //temp
+    return temp;
+}
