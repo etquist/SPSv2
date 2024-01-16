@@ -166,6 +166,7 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qpainterpath.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qpalette.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qpixelformat.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qpixmap.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qpointingdevice.h \
@@ -174,6 +175,7 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qscreen.h \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h \
@@ -187,6 +189,7 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsScene \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsView \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListView \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMainWindow \
@@ -200,6 +203,7 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsview.h \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistwidget.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -611,9 +615,16 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/CMakeLists.txt \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/commonmodegrid.cpp \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/commonmodegrid.h \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/component.cpp \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/component.h \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customgraphicswidget.cpp \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/customgraphicswidget.h \
-	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/dataHandling.h \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/grid.cpp \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/grid.h \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/gridnode.cpp \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/gridnode.h \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/main.cpp \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/mainwindow.cpp \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/mainwindow.h \

@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "grid.h"
+#include "gridnode.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -7,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    Grid* myGrid = new Grid();
 
     QDir Image_Dir(QCoreApplication::applicationDirPath() + "/Images/");
 
@@ -54,3 +57,12 @@ void MainWindow::item_view_item_path_enter(QString itemPath, QPointF itemPos){
     ui->networkInterface->centerOn(0, 0);
     ui->networkInterface->resetTransform();
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    qDebug() << "Button Clicked";
+    gridBus* newBus = myGrid->newBus();
+    QString name = QString::fromStdString(newBus->name);
+    ui->listWidget_3->addItem(name);
+}
+

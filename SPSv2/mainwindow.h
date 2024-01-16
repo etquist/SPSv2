@@ -10,6 +10,7 @@
 #include <QPixmap>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+#include <grid.h>
 
 
 
@@ -26,12 +27,15 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    Grid *myGrid;
 
 private slots:
     void item_view_item_path_enter(QString itemPath, QPointF dropPos);
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *Scene;
+
 };
 #endif // MAINWINDOW_H

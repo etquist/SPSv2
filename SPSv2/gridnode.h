@@ -10,6 +10,7 @@ public:
     gridNode();
     ~gridNode();
     int serialNumber;
+    std::string name;
     std::string thumbnailImagePath;  // This is the image that will appear in the grid
     bool validityCheck();
 
@@ -77,6 +78,8 @@ class sourceNode : public gridElement{
 
 // Derived class from gridElement, with specific info relevant to loads
 class loadNode : public gridElement{
+public:
+    loadNode();
     ~loadNode();    // CUSTOM: need to delete the dynamic transient table
 
     // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
@@ -153,11 +156,17 @@ private:
 
 // Derived class from grid node, with information relevent to busses
 class gridBus : public gridNode{
+public:
+    gridBus();      // Constructor creates a single bus with empty
+    ~gridBus();     // Destructor needs to delete all of the
+
     int numBreakers;    //  (-) number of connection points available
     double bus_Capacitance;  // (F)     Expected impediance of bus
     double bus_Resistance;   // (Ohm)
     double bus_Inductance;   // (H)
+    double voltage;          // (V)
 
+    // "Structural containers": Contain the connectivity of the grid
     std::vector<loadNode*> loads;       // Loads which are directly connected to this bus
     std::vector<sourceNode*> gensets;   // Gensets which provide power directly to this bus
     std::vector<gridBus*> childSWBDs;   // Busses which receieve power from this bus

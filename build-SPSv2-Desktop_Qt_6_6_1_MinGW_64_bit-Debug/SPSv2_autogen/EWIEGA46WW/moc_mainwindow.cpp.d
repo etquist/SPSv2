@@ -4,6 +4,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QDir \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QFileInfo \
+  C:/Qt/6.6.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.6.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/q20memory.h \
@@ -127,6 +128,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.6.1/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -148,12 +150,14 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpainterpath.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpolygon.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiglobal.h \
@@ -162,9 +166,12 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsScene \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMainWindow \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -400,4 +407,8 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
+  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
+  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/commonmodegrid.h \
+  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/component.h \
+  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/grid.h \
+  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/gridnode.h
