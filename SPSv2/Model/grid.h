@@ -39,6 +39,7 @@ private:
     std::vector<sourceNode*>* sources;   // Gensets in this microgrid
     std::vector<filterNode*>* filters;   // Filters in this microgrid
     std::vector<esmNode*>* ESMs;         // ESMs in this microgrid
+    std::vector<gridEdge*>* edges;
 
     // A vector of references to the component instances. Component objects contain information to the specific instance of the grid element
     //  and are also a subset of QLabels so they can be easily placed on a drag and drop interface. This list can also be used in the "Rats list"

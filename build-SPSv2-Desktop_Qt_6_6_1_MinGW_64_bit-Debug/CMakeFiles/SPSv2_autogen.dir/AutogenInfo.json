@@ -282,6 +282,12 @@
 			null
 		],
 		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customMessageBox.h",
+			"MU",
+			"WB4RFHLAU6/moc_customMessageBox.cpp",
+			null
+		],
+		[
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customgraphicswidget.h",
 			"MU",
 			"WB4RFHLAU6/moc_customgraphicswidget.cpp",
@@ -385,6 +391,11 @@
 		],
 		[
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customMessageBox.cpp",
 			"MU",
 			null
 		],

@@ -96,7 +96,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(898, 621);
+        MainWindow->resize(1033, 718);
         actionOpen = new QAction(MainWindow);
         actionOpen->setObjectName("actionOpen");
         actionSave = new QAction(MainWindow);
@@ -338,7 +338,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 898, 22));
+        menubar->setGeometry(QRect(0, 0, 1033, 22));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName("menuFile");
         menuSave = new QMenu(menubar);
@@ -368,7 +368,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

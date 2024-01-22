@@ -11,6 +11,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <grid.h>
+#include <QMessageBox>
+#include <customMessageBox.h>
 
 
 
@@ -27,11 +29,13 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    Grid *myGrid;
+    Grid myGrid;
 
 private slots:
     void item_view_item_path_enter(QString itemPath, QPointF dropPos);
     void on_pushButton_clicked();
+
+    void on_toolButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;

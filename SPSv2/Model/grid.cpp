@@ -1,7 +1,21 @@
 #include "grid.h"
 
 // Default constructor
-Grid::Grid(){}
+Grid::Grid(){
+    qDebug() << "default constructor!!!!";
+
+
+    Catalog = new std::vector<int>;
+    componentsList = new std::vector<int>;
+
+    busList = new std::vector<busListElement*>;
+    loads = new std::vector<loadNode*>;
+    sources = new std::vector<sourceNode*>;
+    filters = new std::vector<filterNode*>;
+    ESMs = new std::vector<esmNode*>;
+    edges = new std::vector<gridEdge*>;
+
+}
 
 Grid::Grid(std::string catalogFilepath, std::string componentsListFilepath) {
     // Find the number of components and catalog entries based on the data files referenced by user
@@ -15,10 +29,14 @@ Grid::Grid(std::string catalogFilepath, std::string componentsListFilepath) {
 }
 
 Grid::~Grid(){
+    delete Catalog;
+    delete componentsList;
+
     // Active components is a vector of pointers to dynamic variables - delete all those
     for(int i = 0; i < activeComponents->size(); i++){
         delete (*activeComponents)[i];
     }
+    delete activeComponents;
 
     // Stored in dynamic memory
     delete cmEqModel;
@@ -27,21 +45,34 @@ Grid::~Grid(){
     for(int i = 0; i < busList->size(); i++){
         delete (*busList)[i]->bus;
     }
+    delete busList;
 
 
     // Delete all the dynamic grid nodes
     for(int i = 0; i < loads->size(); i++){
         delete (*loads)[i];
     }
+    delete loads;
+
     for(int i = 0; i < sources->size(); i++){
         delete (*sources)[i];
     }
+    delete sources;
+
     for(int i = 0; i < filters->size(); i++){
         delete (*filters)[i];
     }
+    delete filters;
+
     for(int i = 0; i < ESMs->size(); i++){
         delete (*ESMs)[i];
     }
+    delete ESMs;
+
+    for(int i = 0; i < edges->size(); i++){
+        delete (*edges)[i];
+    }
+    delete edges;
 
 }
 
@@ -77,11 +108,14 @@ gridBus* Grid::newBus(){
     newBusListElement->bus = myNewBus;
     newBusListElement->busVoltage = myNewBus->getVoltage();
 
-    int test = 5;
-    (*Catalog).push_back(test);
-    Catalog->push_back(test);
-    busList->push_back(newBusListElement);   // Add the bus struct to the vector of busses
-
+    if (busList){
+        busList->push_back(newBusListElement);   // Add the bus struct to the vector of busses
+    }
+    else{
+        qDebug() << "busList is a null pointer";
+        delete newBusListElement;
+        delete myNewBus;
+    }
 
     return myNewBus;    // return the pointer to the new bus to the user
 }

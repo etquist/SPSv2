@@ -3,13 +3,12 @@
 #include "grid.h"
 #include "gridnode.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    Grid* myGrid = new Grid();
 
     QDir Image_Dir(QCoreApplication::applicationDirPath() + "/Images/");
 
@@ -61,8 +60,28 @@ void MainWindow::item_view_item_path_enter(QString itemPath, QPointF itemPos){
 void MainWindow::on_pushButton_clicked()
 {
     qDebug() << "Button Clicked";
-    gridBus* newBus = myGrid->newBus();
+    gridBus* newBus = myGrid.newBus();
     QString name = QString::fromStdString(newBus->getName());
     ui->listWidget_3->addItem(name);
+}
+
+
+void MainWindow::on_toolButton_4_clicked()
+{
+    QString boxTitle = "Define a New Catalog Entry.";
+    QString msgLabel = "Select a Type of Grid Element to Create.";
+    std::vector<QString> options = {"Bus", "Load", "Generator", "Energy Storage Module", "Filter"};
+    customMessageBox catalogEntryBox(nullptr, boxTitle, msgLabel, options);
+    int result = catalogEntryBox.exec();
+
+    if (result == QDialog::Bus) {
+        // Custom choice was selected
+        // You can handle the custom choice here
+        qDebug() << "Custom choice selected.";
+    } else {
+        // Dialog was closed without selecting the custom choice
+        qDebug() << "Dialog closed.";
+    }
+
 }
 
