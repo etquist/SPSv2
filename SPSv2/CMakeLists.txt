@@ -19,16 +19,34 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(SPSv2
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        customgraphicswidget.h customgraphicswidget.cpp
-        grid.h grid.cpp
-        component.h component.cpp
-        gridnode.h gridnode.cpp
-        commonmodegrid.h commonmodegrid.cpp
+        View/customgraphicswidget.h View/customgraphicswidget.cpp
+        Model/grid.h Model/grid.cpp
+        View/component.h View/component.cpp
+        Model/gridnode.h Model/gridnode.cpp
+        Model/commonmodegrid.h Model/commonmodegrid.cpp
     )
+
+
+# Thumbnail images:
+file(GLOB thumbnail_files "View/thumbnailImages/*")
+
+# Print the list of image files during CMake configuration
+message(STATUS "List of Image Files:")
+foreach(thumbnail_file ${thumbnail_files})
+    message(STATUS "  ${thumbnail_file}")
+endforeach()
+
+qt_add_resources(thumbnailImageRSC "thumbnailImages"
+    FILES
+        ${thumbnail_files}
+)
+
+
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET SPSv2 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
@@ -50,6 +68,9 @@ endif()
 target_link_libraries(SPSv2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_include_directories(SPSv2 PRIVATE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/View/>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Model/>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Controller/>
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

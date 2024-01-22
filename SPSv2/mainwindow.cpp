@@ -62,7 +62,7 @@ void MainWindow::on_pushButton_clicked()
 {
     qDebug() << "Button Clicked";
     gridBus* newBus = myGrid->newBus();
-    QString name = QString::fromStdString(newBus->name);
+    QString name = QString::fromStdString(newBus->getName());
     ui->listWidget_3->addItem(name);
 }
 
