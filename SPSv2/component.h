@@ -11,6 +11,7 @@ class component : public QLabel
     Q_OBJECT
 public:
     explicit component(QLabel *parent = nullptr);
+    ~component();
 
     std::string name; // name of the component
 

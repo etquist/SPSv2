@@ -9,20 +9,28 @@ class gridNode
 public:
     gridNode();
     ~gridNode();
-    int serialNumber;
-    std::string name;
-    std::string thumbnailImagePath;  // This is the image that will appear in the grid
+
     bool validityCheck();
 
 private:
     void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
-
+    int serialNumber;
+    std::string name;
+    std::string thumbnailImagePath;  // This is the image that will appear in the grid
 
 };
 
 // Derived class from gridNode, with specific info relevant to grid edges.
 // Grid edges contain information on transmission cabling, power converters, etc.
 class gridEdge : public gridNode{
+    gridEdge();
+    ~gridEdge();
+    // Functions
+    bool validityCheck();
+
+private:
+    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
+
     // General
     double voltageA;    //  "Input" voltage to the A side. B side determined by edge properties
     int numPhasesA;    // Valid between 1-3
@@ -36,8 +44,8 @@ class gridEdge : public gridNode{
     double conduit_Inductance;   // (H)
 
     // Converter Properties
-    bool typeA;     // 0 = DC, 1 = AC
-    bool typeB;
+    bool pwrTypeA;     // 0 = DC, 1 = AC
+    bool pwrTypeB;
     double converter_Capacitance;  // (F)
     double converter_Resistance;   // (Ohm)
     double converter_Inductance;   // (H)
@@ -50,13 +58,6 @@ class gridEdge : public gridNode{
     double transformer_Resistance;   // (Ohm)
     double transformer_Inductance;   // (H)
 
-    // Functions
-    bool validityCheck();
-
-private:
-    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
-
-
 };
 
 // Derived class from gridNode, with specific info relevant to elements within a microgrid.
@@ -66,7 +67,6 @@ class gridElement : public gridNode{
     bool validityCheck();
 
 private:
-    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
 
 };
 
@@ -160,6 +160,14 @@ public:
     gridBus();      // Constructor creates a single bus with empty
     ~gridBus();     // Destructor needs to delete all of the
 
+    bool validityCheck();
+
+private:
+    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
+
+    std::vector<double>* busTrace;
+    std::vector<double>* exportTrace;
+
     int numBreakers;    //  (-) number of connection points available
     double bus_Capacitance;  // (F)     Expected impediance of bus
     double bus_Resistance;   // (Ohm)
@@ -174,16 +182,6 @@ public:
     std::vector<gridBus*> parentSWBDs;  // Busses which give power to this bus
     std::vector<filterNode*> filters;   // Filters which are directly connected to this bus
     std::vector<esmNode*> ESMs;         // Energy storage modules which are directly connected to this bus
-
-
-    bool validityCheck();
-
-private:
-    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
-
-    std::vector<double>* busTrace;
-    std::vector<double>* exportTrace;
-
 
 };
 
