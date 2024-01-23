@@ -18,7 +18,7 @@
     <item row="2" column="0" rowspan="2">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -27,16 +27,6 @@
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridLayout">
-          <item row="4" column="5">
-           <widget class="QListWidget" name="listWidget_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-           </widget>
-          </item>
           <item row="4" column="4">
            <spacer name="horizontalSpacer_2">
             <property name="orientation">
@@ -252,27 +242,6 @@
                </property>
               </spacer>
              </item>
-             <item>
-              <widget class="QToolButton" name="toolButton_8">
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButton_7">
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButton_9">
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
             </layout>
            </widget>
           </item>
@@ -309,6 +278,16 @@
            <widget class="QTableWidget" name="tableWidget">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="5">
+           <widget class="QListWidget" name="listWidget_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -508,13 +487,10 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>toolButton_7</tabstop>
   <tabstop>toolButton_5</tabstop>
   <tabstop>toolButton_6</tabstop>
   <tabstop>toolButton_4</tabstop>
   <tabstop>listWidget_2</tabstop>
-  <tabstop>toolButton_8</tabstop>
-  <tabstop>toolButton_9</tabstop>
   <tabstop>networkInterface</tabstop>
  </tabstops>
  <resources/>

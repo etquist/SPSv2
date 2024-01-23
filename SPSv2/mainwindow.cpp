@@ -104,8 +104,10 @@ void MainWindow::on_toolButton_4_clicked()
         return;
     }
 
+
     if (newCatalogEntry == nullptr){ return; }
     name = newCatalogEntry->getName();
+    newCatalogEntry->setCatalog(true);
     ui->listWidget_2->addItem(name);
 
 }
@@ -114,4 +116,10 @@ void MainWindow::on_toolButton_4_clicked()
 
 
 
+
+// Double clicking on the catalog should make a new instance of the item in the components list
+void MainWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item)
+{
+
+}
 

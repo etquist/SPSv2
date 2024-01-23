@@ -38,6 +38,10 @@ public:
     int numESMs();
     int numEdges();
 
+    void addCatalogEntry(gridNode*);
+    void deleteCatalogEntry(gridNode*);
+
+
 
 private:
     // Bus list, with each element including a bus node reference and the its voltage
@@ -56,7 +60,7 @@ private:
 
     // Catalog
     // Catalog is a vector of serial numbers to lookup within an external data file
-    std::vector<int>* Catalog;
+    std::vector<gridNode*>* Catalog;
 
     // Common mode equivalent model
     commonModeGrid* cmEqModel;
@@ -66,5 +70,7 @@ private:
 
     // Creates input dialog for the user to collect and return the name for a new element of type "type"
     QString newName(QString type);
+
+
 };
 #endif // GRID_H

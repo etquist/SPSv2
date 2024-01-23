@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "qlistwidget.h"
 #include <QMainWindow>
 #include <QDir>
 #include <QFileInfo>
@@ -36,6 +37,8 @@ private slots:
     void on_pushButton_clicked();
 
     void on_toolButton_4_clicked();
+
+    void on_listWidget_2_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;

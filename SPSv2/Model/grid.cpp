@@ -4,7 +4,7 @@
 
 // Default constructor
 Grid::Grid(){
-    Catalog = new std::vector<int>;
+    Catalog = new std::vector<gridNode*>;
     componentsList = new std::vector<int>;
 
     busList = new std::vector<busListElement*>;
@@ -22,8 +22,8 @@ Grid::Grid(QString catalogFilepath, QString componentsListFilepath) {
     int numComponents = findNumComponents(componentsListFilepath);
 
     // Initiate the catalog and component list
-    Catalog = new std::vector<int>(numCatalogEntries);
-    componentsList = new std::vector<int>(numComponents);
+    Catalog = new std::vector<gridNode*>;
+    componentsList = new std::vector<int>;
 
 }
 

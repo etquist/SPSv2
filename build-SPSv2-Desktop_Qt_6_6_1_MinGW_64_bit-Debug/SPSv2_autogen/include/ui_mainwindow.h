@@ -46,7 +46,6 @@ public:
     QWidget *tab;
     QGridLayout *gridLayout_3;
     QGridLayout *gridLayout;
-    QListWidget *listWidget_2;
     QSpacerItem *horizontalSpacer_2;
     QListWidget *listWidget;
     QLabel *catalogueLabel;
@@ -63,12 +62,10 @@ public:
     QToolButton *toolButton_5;
     QToolButton *toolButton_6;
     QSpacerItem *horizontalSpacer_4;
-    QToolButton *toolButton_8;
-    QToolButton *toolButton_7;
-    QToolButton *toolButton_9;
     QSpacerItem *verticalSpacer_2;
     customGraphicsWidget *networkInterface;
     QTableWidget *tableWidget;
+    QListWidget *listWidget_2;
     QWidget *tab_3;
     QWidget *tab_2;
     QGridLayout *gridLayout_4;
@@ -120,22 +117,15 @@ public:
         gridLayout_3->setObjectName("gridLayout_3");
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
-        listWidget_2 = new QListWidget(tab);
-        listWidget_2->setObjectName("listWidget_2");
-        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(listWidget_2->sizePolicy().hasHeightForWidth());
-        listWidget_2->setSizePolicy(sizePolicy);
-
-        gridLayout->addWidget(listWidget_2, 4, 5, 1, 1);
-
         horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         gridLayout->addItem(horizontalSpacer_2, 4, 4, 1, 1);
 
         listWidget = new QListWidget(tab);
         listWidget->setObjectName("listWidget");
+        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(listWidget->sizePolicy().hasHeightForWidth());
         listWidget->setSizePolicy(sizePolicy);
         listWidget->setDragEnabled(true);
@@ -215,21 +205,6 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer_4);
 
-        toolButton_8 = new QToolButton(Toolbar);
-        toolButton_8->setObjectName("toolButton_8");
-
-        horizontalLayout->addWidget(toolButton_8);
-
-        toolButton_7 = new QToolButton(Toolbar);
-        toolButton_7->setObjectName("toolButton_7");
-
-        horizontalLayout->addWidget(toolButton_7);
-
-        toolButton_9 = new QToolButton(Toolbar);
-        toolButton_9->setObjectName("toolButton_9");
-
-        horizontalLayout->addWidget(toolButton_9);
-
 
         gridLayout->addWidget(Toolbar, 0, 0, 1, 6);
 
@@ -254,6 +229,13 @@ public:
         tableWidget->setSizePolicy(sizePolicy2);
 
         gridLayout->addWidget(tableWidget, 6, 0, 1, 6);
+
+        listWidget_2 = new QListWidget(tab);
+        listWidget_2->setObjectName("listWidget_2");
+        sizePolicy.setHeightForWidth(listWidget_2->sizePolicy().hasHeightForWidth());
+        listWidget_2->setSizePolicy(sizePolicy);
+
+        gridLayout->addWidget(listWidget_2, 4, 5, 1, 1);
 
 
         gridLayout_3->addLayout(gridLayout, 0, 0, 1, 1);
@@ -355,13 +337,10 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
-        QWidget::setTabOrder(toolButton_7, toolButton_5);
         QWidget::setTabOrder(toolButton_5, toolButton_6);
         QWidget::setTabOrder(toolButton_6, toolButton_4);
         QWidget::setTabOrder(toolButton_4, listWidget_2);
-        QWidget::setTabOrder(listWidget_2, toolButton_8);
-        QWidget::setTabOrder(toolButton_8, toolButton_9);
-        QWidget::setTabOrder(toolButton_9, networkInterface);
+        QWidget::setTabOrder(listWidget_2, networkInterface);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuSave->menuAction());
@@ -374,7 +353,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -393,9 +372,6 @@ public:
         toolButton_4->setText(QCoreApplication::translate("MainWindow", "Define New Catalogue Entry", nullptr));
         toolButton_5->setText(QCoreApplication::translate("MainWindow", "Import Components", nullptr));
         toolButton_6->setText(QCoreApplication::translate("MainWindow", "Import Catalogue", nullptr));
-        toolButton_8->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
-        toolButton_7->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
-        toolButton_9->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Main Window", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "Page", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "New Load", nullptr));
