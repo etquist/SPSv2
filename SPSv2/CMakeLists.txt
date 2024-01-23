@@ -29,7 +29,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         View/component.h View/component.cpp
         Model/gridnode.h Model/gridnode.cpp
         Model/commonmodegrid.h Model/commonmodegrid.cpp
-        View/customMessageBox.h View/customMessageBox.cpp
+        View/helperFunctions.cpp
+        View/helperFunctions.h
     )
 
 

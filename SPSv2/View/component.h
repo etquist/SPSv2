@@ -24,7 +24,7 @@ public:
 
     component(gridNode* nodeRef);   // Construct an instance with a node object.
 
-    std::string checkNodeType();    // Returns whether the node is a bus, esm, load, etc.
+    QString checkNodeType();    // Returns whether the node is a bus, esm, load, etc.
 
     gridNode getNodeData(); // Returns all of the data for the referenced node
     void updateThumbnail();
@@ -35,7 +35,7 @@ signals:
 
 private:
     gridNode* nodeRef;  // Reference to the node which contains all the information for this type of component (catalogue entry)
-    std::string name; // name of the component
+    QString name; // name of the component
     QPixmap thumbnail; // A reference to the QGraphicsPixmapItem (image) that will appear on the screen of the microgrid simulator
 
 

@@ -72,20 +72,21 @@ public:
     QWidget *tab_3;
     QWidget *tab_2;
     QGridLayout *gridLayout_4;
-    QListWidget *listWidget_7;
-    QSpacerItem *horizontalSpacer_7;
+    QListWidget *listWidget_3;
     QListWidget *listWidget_5;
+    QPushButton *pushButton_2;
     QListWidget *listWidget_6;
+    QPushButton *pushButton_5;
     QSpacerItem *horizontalSpacer_6;
+    QListWidget *listWidget_9;
+    QPushButton *pushButton_4;
+    QPushButton *pushButton_3;
+    QListWidget *listWidget_7;
+    QPushButton *pushButton;
+    QSpacerItem *horizontalSpacer_7;
     QSpacerItem *horizontalSpacer_8;
     QSpacerItem *horizontalSpacer_5;
-    QListWidget *listWidget_3;
-    QListWidget *listWidget_4;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
+    QListWidget *listWidget_8;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuSave;
@@ -265,28 +266,63 @@ public:
         tab_2->setObjectName("tab_2");
         gridLayout_4 = new QGridLayout(tab_2);
         gridLayout_4->setObjectName("gridLayout_4");
-        listWidget_7 = new QListWidget(tab_2);
-        listWidget_7->setObjectName("listWidget_7");
+        listWidget_3 = new QListWidget(tab_2);
+        listWidget_3->setObjectName("listWidget_3");
 
-        gridLayout_4->addWidget(listWidget_7, 0, 6, 1, 1);
-
-        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_4->addItem(horizontalSpacer_7, 0, 9, 1, 1);
+        gridLayout_4->addWidget(listWidget_3, 0, 4, 1, 1);
 
         listWidget_5 = new QListWidget(tab_2);
         listWidget_5->setObjectName("listWidget_5");
 
         gridLayout_4->addWidget(listWidget_5, 0, 10, 1, 1);
 
+        pushButton_2 = new QPushButton(tab_2);
+        pushButton_2->setObjectName("pushButton_2");
+
+        gridLayout_4->addWidget(pushButton_2, 1, 6, 1, 1);
+
         listWidget_6 = new QListWidget(tab_2);
         listWidget_6->setObjectName("listWidget_6");
 
         gridLayout_4->addWidget(listWidget_6, 0, 8, 1, 1);
 
+        pushButton_5 = new QPushButton(tab_2);
+        pushButton_5->setObjectName("pushButton_5");
+
+        gridLayout_4->addWidget(pushButton_5, 1, 12, 1, 1);
+
         horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_4->addItem(horizontalSpacer_6, 0, 7, 1, 1);
+
+        listWidget_9 = new QListWidget(tab_2);
+        listWidget_9->setObjectName("listWidget_9");
+
+        gridLayout_4->addWidget(listWidget_9, 0, 12, 1, 1);
+
+        pushButton_4 = new QPushButton(tab_2);
+        pushButton_4->setObjectName("pushButton_4");
+
+        gridLayout_4->addWidget(pushButton_4, 1, 10, 1, 1);
+
+        pushButton_3 = new QPushButton(tab_2);
+        pushButton_3->setObjectName("pushButton_3");
+
+        gridLayout_4->addWidget(pushButton_3, 1, 8, 1, 1);
+
+        listWidget_7 = new QListWidget(tab_2);
+        listWidget_7->setObjectName("listWidget_7");
+
+        gridLayout_4->addWidget(listWidget_7, 0, 6, 1, 1);
+
+        pushButton = new QPushButton(tab_2);
+        pushButton->setObjectName("pushButton");
+
+        gridLayout_4->addWidget(pushButton, 1, 4, 1, 1);
+
+        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_4->addItem(horizontalSpacer_7, 0, 9, 1, 1);
 
         horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -296,40 +332,10 @@ public:
 
         gridLayout_4->addItem(horizontalSpacer_5, 0, 5, 1, 1);
 
-        listWidget_3 = new QListWidget(tab_2);
-        listWidget_3->setObjectName("listWidget_3");
+        listWidget_8 = new QListWidget(tab_2);
+        listWidget_8->setObjectName("listWidget_8");
 
-        gridLayout_4->addWidget(listWidget_3, 0, 4, 1, 1);
-
-        listWidget_4 = new QListWidget(tab_2);
-        listWidget_4->setObjectName("listWidget_4");
-
-        gridLayout_4->addWidget(listWidget_4, 0, 12, 1, 1);
-
-        pushButton = new QPushButton(tab_2);
-        pushButton->setObjectName("pushButton");
-
-        gridLayout_4->addWidget(pushButton, 1, 4, 1, 1);
-
-        pushButton_2 = new QPushButton(tab_2);
-        pushButton_2->setObjectName("pushButton_2");
-
-        gridLayout_4->addWidget(pushButton_2, 1, 6, 1, 1);
-
-        pushButton_3 = new QPushButton(tab_2);
-        pushButton_3->setObjectName("pushButton_3");
-
-        gridLayout_4->addWidget(pushButton_3, 1, 8, 1, 1);
-
-        pushButton_4 = new QPushButton(tab_2);
-        pushButton_4->setObjectName("pushButton_4");
-
-        gridLayout_4->addWidget(pushButton_4, 1, 10, 1, 1);
-
-        pushButton_5 = new QPushButton(tab_2);
-        pushButton_5->setObjectName("pushButton_5");
-
-        gridLayout_4->addWidget(pushButton_5, 1, 12, 1, 1);
+        gridLayout_4->addWidget(listWidget_8, 0, 13, 1, 1);
 
         tabWidget->addTab(tab_2, QString());
 
@@ -368,7 +374,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -392,11 +398,11 @@ public:
         toolButton_9->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Main Window", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "Page", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "New Bus", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "New Load", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("MainWindow", "New ESM", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("MainWindow", "New Source", nullptr));
         pushButton_5->setText(QCoreApplication::translate("MainWindow", "New Filter", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainWindow", "New Genset", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("MainWindow", "New ESM", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "New Bus", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Debugging", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuSave->setTitle(QCoreApplication::translate("MainWindow", "Save", nullptr));

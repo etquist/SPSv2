@@ -18,7 +18,7 @@
     <item row="2" column="0" rowspan="2">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -329,11 +329,31 @@
         <string>Debugging</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="6">
-         <widget class="QListWidget" name="listWidget_7"/>
+        <item row="0" column="4">
+         <widget class="QListWidget" name="listWidget_3"/>
         </item>
-        <item row="0" column="9">
-         <spacer name="horizontalSpacer_7">
+        <item row="0" column="10">
+         <widget class="QListWidget" name="listWidget_5"/>
+        </item>
+        <item row="1" column="6">
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string>New Load</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="8">
+         <widget class="QListWidget" name="listWidget_6"/>
+        </item>
+        <item row="1" column="12">
+         <widget class="QPushButton" name="pushButton_5">
+          <property name="text">
+           <string>New Filter</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="7">
+         <spacer name="horizontalSpacer_6">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -345,14 +365,35 @@
           </property>
          </spacer>
         </item>
-        <item row="0" column="10">
-         <widget class="QListWidget" name="listWidget_5"/>
+        <item row="0" column="12">
+         <widget class="QListWidget" name="listWidget_9"/>
         </item>
-        <item row="0" column="8">
-         <widget class="QListWidget" name="listWidget_6"/>
+        <item row="1" column="10">
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="text">
+           <string>New Genset</string>
+          </property>
+         </widget>
         </item>
-        <item row="0" column="7">
-         <spacer name="horizontalSpacer_6">
+        <item row="1" column="8">
+         <widget class="QPushButton" name="pushButton_3">
+          <property name="text">
+           <string>New ESM</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="6">
+         <widget class="QListWidget" name="listWidget_7"/>
+        </item>
+        <item row="1" column="4">
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>New Bus</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="9">
+         <spacer name="horizontalSpacer_7">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -390,46 +431,8 @@
           </property>
          </spacer>
         </item>
-        <item row="0" column="4">
-         <widget class="QListWidget" name="listWidget_3"/>
-        </item>
-        <item row="0" column="12">
-         <widget class="QListWidget" name="listWidget_4"/>
-        </item>
-        <item row="1" column="4">
-         <widget class="QPushButton" name="pushButton">
-          <property name="text">
-           <string>New Bus</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="6">
-         <widget class="QPushButton" name="pushButton_2">
-          <property name="text">
-           <string>New Load</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="8">
-         <widget class="QPushButton" name="pushButton_3">
-          <property name="text">
-           <string>New ESM</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="10">
-         <widget class="QPushButton" name="pushButton_4">
-          <property name="text">
-           <string>New Source</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="12">
-         <widget class="QPushButton" name="pushButton_5">
-          <property name="text">
-           <string>New Filter</string>
-          </property>
-         </widget>
+        <item row="0" column="13">
+         <widget class="QListWidget" name="listWidget_8"/>
         </item>
        </layout>
       </widget>

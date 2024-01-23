@@ -10,21 +10,21 @@ gridNode::~gridNode(){
 
 }
 
-std::string gridNode::getType(){
+QString gridNode::getType(){
     return type;
 }
 
-void gridNode::setType(std::string newType){
+void gridNode::setType(QString newType){
     type = newType;
     return;
 }
 
 
-std::string gridNode::getName(){
+QString gridNode::getName(){
     return name;
 }
 
-void gridNode::setName(std::string newName){
+void gridNode::setName(QString newName){
     name = newName;
     return;
 }

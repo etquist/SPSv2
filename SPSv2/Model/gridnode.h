@@ -10,20 +10,20 @@ public:
     gridNode();
     ~gridNode();
 
-    std::string getType();
-    void setType(std::string newType);
+    QString  getType();
+    void setType(QString  newType);
 
-    std::string getName();
-    void setName(std::string newName);
+    QString  getName();
+    void setName(QString  newName);
 
     bool validityCheck();
 
 private:
-    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
     int serialNumber;
-    std::string name;
-    std::string thumbnailImagePath;  // This is the image that will appear in the grid
-    std::string type = "generic";
+    QString name;
+    QString thumbnailImagePath;  // This is the image that will appear in the grid
+    QString type = "generic";
 };
 
 
@@ -39,7 +39,7 @@ public:
     bool validityCheck();
 
 private:
-    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile    
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
 
     // General
     double voltageA;    //  "Input" voltage to the A side. B side determined by edge properties
@@ -155,7 +155,7 @@ public:
     bool validityCheck();
 
 private:
-    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
 
 };
 
@@ -172,7 +172,7 @@ public:
     bool validityCheck();
 
 private:
-    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
 
 };
 
@@ -187,7 +187,7 @@ public:
     bool validityCheck();
 
 private:
-    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
 
 };
 
@@ -206,7 +206,7 @@ public:
     bool validityCheck();
 
 private:
-    void loadFromDatafile(std::string filepath);    // Populate the node instance from a datafile
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
 
     std::vector<double>* busTrace;
     std::vector<double>* exportTrace;

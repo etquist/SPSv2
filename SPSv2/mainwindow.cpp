@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include "grid.h"
 #include "gridnode.h"
+#include "helperFunctions.h"
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -61,27 +63,55 @@ void MainWindow::on_pushButton_clicked()
 {
     qDebug() << "Button Clicked";
     gridBus* newBus = myGrid.newBus();
-    QString name = QString::fromStdString(newBus->getName());
+    QString name = newBus->getName();
     ui->listWidget_3->addItem(name);
 }
 
 
+// This function is for adding a new entry to the catalog.
+// A new node is created based on the user specification
 void MainWindow::on_toolButton_4_clicked()
 {
-    QString boxTitle = "Define a New Catalog Entry.";
-    QString msgLabel = "Select a Type of Grid Element to Create.";
+    QString boxTitle = "Define a New Catalog Entry";
+    QString boxText = "Select a Type of Grid Element to Create.";
+    QString boxInformativeText = "";
     std::vector<QString> options = {"Bus", "Load", "Generator", "Energy Storage Module", "Filter"};
-    customMessageBox catalogEntryBox(nullptr, boxTitle, msgLabel, options);
-    int result = catalogEntryBox.exec();
+    QString selection = customQuestionBox(boxTitle, boxText, boxInformativeText, options);
+    qDebug() << selection;
 
-    if (result == QDialog::Bus) {
-        // Custom choice was selected
-        // You can handle the custom choice here
-        qDebug() << "Custom choice selected.";
-    } else {
-        // Dialog was closed without selecting the custom choice
-        qDebug() << "Dialog closed.";
+    if (selection == "aborted_dlg_box"){
+        qDebug() << "Aborted Catalog Entry Creation";
+        return;
     }
 
+
+    // Use the selection to create a gridNode of the corresponding type.
+    // the name is assigned in the construction function within the grid class
+    QString name;
+    gridNode* newCatalogEntry;
+    if (selection == "Bus"){
+        newCatalogEntry = myGrid.newBus();
+    } else if (selection == "Load"){
+        newCatalogEntry = myGrid.newLoad();
+    } else if (selection == "Generator") {
+        newCatalogEntry = myGrid.newSource();
+    } else if (selection == "Energy Storage Module"){
+        newCatalogEntry = myGrid.newESM();
+    } else if (selection == "Filter") {
+        newCatalogEntry = myGrid.newFilter();
+    } else {
+        qDebug() << "This shouldn't happen. New catalog entry was not valid.";
+        return;
+    }
+
+    if (newCatalogEntry == nullptr){ return; }
+    name = newCatalogEntry->getName();
+    ui->listWidget_2->addItem(name);
+
 }
+
+
+
+
+
 

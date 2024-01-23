@@ -175,7 +175,9 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qscreen.h \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/qtextformat.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h \
@@ -189,24 +191,30 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsScene \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsView \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QInputDialog \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListView \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMainWindow \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsview.h \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qinputdialog.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlineedit.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistwidget.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmainwindow.h \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qscrollarea.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -625,6 +633,8 @@ SPSv2_autogen/timestamp: \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.h \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customgraphicswidget.cpp \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customgraphicswidget.h \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.cpp \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.h \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/blank.png \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/bus.png \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/edge.png \

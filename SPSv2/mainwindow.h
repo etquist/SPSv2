@@ -12,7 +12,7 @@
 #include <QGraphicsPixmapItem>
 #include <grid.h>
 #include <QMessageBox>
-#include <customMessageBox.h>
+#include <QInputDialog>
 
 
 

@@ -1,17 +1,17 @@
 # ninja log v5
-750	5715	7276596168415648	CMakeFiles/SPSv2.dir/main.cpp.obj	969632c0f351bd50
-10	630	7276610263429648	SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
-10	630	7276610263429648	SPSv2_autogen/timestamp	be8fe1619489a20b
-655	4709	7276610304282273	CMakeFiles/SPSv2.dir/mainwindow.cpp.obj	4a197fd5991a4fef
-10	630	7276610263429648	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/timestamp	be8fe1619489a20b
-10	630	7276610263429648	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
-786	6725	7276596178585127	CMakeFiles/SPSv2.dir/SPSv2_autogen/mocs_compilation.cpp.obj	1f6a48e8fbb90795
-4710	5746	7276610314491127	SPSv2.exe	31b2c4d02caccd96
+7	205	7277279953668998	SPSv2_autogen/timestamp	be8fe1619489a20b
+7	205	7277279953668998	SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+1803	8145	7277250547288087	CMakeFiles/SPSv2.dir/main.cpp.obj	969632c0f351bd50
+7	205	7277279953668998	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/timestamp	be8fe1619489a20b
+227	3038	7277279981981198	CMakeFiles/SPSv2.dir/mainwindow.cpp.obj	4a197fd5991a4fef
+7	205	7277279953668998	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+1828	9112	7277250556911325	CMakeFiles/SPSv2.dir/SPSv2_autogen/mocs_compilation.cpp.obj	1f6a48e8fbb90795
+3038	3594	7277279987419061	SPSv2.exe	44b9013ccc1715f6
 1185	5535	7243588702627427	CMakeFiles/SPSv2.dir/customgraphicsinterface.cpp.obj	986c789734baaaf7
 0	34	0	CMakeFiles/clean.additional	baedbe210acaa455
-34	51	0	clean	577b940aee94fbd7
 899	4294	7272984145120690	CMakeFiles/SPSv2.dir/grid.cpp.obj	2d4edca77805aad1
-4	606	7276629615607137	build.ninja	b9f830f934c15745
+34	51	0	clean	577b940aee94fbd7
+4	606	7277212794270466	build.ninja	b9f830f934c15745
 1013	4949	7243598065331679	CMakeFiles/SPSv2.dir/customwidgets.cpp.obj	59595cc7b3eb36e2
 149	2018	7246297711590234	CMakeFiles/SPSv2.dir/customgraphicswidget.cpp.obj	de65bb443b89041e
 916	1252	7271323691649101	CMakeFiles/SPSv2.dir/commonmodegrid.cpp.obj	a3ea3f22bf25ba9c
@@ -19,6 +19,34 @@
 1982	5954	7271371567185080	CMakeFiles/SPSv2.dir/component.cpp.obj	9673c6a830bd3ac9
 1479	1642	7276385617617431	CMakeFiles/SPSv2.dir/Model/commonmodegrid.cpp.obj	ae6822ecb731680b
 1431	5547	7276385656612752	CMakeFiles/SPSv2.dir/View/customgraphicswidget.cpp.obj	349e9afce0f41680
-1694	7213	7276552427511188	CMakeFiles/SPSv2.dir/Model/gridnode.cpp.obj	827b84045468165b
-397	3669	7276553124563198	CMakeFiles/SPSv2.dir/View/component.cpp.obj	d636e08681de6174
-690	3842	7276610295639888	CMakeFiles/SPSv2.dir/Model/grid.cpp.obj	aac94ff705b613dd
+1158	5730	7277250220925251	CMakeFiles/SPSv2.dir/Model/gridnode.cpp.obj	827b84045468165b
+1933	8129	7277250547138111	CMakeFiles/SPSv2.dir/View/component.cpp.obj	d636e08681de6174
+289	3001	7277276886489027	CMakeFiles/SPSv2.dir/Model/grid.cpp.obj	aac94ff705b613dd
+247	1805	7277279969618563	CMakeFiles/SPSv2.dir/View/helperFunctions.cpp.obj	c446847f12314430
+6	298	7277283744409017	SPSv2_autogen/timestamp	be8fe1619489a20b
+6	298	7277283744409017	SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+6	298	7277283744409017	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/timestamp	be8fe1619489a20b
+6	298	7277283744409017	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+339	3454	7277283776008528	CMakeFiles/SPSv2.dir/View/helperFunctions.cpp.obj	c446847f12314430
+319	4597	7277283787430330	CMakeFiles/SPSv2.dir/mainwindow.cpp.obj	4a197fd5991a4fef
+4597	5168	7277283793028476	SPSv2.exe	44b9013ccc1715f6
+8	202	7277284252225731	SPSv2_autogen/timestamp	be8fe1619489a20b
+8	202	7277284252225731	SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+8	202	7277284252225731	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/timestamp	be8fe1619489a20b
+8	202	7277284252225731	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+230	1921	7277284269413542	CMakeFiles/SPSv2.dir/View/helperFunctions.cpp.obj	c446847f12314430
+217	3223	7277284282422001	CMakeFiles/SPSv2.dir/mainwindow.cpp.obj	4a197fd5991a4fef
+3223	3786	7277284287968862	SPSv2.exe	44b9013ccc1715f6
+7	217	7277287584127737	SPSv2_autogen/timestamp	be8fe1619489a20b
+7	217	7277287584127737	SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+7	217	7277287584127737	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/timestamp	be8fe1619489a20b
+7	217	7277287584127737	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+246	1779	7277287599762616	CMakeFiles/SPSv2.dir/View/helperFunctions.cpp.obj	c446847f12314430
+233	3222	7277287614123379	CMakeFiles/SPSv2.dir/mainwindow.cpp.obj	4a197fd5991a4fef
+6	226	7277289281254321	SPSv2_autogen/timestamp	be8fe1619489a20b
+6	226	7277289281254321	SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+6	226	7277289281254321	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/timestamp	be8fe1619489a20b
+6	226	7277289281254321	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/mocs_compilation.cpp	be8fe1619489a20b
+255	1832	7277289297209936	CMakeFiles/SPSv2.dir/View/helperFunctions.cpp.obj	c446847f12314430
+242	3075	7277289309626026	CMakeFiles/SPSv2.dir/mainwindow.cpp.obj	4a197fd5991a4fef
+3075	3630	7277289315127930	SPSv2.exe	44b9013ccc1715f6

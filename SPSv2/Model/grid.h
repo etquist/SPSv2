@@ -1,7 +1,7 @@
 #ifndef GRID_H
 #define GRID_H
 
-#include <QLabel>
+
 #include <component.h>
 #include <gridnode.h>
 #include <commonmodegrid.h>
@@ -12,7 +12,7 @@ class Grid
 public:
     Grid();
 
-    Grid(std::string catalogFilepath, std::string componentsListFilepath);
+    Grid(QString catalogFilepath, QString componentsListFilepath);
 
     ~Grid();    // must deal with the bus and element lists
 
@@ -30,6 +30,13 @@ public:
     sourceNode* newSource();
     filterNode* newFilter();
     esmNode* newESM();
+
+    int numBuses();
+    int numLoads();
+    int numSources();
+    int numFilters();
+    int numESMs();
+    int numEdges();
 
 
 private:
@@ -54,7 +61,10 @@ private:
     // Common mode equivalent model
     commonModeGrid* cmEqModel;
 
-    int findNumCatalogEntries(std::string catalogFilepath);    // Looks for the catalog data file and returns the number of entries for initialization
-    int findNumComponents(std::string componentsListFilepath); // Looks for the components list data file and returns the number of entries for initialization
+    int findNumCatalogEntries(QString catalogFilepath);    // Looks for the catalog data file and returns the number of entries for initialization
+    int findNumComponents(QString componentsListFilepath); // Looks for the components list data file and returns the number of entries for initialization
+
+    // Creates input dialog for the user to collect and return the name for a new element of type "type"
+    QString newName(QString type);
 };
 #endif // GRID_H

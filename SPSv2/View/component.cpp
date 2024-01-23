@@ -12,7 +12,7 @@ component::component(gridNode* inputNodeRef){
 
     nodeRef = inputNodeRef;
     name = nodeRef->getName();
-    std::string type = nodeRef->getType();
+    QString type = nodeRef->getType();
 
 
     // Set the thumbnail based on the type of node
@@ -26,10 +26,10 @@ component::component(gridNode* inputNodeRef){
 
 }
 
-std::string component::checkNodeType(){
+QString component::checkNodeType(){
     // Returns the type of Node that the element is
 
-    std::string type;
+    QString type;
     type = nodeRef->getType();
     return type;
 }
