@@ -34,6 +34,6 @@ QString component::checkNodeType(){
     return type;
 }
 
-gridNode component::getNodeData(){
-    return *nodeRef;
+gridNode* component::getNodeData(){
+    return nodeRef;
 }

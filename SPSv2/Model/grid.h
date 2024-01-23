@@ -5,6 +5,7 @@
 #include <component.h>
 #include <gridnode.h>
 #include <commonmodegrid.h>
+#include "customnodetree.h"
 
 
 class Grid
@@ -41,6 +42,9 @@ public:
     void addCatalogEntry(gridNode*);
     void deleteCatalogEntry(gridNode*);
 
+    customNodeTree* catalog;
+    customNodeTree* componentsList;
+
 
 
 private:
@@ -55,12 +59,8 @@ private:
     // A vector of references to the component instances. Component objects contain information to the specific instance of the grid element
     //  and are also a subset of QLabels so they can be easily placed on a drag and drop interface. This list can also be used in the "Rats list"
     // on the left side of the screen
-    std::vector<int>* componentsList;
     std::vector<component*>* activeComponents;
 
-    // Catalog
-    // Catalog is a vector of serial numbers to lookup within an external data file
-    std::vector<gridNode*>* Catalog;
 
     // Common mode equivalent model
     commonModeGrid* cmEqModel;

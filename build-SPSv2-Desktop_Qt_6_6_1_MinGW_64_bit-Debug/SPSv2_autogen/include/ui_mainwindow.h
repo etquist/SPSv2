@@ -27,6 +27,7 @@
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolButton>
+#include <QtWidgets/QTreeView>
 #include <QtWidgets/QWidget>
 #include <customgraphicswidget.h>
 
@@ -46,15 +47,12 @@ public:
     QWidget *tab;
     QGridLayout *gridLayout_3;
     QGridLayout *gridLayout;
-    QSpacerItem *horizontalSpacer_2;
-    QListWidget *listWidget;
-    QLabel *catalogueLabel;
-    QSpacerItem *verticalSpacer_3;
-    QSpacerItem *horizontalSpacer;
     QSpacerItem *verticalSpacer_4;
+    QSpacerItem *verticalSpacer_2;
+    QSpacerItem *verticalSpacer_3;
+    QSpacerItem *verticalSpacer_5;
     QSpacerItem *verticalSpacer;
     QLabel *label;
-    QSpacerItem *verticalSpacer_5;
     QFrame *Toolbar;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_3;
@@ -62,10 +60,13 @@ public:
     QToolButton *toolButton_5;
     QToolButton *toolButton_6;
     QSpacerItem *horizontalSpacer_4;
-    QSpacerItem *verticalSpacer_2;
-    customGraphicsWidget *networkInterface;
+    QSpacerItem *horizontalSpacer_2;
+    QLabel *catalogueLabel;
+    QTreeView *catalogView;
     QTableWidget *tableWidget;
-    QListWidget *listWidget_2;
+    customGraphicsWidget *networkInterface;
+    QSpacerItem *horizontalSpacer;
+    QTreeView *componentsListView;
     QWidget *tab_3;
     QWidget *tab_2;
     QGridLayout *gridLayout_4;
@@ -117,41 +118,21 @@ public:
         gridLayout_3->setObjectName("gridLayout_3");
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
-        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Maximum);
 
-        gridLayout->addItem(horizontalSpacer_2, 4, 4, 1, 1);
+        gridLayout->addItem(verticalSpacer_4, 6, 5, 1, 1);
 
-        listWidget = new QListWidget(tab);
-        listWidget->setObjectName("listWidget");
-        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(listWidget->sizePolicy().hasHeightForWidth());
-        listWidget->setSizePolicy(sizePolicy);
-        listWidget->setDragEnabled(true);
-        listWidget->setDragDropMode(QAbstractItemView::DragDrop);
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Maximum);
 
-        gridLayout->addWidget(listWidget, 4, 0, 1, 1);
-
-        catalogueLabel = new QLabel(tab);
-        catalogueLabel->setObjectName("catalogueLabel");
-        catalogueLabel->setTextFormat(Qt::AutoText);
-        catalogueLabel->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
-        catalogueLabel->setWordWrap(false);
-
-        gridLayout->addWidget(catalogueLabel, 3, 5, 1, 1);
+        gridLayout->addItem(verticalSpacer_2, 6, 0, 1, 1);
 
         verticalSpacer_3 = new QSpacerItem(10, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         gridLayout->addItem(verticalSpacer_3, 1, 0, 1, 6);
 
-        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Maximum);
 
-        gridLayout->addItem(horizontalSpacer, 4, 1, 1, 2);
-
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Maximum);
-
-        gridLayout->addItem(verticalSpacer_4, 5, 5, 1, 1);
+        gridLayout->addItem(verticalSpacer_5, 2, 0, 1, 1);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Maximum);
 
@@ -163,17 +144,13 @@ public:
 
         gridLayout->addWidget(label, 3, 0, 1, 1);
 
-        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Maximum);
-
-        gridLayout->addItem(verticalSpacer_5, 2, 0, 1, 1);
-
         Toolbar = new QFrame(tab);
         Toolbar->setObjectName("Toolbar");
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(Toolbar->sizePolicy().hasHeightForWidth());
-        Toolbar->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(Toolbar->sizePolicy().hasHeightForWidth());
+        Toolbar->setSizePolicy(sizePolicy);
         Toolbar->setMinimumSize(QSize(0, 40));
         Toolbar->setFrameShape(QFrame::WinPanel);
         Toolbar->setFrameShadow(QFrame::Raised);
@@ -208,17 +185,27 @@ public:
 
         gridLayout->addWidget(Toolbar, 0, 0, 1, 6);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Maximum);
+        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
-        gridLayout->addItem(verticalSpacer_2, 5, 0, 1, 1);
+        gridLayout->addItem(horizontalSpacer_2, 5, 4, 1, 1);
 
-        networkInterface = new customGraphicsWidget(tab);
-        networkInterface->setObjectName("networkInterface");
-        networkInterface->setLineWidth(3);
-        networkInterface->setInteractive(true);
-        networkInterface->setDragMode(QGraphicsView::NoDrag);
+        catalogueLabel = new QLabel(tab);
+        catalogueLabel->setObjectName("catalogueLabel");
+        catalogueLabel->setTextFormat(Qt::AutoText);
+        catalogueLabel->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+        catalogueLabel->setWordWrap(false);
 
-        gridLayout->addWidget(networkInterface, 3, 3, 3, 1);
+        gridLayout->addWidget(catalogueLabel, 3, 5, 1, 1);
+
+        catalogView = new QTreeView(tab);
+        catalogView->setObjectName("catalogView");
+        QSizePolicy sizePolicy1(QSizePolicy::Maximum, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(catalogView->sizePolicy().hasHeightForWidth());
+        catalogView->setSizePolicy(sizePolicy1);
+
+        gridLayout->addWidget(catalogView, 5, 5, 1, 1);
 
         tableWidget = new QTableWidget(tab);
         tableWidget->setObjectName("tableWidget");
@@ -228,14 +215,28 @@ public:
         sizePolicy2.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
         tableWidget->setSizePolicy(sizePolicy2);
 
-        gridLayout->addWidget(tableWidget, 6, 0, 1, 6);
+        gridLayout->addWidget(tableWidget, 7, 0, 1, 6);
 
-        listWidget_2 = new QListWidget(tab);
-        listWidget_2->setObjectName("listWidget_2");
-        sizePolicy.setHeightForWidth(listWidget_2->sizePolicy().hasHeightForWidth());
-        listWidget_2->setSizePolicy(sizePolicy);
+        networkInterface = new customGraphicsWidget(tab);
+        networkInterface->setObjectName("networkInterface");
+        networkInterface->setLineWidth(3);
+        networkInterface->setInteractive(true);
+        networkInterface->setDragMode(QGraphicsView::NoDrag);
 
-        gridLayout->addWidget(listWidget_2, 4, 5, 1, 1);
+        gridLayout->addWidget(networkInterface, 3, 3, 4, 1);
+
+        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 5, 1, 1, 2);
+
+        componentsListView = new QTreeView(tab);
+        componentsListView->setObjectName("componentsListView");
+        sizePolicy1.setHeightForWidth(componentsListView->sizePolicy().hasHeightForWidth());
+        componentsListView->setSizePolicy(sizePolicy1);
+        componentsListView->setDragEnabled(true);
+        componentsListView->setDragDropMode(QAbstractItemView::DragDrop);
+
+        gridLayout->addWidget(componentsListView, 5, 0, 1, 1);
 
 
         gridLayout_3->addLayout(gridLayout, 0, 0, 1, 1);
@@ -321,7 +322,7 @@ public:
 
         tabWidget->addTab(tab_2, QString());
 
-        gridLayout_2->addWidget(tabWidget, 2, 0, 2, 1);
+        gridLayout_2->addWidget(tabWidget, 1, 0, 2, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -339,8 +340,8 @@ public:
         MainWindow->setStatusBar(statusbar);
         QWidget::setTabOrder(toolButton_5, toolButton_6);
         QWidget::setTabOrder(toolButton_6, toolButton_4);
-        QWidget::setTabOrder(toolButton_4, listWidget_2);
-        QWidget::setTabOrder(listWidget_2, networkInterface);
+        QWidget::setTabOrder(toolButton_4, catalogView);
+        QWidget::setTabOrder(catalogView, networkInterface);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuSave->menuAction());
@@ -367,11 +368,11 @@ public:
         actionSave_As->setText(QCoreApplication::translate("MainWindow", "Save As", nullptr));
         actionOpen_Documentation->setText(QCoreApplication::translate("MainWindow", "Help", nullptr));
         actionNew->setText(QCoreApplication::translate("MainWindow", "New", nullptr));
-        catalogueLabel->setText(QCoreApplication::translate("MainWindow", "Catalogue", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Components", nullptr));
         toolButton_4->setText(QCoreApplication::translate("MainWindow", "Define New Catalogue Entry", nullptr));
         toolButton_5->setText(QCoreApplication::translate("MainWindow", "Import Components", nullptr));
         toolButton_6->setText(QCoreApplication::translate("MainWindow", "Import Catalogue", nullptr));
+        catalogueLabel->setText(QCoreApplication::translate("MainWindow", "Catalogue", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Main Window", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "Page", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "New Load", nullptr));

@@ -14,6 +14,7 @@
 #include <grid.h>
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QTreeView>
 
 
 
@@ -32,13 +33,28 @@ public:
     ~MainWindow();
     Grid myGrid;
 
+public slots:
+    void updateActions_catalog();
+    void updateActions_compList();
+
 private slots:
     void item_view_item_path_enter(QString itemPath, QPointF dropPos);
     void on_pushButton_clicked();
 
-    void on_toolButton_4_clicked();
+    //void on_toolButton_4_clicked();
 
-    void on_listWidget_2_itemDoubleClicked(QListWidgetItem *item);
+
+    // -------------------------------------
+    // Catalog Slots
+    // -------------------------------------
+    void insertCatalogEntry();
+    // void insertChild();
+    // bool insertColumn();
+    // void insertRow();
+    // bool removeColumn();
+    // void removeRow();
+
+    void on_catalogView_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::MainWindow *ui;

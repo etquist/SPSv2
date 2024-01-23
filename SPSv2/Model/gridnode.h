@@ -26,7 +26,6 @@ private:
     void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
     int serialNumber;
     QString name;
-    QString thumbnailImagePath;  // This is the image that will appear in the grid
     QString type = "generic";
 
     bool catalog;   // if TRUE, the node is a template (catalog entry)

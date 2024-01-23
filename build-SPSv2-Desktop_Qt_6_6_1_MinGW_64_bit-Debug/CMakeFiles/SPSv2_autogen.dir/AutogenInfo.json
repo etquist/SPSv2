@@ -288,6 +288,18 @@
 			null
 		],
 		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.h",
+			"MU",
+			"WB4RFHLAU6/moc_customnodetree.cpp",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h",
+			"MU",
+			"WB4RFHLAU6/moc_customtreeitem.cpp",
+			null
+		],
+		[
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.h",
 			"MU",
 			"WB4RFHLAU6/moc_helperFunctions.cpp",
@@ -396,6 +408,16 @@
 		],
 		[
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customgraphicswidget.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.cpp",
 			"MU",
 			null
 		],

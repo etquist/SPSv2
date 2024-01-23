@@ -12,6 +12,14 @@ gridNode::~gridNode(){
 
 }
 
+// Copy Constructor
+gridNode::gridNode(const gridNode &original) {
+    setType(original.type);
+    serialNumber = original.serialNumber;
+    setCatalog(original.catalog);
+    setName("Copy of " + original.getName());
+}
+
 const QString& gridNode::getType() const{
     return type;
 }
@@ -183,7 +191,7 @@ gridBus::~gridBus(){
     //      they will be deleted when the whole grid is deleted
 }
 
-gridBus::gridBus(const gridBus &original) : gridNode(original){
+gridBus::gridBus(const gridBus &original) {
     setName("Copy of " + original.getName());
     setCatalog(original.checkCatalog());
     setType(original.getType());

@@ -26,7 +26,7 @@ public:
 
     QString checkNodeType();    // Returns whether the node is a bus, esm, load, etc.
 
-    gridNode getNodeData(); // Returns all of the data for the referenced node
+    gridNode* getNodeData(); // Returns all of the data for the referenced node
     void updateThumbnail();
     void updateName();
 

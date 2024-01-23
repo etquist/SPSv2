@@ -4,8 +4,7 @@
 
 // Default constructor
 Grid::Grid(){
-    Catalog = new std::vector<gridNode*>;
-    componentsList = new std::vector<int>;
+
 
     busList = new std::vector<busListElement*>;
     loads = new std::vector<loadNode*>;
@@ -22,13 +21,12 @@ Grid::Grid(QString catalogFilepath, QString componentsListFilepath) {
     int numComponents = findNumComponents(componentsListFilepath);
 
     // Initiate the catalog and component list
-    Catalog = new std::vector<gridNode*>;
-    componentsList = new std::vector<int>;
+
 
 }
 
 Grid::~Grid(){
-    delete Catalog;
+    delete catalog;
     delete componentsList;
 
     // Active components is a vector of pointers to dynamic variables - delete all those
