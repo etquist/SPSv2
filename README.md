@@ -15,3 +15,6 @@ Shipboard Power Simulator
  
 # Known List of To-Do Items:
 1. Improve the custom question box implementation to better handle the case where the user selects the "X" to close the window and abort.
+2. Add a check to see if two grid elements of the same name exist when the user names their new element
+3. Change the catalog implementation from a list of grid nodes to a custom implementation of the QAbstractItemModel class. This enables the catalog viewer to work seamlessly with the QTreeView widget, and display the hierarchy of elements
+4. 
