@@ -13,4 +13,5 @@ Shipboard Power Simulator
 3. General UI improvements:
 (  3a  ) Tabs to access multiple windows
  
-
+# Known List of To-Do Items:
+1. Improve the custom question box implementation to better handle the case where the user selects the "X" to close the window and abort.
