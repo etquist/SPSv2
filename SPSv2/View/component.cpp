@@ -21,7 +21,7 @@ component::component(gridNode* inputNodeRef){
     else if (type == "esm")     { thumbnail = QPixmap(":/thumbnailImages/esm.png");}
     else if (type == "filter")  { thumbnail = QPixmap(":/thumbnailImages/filter.png");}
     else if (type == "edge")    { thumbnail = QPixmap(":/thumbnailImages/edge.png");}
-    else if (type == "source")  { thumbnail = QPixmap(":/thumbnailImages/source.png");}
+    else if (type == "genset")  { thumbnail = QPixmap(":/thumbnailImages/source.png");}
     else                        { thumbnail = QPixmap(":/thumbnailImages/blank.png");}
 
 }

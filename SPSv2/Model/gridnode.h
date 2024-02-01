@@ -22,6 +22,7 @@ public:
     void setCatalog(bool set);  // set the node as either a catalog entry (template) or a full-use node
     const bool& checkCatalog() const;        // Check if the node is a catalog
 
+
 private:
     void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
     int serialNumber;

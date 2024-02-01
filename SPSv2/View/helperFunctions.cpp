@@ -1,5 +1,6 @@
 #include "helperFunctions.h"
 
+
 // Custom message box that gives users buttons to select
 // Handles up to 7 inputs, returns the selected option string
 QString customQuestionBox(QString boxTitle, QString boxText, QString boxInformativeText, std::vector<QString> choices){
@@ -28,4 +29,21 @@ QString customQuestionBox(QString boxTitle, QString boxText, QString boxInformat
 
     int ret = msgBox.exec();
     return choices[ret];
+}
+
+// Searches the referenced tree for all components that starts with the name
+// "catalogName"
+int checkNumComponentInstances(QString searchString, customNodeTree* tree, int colIdx, Qt::CaseSensitivity caseSensitivity){
+    int numMatches = 0;
+
+    for (size_t row = 0; row < tree->rowCount(); row++) {
+        QModelIndex index = tree->index(row, colIdx);
+        QVariant data = tree->data(index, Qt::DisplayRole);
+
+        if (data.toString().contains(searchString, caseSensitivity)) {
+            numMatches += 1;
+        }
+    }
+
+    return numMatches;
 }

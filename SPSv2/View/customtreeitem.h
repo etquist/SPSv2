@@ -27,12 +27,21 @@ public:
 
     gridNode* returnRefNode();
     void setRefNode(gridNode* newNode);
+    void setLabel(bool labelVal);
+    bool checkLabel();
+
+    // This operator is used for serializing the node pointer, and can therefore be used
+    //      to pass information between the component tree and the network editor
+    friend QDataStream &operator<<(QDataStream &out, customTreeItem ptr);
+    friend QDataStream &operator>>(QDataStream &in, customTreeItem ptr);
+
 
 private:
     QList<customTreeItem*> childItems;
-    QList<QVariant> itemData;   //[name, gridNode*]
+    QList<QVariant> itemData;   //[name, type]
     customTreeItem* parentItem;
     gridNode* refNode;
+    bool label = true;
 };
 
 #endif // customTreeItem_H

@@ -6,6 +6,9 @@
 #include <QString>
 #include "customtreeitem.h"
 #include "gridnode.h"
+#include <QMimeData>
+#include <QIODevice>
+#include <QDragMoveEvent>
 
 
 // Note, this implementation is the same as the editable tree model example file from QT.
@@ -51,13 +54,30 @@ public:
     bool removeRows(int position, int rows,
                     const QModelIndex &parent = QModelIndex()) override;
 
+    // This custom function makes a new header for entries to be grouped under
+    bool setCatalogLabel(const QModelIndex &index, QString labelName, int role);
+
+
+    bool setFullData(const QModelIndex &index, const QList<QVariant> &data, int role = Qt::EditRole);
+
+    bool checkLabel(const QModelIndex &index);
+
+    // Returns the root item for the tree. For initialization
+    customTreeItem* getRoot();
+    bool isRoot(const QModelIndex &index);
+
+    // Setter and getter functions for checking dragability
+    void setExtDrag(bool draggable);
+    bool checkExtDrag();
 
 private:
     void setupModelData(const QStringList &lines, customTreeItem *parent);
     customTreeItem *getItem(const QModelIndex &index) const;
 
     customTreeItem *rootItem;
+    bool externalDragEnabled;
 
+    QMimeData* mimeData(const QModelIndex &index) const;
 };
 
 #endif // customNodeTree_H

@@ -300,6 +300,12 @@
 			null
 		],
 		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/grideditwindow.h",
+			"MU",
+			"WB4RFHLAU6/moc_grideditwindow.cpp",
+			null
+		],
+		[
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.h",
 			"MU",
 			"WB4RFHLAU6/moc_helperFunctions.cpp",
@@ -418,6 +424,11 @@
 		],
 		[
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/grideditwindow.cpp",
 			"MU",
 			null
 		],

@@ -33,6 +33,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         View/helperFunctions.h
         View/customnodetree.h View/customnodetree.cpp
         View/customTreeItem.h View/customTreeItem.cpp
+        View/grideditwindow.h View/grideditwindow.cpp
     )
 
 

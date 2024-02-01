@@ -8,6 +8,7 @@ customNodeTree::customNodeTree(const QStringList &headers, QObject *parent)
         rootData << header;
     }
     rootItem = new customTreeItem(rootData);
+    externalDragEnabled = false;
 }
 
 
@@ -211,6 +212,90 @@ bool customNodeTree::setHeaderData(int section, Qt::Orientation orientation,
 
     return result;
 }
+
+bool customNodeTree::setFullData(const QModelIndex &index, const QList<QVariant> &data, int role){
+
+    if (role != Qt::EditRole)
+        return false;
+
+    customTreeItem *item = getItem(index);
+    bool result;
+    for(size_t i = 0; i < data.size(); i++){
+        result = item->setData(i, data.at(i));
+        if (!result){
+            break;
+        }
+    }
+    bool label = false;
+    item->setLabel(label);  // This is an actual catalog entry
+
+    if (result)
+        emit dataChanged(index, index, {Qt::DisplayRole, Qt::EditRole});
+
+    return result;
+}
+
+QMimeData* customNodeTree::mimeData(const QModelIndex &index) const {
+    QMimeData* mimeData = new QMimeData();
+    QByteArray encodedData;
+    QDataStream dataStream(&encodedData, QIODevice::WriteOnly);
+    //encodedData << getItem(index)->returnRefNode();
+
+    mimeData->setData("componentList_networkEditor_type", encodedData);;
+    return mimeData;
+}
+
+bool customNodeTree::setCatalogLabel(const QModelIndex &index, QString labelName, int role){
+    if (role != Qt::EditRole)
+        return false;
+
+    customTreeItem *item = getItem(index);
+    bool result = item->setData(0, labelName);
+
+    bool label = true;
+    item->setLabel(label);  // This is a just a header in the catalog. no associated
+
+    if (result)
+        emit dataChanged(index, index, {Qt::DisplayRole, Qt::EditRole});
+
+    return result;
+
+}
+
+// Check if the row at the specified index is a label
+bool customNodeTree::checkLabel(const QModelIndex &index){
+
+    customTreeItem *item = getItem(index);
+    if (!item){ return false; }
+    return item->checkLabel();
+}
+
+// Returns the root item. That is all. Thank you for stopping by.
+customTreeItem* customNodeTree::getRoot(){
+    return rootItem;
+}
+
+
+// Returns true if the passed index is the root node
+bool customNodeTree::isRoot(const QModelIndex &index){
+    const customTreeItem *item = getItem(index);
+
+    if (item == rootItem){
+        return true;
+    } else{
+        return false;
+    }
+}
+
+void customNodeTree::setExtDrag(bool draggable){
+    externalDragEnabled = draggable;
+}
+
+
+bool customNodeTree::checkExtDrag(){
+    return externalDragEnabled;
+}
+
 
 // This is residual from the example implementation. May be later useful for initializing from a saved datafile, however.
 void customNodeTree::setupModelData(const QStringList &lines, customTreeItem *parent)

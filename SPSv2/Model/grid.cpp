@@ -13,6 +13,9 @@ Grid::Grid(){
     ESMs = new std::vector<esmNode*>;
     edges = new std::vector<gridEdge*>;
 
+    activeComponents = new std::vector<component*>;
+
+
 }
 
 Grid::Grid(QString catalogFilepath, QString componentsListFilepath) {

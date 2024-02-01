@@ -34,11 +34,12 @@ public:
     Grid myGrid;
 
 public slots:
-    void updateActions_catalog();
+    void updateActions_catalogNetwork();
+    void updateActions_catalogConst();
     void updateActions_compList();
 
 private slots:
-    void item_view_item_path_enter(QString itemPath, QPointF dropPos);
+    // void item_view_item_path_enter(QString itemPath, QPointF dropPos);
     void on_pushButton_clicked();
 
     //void on_toolButton_4_clicked();
@@ -48,6 +49,7 @@ private slots:
     // Catalog Slots
     // -------------------------------------
     void insertCatalogEntry();
+    void insertCatalogLabel(QString name = "[Edit Database Name]", bool initialization = false);
     // void insertChild();
     // bool insertColumn();
     // void insertRow();
@@ -55,6 +57,10 @@ private slots:
     // void removeRow();
 
     void on_catalogView_doubleClicked(const QModelIndex &index);
+
+    void newCatalogLabel_connector();
+
+
 
 private:
     Ui::MainWindow *ui;

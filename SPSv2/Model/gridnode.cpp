@@ -14,11 +14,15 @@ gridNode::~gridNode(){
 
 // Copy Constructor
 gridNode::gridNode(const gridNode &original) {
-    setType(original.type);
+    setType(original.getType());
     serialNumber = original.serialNumber;
-    setCatalog(original.catalog);
+    setCatalog(original.checkCatalog());
     setName("Copy of " + original.getName());
 }
+
+
+
+
 
 const QString& gridNode::getType() const{
     return type;
@@ -87,7 +91,7 @@ gridEdge::~gridEdge(){
 //--------------------------------------------------
 
 sourceNode::sourceNode(){
-    setType("source");
+    setType("genset");
 }
 
 sourceNode::~sourceNode(){

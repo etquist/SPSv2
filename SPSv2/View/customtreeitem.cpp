@@ -19,6 +19,21 @@ customTreeItem* customTreeItem::child(int number){
     return childItems.at(number);
 }
 
+
+// // Serializer for mime Data
+// QDataStream& operator<<(QDataStream &out, customTreeItem* item){
+//     gridNode* nodeRef = item->returnRefNode();
+//     out << nodeRef; // just send the pointer
+//     return out;
+// }
+
+// QDataStream& operator>>(QDataStream &in, customTreeItem* item){
+//     gridNode* nodeRef;
+//     in >> nodeRef; // just send the pointer
+//     item->setRefNode(nodeRef);
+//     return in;
+// }
+
 // Count the number of children that this node has
 int customTreeItem::childCount() const
 {
@@ -127,5 +142,13 @@ void customTreeItem::setRefNode(gridNode* newNode){
     return;
 }
 
+void customTreeItem::setLabel(bool labelVal){
+    label = labelVal;
+}
+
+
+bool customTreeItem::checkLabel(){
+    return label;
+}
 
 
