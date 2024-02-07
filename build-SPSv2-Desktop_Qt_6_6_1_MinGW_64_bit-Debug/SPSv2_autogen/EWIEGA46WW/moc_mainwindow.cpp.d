@@ -13,6 +13,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtCore/QSize \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QString \
+  C:/Qt/6.6.1/mingw_64/include/QtCore/QUrl \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
   C:/Qt/6.6.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/q20memory.h \
@@ -147,6 +148,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtCore/qvarlengtharray.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/qxptype_traits.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/QDesktopServices \
   C:/Qt/6.6.1/mingw_64/include/QtGui/QDragMoveEvent \
   C:/Qt/6.6.1/mingw_64/include/QtGui/QPixmap \
   C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
@@ -155,6 +157,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtGui/qbrush.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qcolor.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qcursor.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/qdesktopservices.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qevent.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qeventpoint.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qfont.h \

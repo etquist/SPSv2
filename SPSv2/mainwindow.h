@@ -15,6 +15,8 @@
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QTreeView>
+#include <QDesktopServices>
+#include <QUrl>
 
 
 
@@ -33,6 +35,8 @@ public:
     ~MainWindow();
     Grid myGrid;
 
+    void insertCatalogEntry_shorePower();
+
 public slots:
     void updateActions_catalogNetwork();
     void updateActions_catalogConst();
@@ -49,7 +53,7 @@ private slots:
     // Catalog Slots
     // -------------------------------------
     void insertCatalogEntry();
-    void insertCatalogLabel(QString name = "[Edit Database Name]", bool initialization = false);
+    QModelIndex insertCatalogLabel(QString name = "[Edit Database Name]", bool initialization = false);
     // void insertChild();
     // bool insertColumn();
     // void insertRow();
@@ -60,7 +64,16 @@ private slots:
 
     void newCatalogLabel_connector();
 
+    // Changes the Properties label to reflect the selected item
+    void updatePropertiesEditorLabel_input(QString name = "Item");
 
+    void on_catalogView_1_clicked(const QModelIndex &index);
+
+    // Opens the github for the project
+    void launchGitHub();
+
+    void databaseNetworkHelpButton();
+    void databaseConstructorHelpButton();
 
 private:
     Ui::MainWindow *ui;

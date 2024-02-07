@@ -26,18 +26,23 @@ public:
     void addNewCatalog();   // New catalogue entry
 
     // Functions for creating new grid objects
-    gridBus* newBus();
-    loadNode* newLoad();
-    sourceNode* newSource();
-    filterNode* newFilter();
-    esmNode* newESM();
+    gridBus* newBus(QString inptName = "no_name_provided - def");
+    loadNode* newLoad(QString inptName = "no_name_provided - def");
+    sourceNode* newSource(QString inptName = "no_name_provided - def");
+    filterNode* newFilter(QString inptName = "no_name_provided - def");
+    esmNode* newESM(QString inptName = "no_name_provided - def");
+    transformerNode* newTransformer(QString inptName = "no_name_provided - def");
+    converterNode* newConverter(QString inptName = "no_name_provided - def");
+    gridLine* newLine(QString inptName = "no_name_provided - def");
 
     int numBuses();
     int numLoads();
     int numSources();
     int numFilters();
     int numESMs();
-    int numEdges();
+    int numTransformers();
+    int numLines();
+    int numConverters();
 
     void addCatalogEntry(gridNode*);
     void deleteCatalogEntry(gridNode*);
@@ -54,7 +59,9 @@ private:
     std::vector<sourceNode*>* sources;   // Gensets in this microgrid
     std::vector<filterNode*>* filters;   // Filters in this microgrid
     std::vector<esmNode*>* ESMs;         // ESMs in this microgrid
-    std::vector<gridEdge*>* edges;
+    std::vector<gridLine*>* lines;      // Edges (conduits) in the microgrid
+    std::vector<transformerNode*>* transformers;      // Transformers in the microgrid
+    std::vector<converterNode*>* converters;      // Converters in the microgrid
 
     // A vector of references to the component instances. Component objects contain information to the specific instance of the grid element
     //  and are also a subset of QLabels so they can be easily placed on a drag and drop interface. This list can also be used in the "Rats list"
@@ -69,7 +76,7 @@ private:
     int findNumComponents(QString componentsListFilepath); // Looks for the components list data file and returns the number of entries for initialization
 
     // Creates input dialog for the user to collect and return the name for a new element of type "type"
-    QString newName(QString type);
+    QString newName(QString type, QString inptName = "no_name_provided - def");
 
 
 };

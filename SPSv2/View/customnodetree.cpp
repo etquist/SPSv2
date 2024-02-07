@@ -297,6 +297,19 @@ bool customNodeTree::checkExtDrag(){
 }
 
 
+// Returns the data in column 1
+QString customNodeTree::getType(const QModelIndex &index){
+    const customTreeItem *item = getItem(index);
+    return item->data(1).QVariant::toString();
+}
+
+// Returns the data in column 1=0
+QString customNodeTree::getName(const QModelIndex &index){
+    const customTreeItem *item = getItem(index);
+    return item->data(0).QVariant::toString();
+}
+
+
 // This is residual from the example implementation. May be later useful for initializing from a saved datafile, however.
 void customNodeTree::setupModelData(const QStringList &lines, customTreeItem *parent)
 {

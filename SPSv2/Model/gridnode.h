@@ -37,11 +37,11 @@ private:
 
 // Derived class from gridNode, with specific info relevant to grid edges.
 // Grid edges contain information on transmission cabling, power converters, etc.
-class gridEdge : public gridNode{
+class gridLine : public gridNode{
 public:
-    gridEdge();
-    ~gridEdge();
-    gridEdge(const gridEdge &original);
+    gridLine();
+    ~gridLine();
+    gridLine(const gridLine &original);
     // Functions
     bool validityCheck();
 
@@ -50,8 +50,7 @@ private:
 
     // General
     double voltageA;    //  "Input" voltage to the A side. B side determined by edge properties
-    int numPhasesA;    // Valid between 1-3
-    int numPhasesB;    // ditto
+    int numPhases;    // Valid between 1-4
     double breakerRating;   // (Amps)
 
     // Conduit Properties
@@ -60,22 +59,11 @@ private:
     double conduit_Resistance;   // (Ohm)
     double conduit_Inductance;   // (H)
 
-    // Converter Properties
-    bool pwrTypeA;     // 0 = DC, 1 = AC
-    bool pwrTypeB;
-    double converter_Capacitance;  // (F)
-    double converter_Resistance;   // (Ohm)
-    double converter_Inductance;   // (H)
-
-    // Transformer Properties
-    bool transformer_3pTypeA;       // 0 = Delta, 1 = Wye
-    bool transformer_3pTypeB;
-    double transformer_windingRatio;    // (-) Winding ratio
-    double transformer_Capacitance;  // (F)
-    double transformer_Resistance;   // (Ohm)
-    double transformer_Inductance;   // (H)
 
 };
+
+
+
 
 
 
@@ -107,8 +95,6 @@ public:
 
     bool validityCheck();
 };
-
-
 
 
 // Derived class from gridElement, with specific info relevant to loads
@@ -240,4 +226,49 @@ private:
 
 };
 
+
+class transformerNode : public gridElement{
+public:
+    transformerNode();
+    ~transformerNode();
+    transformerNode(const transformerNode &original);
+    // Functions
+    bool validityCheck();
+
+private:
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
+
+
+    // Transformer Properties
+    bool transformer_3pTypeA;       // 0 = Delta, 1 = Wye
+    bool transformer_3pTypeB;
+    double transformer_windingRatio;    // (-) Winding ratio
+    double transformer_Capacitance;  // (F)
+    double transformer_Resistance;   // (Ohm)
+    double transformer_Inductance;   // (H)
+
+};
+
+
+class converterNode : public gridElement{
+public:
+    converterNode();
+    ~converterNode();
+    converterNode(const converterNode &original);
+    // Functions
+    bool validityCheck();
+
+private:
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
+
+
+    // Converter Properties
+    bool pwrTypeA;     // 0 = DC, 1 = AC
+    bool pwrTypeB;
+    double converter_Capacitance;  // (F)
+    double converter_Resistance;   // (Ohm)
+    double converter_Inductance;   // (H)
+
+
+};
 #endif // GRIDNODE_H

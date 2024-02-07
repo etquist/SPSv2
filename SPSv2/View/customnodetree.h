@@ -25,6 +25,7 @@ public:
     customNodeTree(const QStringList &headers, QObject *parent = nullptr);
     ~customNodeTree();
 
+
     QVariant data(const QModelIndex &index, int role) const override;
     gridNode* getNodePtr(const QModelIndex &index);
     void setNodeData(const QModelIndex &index, gridNode* node);
@@ -62,6 +63,10 @@ public:
 
     bool checkLabel(const QModelIndex &index);
 
+    // Returns the data in column 1 or 0
+    QString getType(const QModelIndex &index);  // Col 1
+    QString getName(const QModelIndex &index);  // Col 0
+
     // Returns the root item for the tree. For initialization
     customTreeItem* getRoot();
     bool isRoot(const QModelIndex &index);
@@ -78,6 +83,9 @@ private:
     bool externalDragEnabled;
 
     QMimeData* mimeData(const QModelIndex &index) const;
+
+protected:
+
 };
 
 #endif // customNodeTree_H

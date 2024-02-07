@@ -74,13 +74,41 @@ gridElement::~gridElement(){
 // Edge Node functions
 //--------------------------------------------------
 
-gridEdge::gridEdge(){
-    setType("edge");
+gridLine::gridLine(){
+    setType("Line");
 }
 
-gridEdge::~gridEdge(){
+gridLine::~gridLine(){
 
 }
+
+
+
+//--------------------------------------------------
+// Transformer Node functions
+//--------------------------------------------------
+
+transformerNode::transformerNode(){
+    setType("Transformer");
+}
+
+transformerNode::~transformerNode(){
+
+}
+
+
+//--------------------------------------------------
+// Converter Node functions
+//--------------------------------------------------
+
+converterNode::converterNode(){
+    setType("Converter");
+}
+
+converterNode::~converterNode(){
+
+}
+
 
 
 
@@ -91,7 +119,7 @@ gridEdge::~gridEdge(){
 //--------------------------------------------------
 
 sourceNode::sourceNode(){
-    setType("genset");
+    setType("Genset");
 }
 
 sourceNode::~sourceNode(){
@@ -107,7 +135,7 @@ sourceNode::~sourceNode(){
 
 // Custom load contructor
 loadNode::loadNode(){
-    setType("load");
+    setType("Load");
 }
 
 // Custom load destructor
@@ -150,7 +178,7 @@ loadNode::loadNode(const loadNode &original){
 // ESM Node functions
 //--------------------------------------------------
 esmNode::esmNode(){
-    setType("esm");
+    setType("ESM");
 }
 
 esmNode::~esmNode(){
@@ -162,7 +190,7 @@ esmNode::~esmNode(){
 // ESM Node functions
 //--------------------------------------------------
 filterNode::filterNode(){
-    setType("filter");
+    setType("Filter");
 }
 
 filterNode::~filterNode(){
@@ -176,7 +204,7 @@ filterNode::~filterNode(){
 
 // Default constructor for a bus
 gridBus::gridBus(){
-    setType("bus");
+    setType("Bus");
 
     numBreakers = 0;
     bus_Capacitance = 0;

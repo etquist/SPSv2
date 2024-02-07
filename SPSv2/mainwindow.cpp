@@ -7,6 +7,7 @@
 
 
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -14,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     //connect(ui->exitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
+    ui->tabWidget->setCurrentIndex(0);  // Open up to the Database Editor
 
     // -----------------------------------------------
     // Catalog - Network Window
@@ -23,8 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->catalogView->setModel(myGrid.catalog);
     ui->catalogView->sortByColumn(1, Qt::AscendingOrder);
-    for (int column = 0; column < myGrid.catalog->columnCount(); ++column)
-        ui->catalogView->resizeColumnToContents(column);
+
 
     connect(ui->catalogView->selectionModel(), &QItemSelectionModel::selectionChanged,
             this, &MainWindow::updateActions_catalogNetwork);
@@ -39,8 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->catalogView_1->setModel(myGrid.catalog);
     ui->catalogView_1->sortByColumn(1, Qt::AscendingOrder);
-    for (int column = 0; column < myGrid.catalog->columnCount(); ++column)
-        ui->catalogView_1->resizeColumnToContents(column);
+
 
     connect(ui->catalogView_1->selectionModel(), &QItemSelectionModel::selectionChanged,
             this, &MainWindow::updateActions_catalogConst);
@@ -50,13 +50,23 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->newDatabaseName_tab1, &QAbstractButton::clicked,
             this, &MainWindow::newCatalogLabel_connector);
 
+
     updateActions_catalogConst();
-    insertCatalogLabel("Default Database");
+    QModelIndex newLabel = insertCatalogLabel("Default Database");
+
+    ui->catalogView_1->selectionModel()->setCurrentIndex(newLabel, QItemSelectionModel::Select);
+    insertCatalogEntry_shorePower();
+
     ui->catalogView_1->setAcceptDrops(true);
     ui->catalogView_1->setDragEnabled(true);
     ui->catalogView_1->setDragDropMode(QAbstractItemView::InternalMove);
 
 
+
+    for (int column = 0; column < myGrid.catalog->columnCount(); ++column) {
+        ui->catalogView_1->resizeColumnToContents(column);
+        ui->catalogView->resizeColumnToContents(column);
+    }
     // -----------------------------------------------
     // Components List
     // -----------------------------------------------
@@ -76,12 +86,29 @@ MainWindow::MainWindow(QWidget *parent)
 
     updateActions_compList();
 
+
+    // -----------------------------------------------
+    // Properties Edit Window
+    // -----------------------------------------------
+    updatePropertiesEditorLabel_input("Select a Component from the Database");
+    ui->PropertiesEditor->setCurrentIndex(7);
+
     // -----------------------------------------------
     // Grid Edit Window
     // -----------------------------------------------
 
 
+    // -----------------------------------------------
+    // Windows Toolbar
+    // -----------------------------------------------
+    connect(ui->actionLaunch_GitHub, &QAction::triggered, this, &MainWindow::launchGitHub);
 
+    // -----------------------------------------------
+    // Help Buttons
+    // -----------------------------------------------
+    connect(ui->pushButton_6, &QPushButton::clicked, this, &MainWindow::databaseNetworkHelpButton);
+    connect(ui->pushButton_7, &QPushButton::clicked, this, &MainWindow::databaseNetworkHelpButton);
+    connect(ui->pushButton_8, &QPushButton::clicked, this, &MainWindow::databaseConstructorHelpButton);
 }
 
 MainWindow::~MainWindow()
@@ -135,7 +162,7 @@ void MainWindow::insertCatalogEntry(){
     QString boxTitle = "Define a New Catalog Entry";
     QString boxText = "Select a Type of Grid Element to Create.";
     QString boxInformativeText = "";
-    std::vector<QString> options = {"Bus", "Load", "Generator", "Energy Storage Module", "Filter"};
+    std::vector<QString> options = {"Bus", "Load", "Generator", "Energy Storage Module", "Filter", "Transformer", "Converter"};
     QString selection = customQuestionBox(boxTitle, boxText, boxInformativeText, options);
     qDebug() << selection;
 
@@ -159,6 +186,10 @@ void MainWindow::insertCatalogEntry(){
         newCatalogEntry = myGrid.newESM();
     } else if (selection == "Filter") {
         newCatalogEntry = myGrid.newFilter();
+    } else if (selection == "Transformer") {
+        newCatalogEntry = myGrid.newTransformer();
+    } else if (selection == "Converter") {
+        newCatalogEntry = myGrid.newConverter();
     } else {
         qDebug() << "This shouldn't happen. New catalog entry was not valid.";
         return;
@@ -177,6 +208,9 @@ void MainWindow::insertCatalogEntry(){
 
 
     // Set the parent index as the next highest index which is designated "label"
+    QString tempName = myGrid.catalog->getName(index);    // debugging
+    qDebug() << "Selected Item: ";                                      // debugging
+    qDebug() << tempName;                                               // debugging
     QModelIndex parentIndex;
     if (myGrid.catalog->checkLabel(index)){
         parentIndex = index;
@@ -187,6 +221,11 @@ void MainWindow::insertCatalogEntry(){
             parentIndex = parentIndex.parent(); // Keep going higher. The root node will be the highest stopping point
         }
     }
+
+    tempName = myGrid.catalog->getName(parentIndex);    // debugging
+    qDebug() << "Parent Item: ";                                      // debugging
+    qDebug() << tempName;                                               // debugging
+
     if (myGrid.catalog->isRoot(parentIndex)){
         qDebug() << "Root Node Found";
     }
@@ -197,12 +236,14 @@ void MainWindow::insertCatalogEntry(){
         return;
     }
 
-    updateActions_catalogConst();
-    updateActions_catalogNetwork();
-
     int column = 0; // The only column is the name
     // Get the index of the child's name
     const QModelIndex child = myGrid.catalog->index(0, column, parentIndex);
+
+    tempName = myGrid.catalog->getName(child);    // debugging
+    qDebug() << "New Item: ";                                      // debugging
+    qDebug() << tempName;                                               // debugging
+
     // Set the name of the entry
     QList<QVariant> inptData;
     inptData << QVariant(name) << QVariant(type);
@@ -210,27 +251,29 @@ void MainWindow::insertCatalogEntry(){
     // Save the node reference in the child
     myGrid.catalog->setNodeData(child, newCatalogEntry);
 
+    updateActions_catalogConst();
+    updateActions_catalogNetwork();
 }
 
 // This function adds a new label to the catalog, which allows the User to group their entries
-void MainWindow::insertCatalogLabel(QString name, bool initialization){
+QModelIndex MainWindow::insertCatalogLabel(QString name, bool initialization){
     //Update the catalog with a new entry
     const QModelIndex index = ui->catalogView_1->selectionModel()->currentIndex();
 
 
 
     if (!myGrid.catalog->insertRow(index.row()+1, index.parent()))
-        return;
+        return index;
 
     updateActions_catalogConst();
     updateActions_catalogNetwork();
 
     int column = 0; // The only column is the name
     // Get the index of the child's name
-    const QModelIndex child = myGrid.catalog->index(index.row() + 1, column, index.parent());
+    QModelIndex child = myGrid.catalog->index(index.row() + 1, column, index.parent());
     // Set the name the catalog's new label, and toggle it as a label row
     myGrid.catalog->setCatalogLabel(child, name, Qt::EditRole);
-
+    return child;
 }
 
 
@@ -301,7 +344,7 @@ void MainWindow::on_catalogView_doubleClicked(const QModelIndex &indexCatalog) {
     gridNode* newInstance = new gridNode(*selectedEntry);
 
     int numInstances = checkNumComponentInstances(selectedEntry->getName(), myGrid.componentsList, 0, Qt::CaseSensitive);
-    newInstance->setName(selectedEntry->getName() + "_" + QString::number(numInstances));
+    newInstance->setName(selectedEntry->getName() + "_" + QString::number(++numInstances));
 
     // Update the catalog with the new entry
     const QModelIndex indexCompList = ui->componentsListView->selectionModel()->currentIndex();
@@ -324,6 +367,9 @@ void MainWindow::on_catalogView_doubleClicked(const QModelIndex &indexCatalog) {
     myGrid.catalog->setFullData(child, inptData, Qt::EditRole);
     // Save the node reference in the child
     myGrid.catalog->setNodeData(child, newInstance);
+
+    for (int column = 0; column < myGrid.componentsList->columnCount(); ++column)
+        ui->componentsListView->resizeColumnToContents(column);
 }
 
 
@@ -332,3 +378,138 @@ void MainWindow::newCatalogLabel_connector(){
     insertCatalogLabel();   // Call this with the default arguments
 }
 
+
+void MainWindow::on_catalogView_1_clicked(const QModelIndex &index)
+{
+    if (myGrid.catalog->checkLabel(index)){
+        ui->PropertiesEditor->setCurrentIndex(7);
+        ui->label_3->setText("Select a Component from the Database");
+        return; // This item is just a label
+    }
+
+    QString type = myGrid.catalog->getType(index);
+
+    if (type == "Load"){
+        ui->PropertiesEditor->setCurrentIndex(5);
+    } else if (type == "Genset"){
+        ui->PropertiesEditor->setCurrentIndex(3);
+    } else if (type == "ESM"){
+        ui->PropertiesEditor->setCurrentIndex(0);
+    } else if (type == "Filter"){
+        ui->PropertiesEditor->setCurrentIndex(6);
+    } else if (type == "Transformer"){
+        ui->PropertiesEditor->setCurrentIndex(1);
+    } else if (type == "Converter"){
+        ui->PropertiesEditor->setCurrentIndex(2);
+    } else if (type == "Bus"){
+        ui->PropertiesEditor->setCurrentIndex(4);
+    } else{
+        qDebug() << "I'm not sure what you just selected?";
+    }
+
+
+    QString name = myGrid.catalog->getName(index);
+    ui->label_3->setText(name + " Properties");
+
+    /* To do:
+    - Link the selected node to the available property edit items in the nwly opened tab
+
+    */
+    return;
+
+}
+
+void MainWindow::updatePropertiesEditorLabel_input(QString name){
+    ui->label_3->setText(name);
+}
+
+void MainWindow::launchGitHub(){
+    QString githubURL = "https://github.com/etquist/SPSv2/wiki";
+    QDesktopServices::openUrl(QUrl(githubURL));
+}
+
+
+
+
+
+void MainWindow::databaseNetworkHelpButton()
+{
+    QMessageBox msgBox;
+    msgBox.setText("The 'Database' is a collection of component templates which are editable. Create an instance of one of these for your grid by double clicking. The instance will populate in the 'Active Components' list for you to click and drag onto the editing window.");
+    msgBox.exec();
+
+    return;
+}
+
+void MainWindow::databaseConstructorHelpButton()
+{
+    QMessageBox msgBox;
+    msgBox.setText("The 'Database' is a collection of component templates which are editable. Create one by selecting the 'New Database Entry' button, or import an existing database. Edit an entry's properties by selecting it. Instances of these database entries can be used as components within your power network.");
+    msgBox.exec();
+
+    return;
+}
+
+void MainWindow::insertCatalogEntry_shorePower(){
+    QString inptName = "Default Shore Power";
+    gridNode* newCatalogEntry;
+    newCatalogEntry = myGrid.newSource(inptName);
+
+
+    if (newCatalogEntry == nullptr){ return; }
+    QString type = newCatalogEntry->getType();
+    newCatalogEntry->setCatalog(true);
+
+    // Update the catalog with the new entry
+    // Get the current index selection
+    const QModelIndex index = ui->catalogView_1->selectionModel()->currentIndex();
+
+
+    // Set the parent index as the next highest index which is designated "label"
+    QString tempName = myGrid.catalog->getName(index);    // debugging
+    qDebug() << "Selected Item: ";                                      // debugging
+    qDebug() << tempName;                                               // debugging
+
+    QModelIndex parentIndex;
+    if (myGrid.catalog->checkLabel(index)){
+        parentIndex = index;
+    }
+    else{
+        parentIndex = index.parent();
+        while (!myGrid.catalog->checkLabel(parentIndex)){
+            parentIndex = parentIndex.parent(); // Keep going higher. The root node will be the highest stopping point
+        }
+    }
+
+    tempName = myGrid.catalog->getName(parentIndex);    // debugging
+    qDebug() << "Parent Item: ";                                      // debugging
+    qDebug() << tempName;                                               // debugging
+
+    if (myGrid.catalog->isRoot(parentIndex)){
+        qDebug() << "Root Node Found";
+    }
+
+
+    // Create the new child node at position zero underneath the parent
+    if (!myGrid.catalog->insertRow(0, parentIndex)){
+        return;
+    }
+
+    int column = 0; // The only column is the name
+    // Get the index of the child's name
+    const QModelIndex child = myGrid.catalog->index(0, column, parentIndex);
+
+    tempName = myGrid.catalog->getName(child);    // debugging
+    qDebug() << "New Item: ";                                      // debugging
+    qDebug() << tempName;                                               // debugging
+
+    // Set the name of the entry
+    QList<QVariant> inptData;
+    inptData << QVariant(inptName) << QVariant(type);
+    myGrid.catalog->setFullData(child, inptData, Qt::EditRole);
+    // Save the node reference in the child
+    myGrid.catalog->setNodeData(child, newCatalogEntry);
+
+    updateActions_catalogConst();
+    updateActions_catalogNetwork();
+}
