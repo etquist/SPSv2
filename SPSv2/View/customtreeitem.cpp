@@ -152,5 +152,26 @@ bool customTreeItem::checkLabel(){
 }
 
 
+int customTreeItem::getUniqueID() const{
+    return dbUniqueID;
+}
+void customTreeItem::setUniqueID(int inputID){
+    dbUniqueID = inputID;
+}
+
+QString customTreeItem::get_dbName() const{
+    return dbName;
+}
+void customTreeItem::set_dbName(QString inputName){
+    dbName = inputName;
+}
+
+bool customTreeItem::checkCatalog() const{
+    return catalog;
+}
+void customTreeItem::setCatalog(bool setVal){
+    catalog = setVal;
+}
+
 
 

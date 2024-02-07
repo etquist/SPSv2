@@ -71,7 +71,19 @@ public:
     customTreeItem* getRoot();
     bool isRoot(const QModelIndex &index);
 
-    // Setter and getter functions for checking dragability
+    // Get and set the unique ID
+    int getUniqueID(const QModelIndex &index);
+    void setUniqueID(QModelIndex &index, int inputID);
+
+    // Get and set the database Name
+    QString get_dbName(const QModelIndex &index);
+    void set_dbName(QModelIndex &index, QString inputName);
+
+    // Get and set this node's status as catalog or components list
+    bool checkCatalog(const QModelIndex &index);
+    void setCatalog(QModelIndex &index, bool setVal);
+
+    // Setter and getter functions for database name and ID
     void setExtDrag(bool draggable);
     bool checkExtDrag();
 

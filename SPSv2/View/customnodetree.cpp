@@ -309,6 +309,40 @@ QString customNodeTree::getName(const QModelIndex &index){
     return item->data(0).QVariant::toString();
 }
 
+// Get and set the unique ID
+int customNodeTree::getUniqueID(const QModelIndex &index){
+    const customTreeItem *item = getItem(index);
+    return item->getUniqueID();
+}
+void customNodeTree::setUniqueID(QModelIndex &index, int inputID){
+    customTreeItem *item = getItem(index);
+    item->setUniqueID(inputID);
+    return;
+}
+
+// Get and set the database Name
+QString customNodeTree::get_dbName(const QModelIndex &index){
+    const customTreeItem *item = getItem(index);
+    return item->get_dbName();
+}
+void customNodeTree::set_dbName(QModelIndex &index, QString inputName){
+    customTreeItem *item = getItem(index);
+    item->set_dbName(inputName);
+    return;
+}
+
+// Get and set this node's status as catalog or components list
+bool customNodeTree::checkCatalog(const QModelIndex &index){
+    const customTreeItem *item = getItem(index);
+    return item->checkCatalog();
+}
+void customNodeTree::setCatalog(QModelIndex &index, bool setVal){
+    customTreeItem *item = getItem(index);
+    item->setCatalog(setVal);
+    return;
+}
+
+
 
 // This is residual from the example implementation. May be later useful for initializing from a saved datafile, however.
 void customNodeTree::setupModelData(const QStringList &lines, customTreeItem *parent)

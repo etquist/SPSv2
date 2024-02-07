@@ -115,50 +115,18 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-/*
-// void MainWindow::item_view_item_path_enter(QString itemPath, QPointF itemPos){
-//     qDebug() << itemPath;
-//     qDebug() << itemPos;
 
-//     if (Scene->items().count() > 6) Scene->clear();
-//     QPixmap *Image = new QPixmap(itemPath);
-
-//     QGraphicsPixmapItem *graphicalItem = new QGraphicsPixmapItem(*Image);
-//     graphicalItem->setTransformOriginPoint(graphicalItem->boundingRect().center());
-
-//     qreal width = 100;  //ui->networkInterface->width() * 0.1;
-//     qreal height = 100;
-//     QSizeF desiredSize(width, height);
-
-//     graphicalItem->setTransform(QTransform().scale(desiredSize.width() / graphicalItem->pixmap().width(),
-//                                                    desiredSize.height() / graphicalItem->pixmap().height()));
-
-//     // Need to adjust the position definition for the width and height of the iamge
-//     itemPos.setX(itemPos.rx()-width/2);
-//     itemPos.setY(itemPos.ry()-height/2);
-//     graphicalItem->moveBy(itemPos.rx(), itemPos.ry());
-//     qDebug() << "Position: " << graphicalItem->pos();
-//     Scene->addItem(graphicalItem);
-
-//     ui->networkInterface->setScene(Scene);
-//     // ui->networkInterface->fitInView(rectScene, Qt::KeepAspectRatio);
-//     ui->networkInterface->show();
-//     ui->networkInterface->centerOn(0, 0);
-//     ui->networkInterface->resetTransform();
-// }
-*/
 void MainWindow::on_pushButton_clicked()
 {
     qDebug() << "Button Clicked";
-    gridBus* newBus = myGrid.newBus();
+    gridNode* newBus = myGrid.newBus();
     QString name = newBus->getName();
     ui->listWidget_3->addItem(name);
 }
 
 
-
-// Procedure after selecting the define new catalog entry button. Creates new entry in the tree
 void MainWindow::insertCatalogEntry(){
+    // First, prompt the user to select the type of database entry that they would like to create.
     QString boxTitle = "Define a New Catalog Entry";
     QString boxText = "Select a Type of Grid Element to Create.";
     QString boxInformativeText = "";
@@ -171,35 +139,11 @@ void MainWindow::insertCatalogEntry(){
         return;
     }
 
+    int numInstances = checkNumComponentInstances(selection, myGrid.catalog, 0, Qt::CaseSensitive);
+    QString defaultName = selection + QString::number(++numInstances);
 
-    // Use the selection to create a gridNode of the corresponding type.
-    // the name is assigned in the construction function within the grid class
-    QString name;
-    gridNode* newCatalogEntry;
-    if (selection == "Bus"){
-        newCatalogEntry = myGrid.newBus();
-    } else if (selection == "Load"){
-        newCatalogEntry = myGrid.newLoad();
-    } else if (selection == "Generator") {
-        newCatalogEntry = myGrid.newSource();
-    } else if (selection == "Energy Storage Module"){
-        newCatalogEntry = myGrid.newESM();
-    } else if (selection == "Filter") {
-        newCatalogEntry = myGrid.newFilter();
-    } else if (selection == "Transformer") {
-        newCatalogEntry = myGrid.newTransformer();
-    } else if (selection == "Converter") {
-        newCatalogEntry = myGrid.newConverter();
-    } else {
-        qDebug() << "This shouldn't happen. New catalog entry was not valid.";
-        return;
-    }
-
-
-    if (newCatalogEntry == nullptr){ return; }
-    name = newCatalogEntry->getName();
-    QString type = newCatalogEntry->getType();
-    newCatalogEntry->setCatalog(true);
+    QString name = promptForNewName(defaultName);  // Pass the default as the name
+    QString type = selection;
 
     // Update the catalog with the new entry
 
@@ -238,7 +182,7 @@ void MainWindow::insertCatalogEntry(){
 
     int column = 0; // The only column is the name
     // Get the index of the child's name
-    const QModelIndex child = myGrid.catalog->index(0, column, parentIndex);
+    QModelIndex child = myGrid.catalog->index(0, column, parentIndex);
 
     tempName = myGrid.catalog->getName(child);    // debugging
     qDebug() << "New Item: ";                                      // debugging
@@ -248,12 +192,23 @@ void MainWindow::insertCatalogEntry(){
     QList<QVariant> inptData;
     inptData << QVariant(name) << QVariant(type);
     myGrid.catalog->setFullData(child, inptData, Qt::EditRole);
-    // Save the node reference in the child
-    myGrid.catalog->setNodeData(child, newCatalogEntry);
+    // Update the ID, database name, and mark this as a catalog entry
+
+
+    // THIS NEEDS TO BE UPDATED SO THAT THE UNIQUE ID IS CREATED BY SQL DRIVER:
+    int tempUniqueID = 1;
+    myGrid.catalog->setUniqueID(child, tempUniqueID);
+    myGrid.catalog->set_dbName(child, myGrid.catalog->getName(parentIndex));    // The database name is the same as the parentIndex
+    myGrid.catalog->setCatalog(child, true);
+
 
     updateActions_catalogConst();
     updateActions_catalogNetwork();
+
 }
+
+
+
 
 // This function adds a new label to the catalog, which allows the User to group their entries
 QModelIndex MainWindow::insertCatalogLabel(QString name, bool initialization){
@@ -340,15 +295,22 @@ void MainWindow::on_catalogView_doubleClicked(const QModelIndex &indexCatalog) {
         return; // This item is just a label
     }
 
-    gridNode* selectedEntry = myGrid.catalog->getNodePtr(indexCatalog);
-    gridNode* newInstance = new gridNode(*selectedEntry);
+    // Get the type and old name from the database entry, and then update the name for the new gridNode
+    QString old_type = myGrid.catalog->getType(indexCatalog);
 
-    int numInstances = checkNumComponentInstances(selectedEntry->getName(), myGrid.componentsList, 0, Qt::CaseSensitive);
-    newInstance->setName(selectedEntry->getName() + "_" + QString::number(++numInstances));
+    // The new gridNode which will be inserted into the grid, and then into the components list
+    gridNode* newInstance = myGrid.newNode(old_type, false);
 
-    // Update the catalog with the new entry
+    newInstance->setType(old_type);
+
+    // Update the name as oldName_#ofThisType
+    int numInstances = checkNumComponentInstances(myGrid.catalog->getName(indexCatalog), myGrid.componentsList, 0, Qt::CaseSensitive);
+    newInstance->setName(myGrid.catalog->getName(indexCatalog) + "_" + QString::number(++numInstances));
+
+    // Get the currently selected index from the components List
     const QModelIndex indexCompList = ui->componentsListView->selectionModel()->currentIndex();
 
+    // Insert a new entry below the selected index
     if (!myGrid.componentsList->insertRow(indexCompList.row()+1, indexCompList.parent())){
         delete newInstance;
         return;
@@ -356,14 +318,13 @@ void MainWindow::on_catalogView_doubleClicked(const QModelIndex &indexCatalog) {
 
     updateActions_compList();
 
-    QString name = newInstance->getName();
-    QString type = newInstance->getType();
+
     int column = 0; // The only column is the name
     // Get the index of the child's name
     const QModelIndex child = myGrid.componentsList->index(indexCompList.row() + 1, column, indexCompList.parent());
     // Set the name of the entry
     QList<QVariant> inptData;
-    inptData << QVariant(name) << QVariant(type);
+    inptData << QVariant(newInstance->getName()) << QVariant(newInstance->getType());
     myGrid.catalog->setFullData(child, inptData, Qt::EditRole);
     // Save the node reference in the child
     myGrid.catalog->setNodeData(child, newInstance);
@@ -391,7 +352,7 @@ void MainWindow::on_catalogView_1_clicked(const QModelIndex &index)
 
     if (type == "Load"){
         ui->PropertiesEditor->setCurrentIndex(5);
-    } else if (type == "Genset"){
+    } else if (type == "Generator"){
         ui->PropertiesEditor->setCurrentIndex(3);
     } else if (type == "ESM"){
         ui->PropertiesEditor->setCurrentIndex(0);
@@ -451,16 +412,12 @@ void MainWindow::databaseConstructorHelpButton()
 }
 
 void MainWindow::insertCatalogEntry_shorePower(){
-    QString inptName = "Default Shore Power";
-    gridNode* newCatalogEntry;
-    newCatalogEntry = myGrid.newSource(inptName);
 
-
-    if (newCatalogEntry == nullptr){ return; }
-    QString type = newCatalogEntry->getType();
-    newCatalogEntry->setCatalog(true);
+    QString name = "Default Shore Power";
+    QString type = "Generator";
 
     // Update the catalog with the new entry
+
     // Get the current index selection
     const QModelIndex index = ui->catalogView_1->selectionModel()->currentIndex();
 
@@ -469,7 +426,6 @@ void MainWindow::insertCatalogEntry_shorePower(){
     QString tempName = myGrid.catalog->getName(index);    // debugging
     qDebug() << "Selected Item: ";                                      // debugging
     qDebug() << tempName;                                               // debugging
-
     QModelIndex parentIndex;
     if (myGrid.catalog->checkLabel(index)){
         parentIndex = index;
@@ -497,7 +453,7 @@ void MainWindow::insertCatalogEntry_shorePower(){
 
     int column = 0; // The only column is the name
     // Get the index of the child's name
-    const QModelIndex child = myGrid.catalog->index(0, column, parentIndex);
+    QModelIndex child = myGrid.catalog->index(0, column, parentIndex);
 
     tempName = myGrid.catalog->getName(child);    // debugging
     qDebug() << "New Item: ";                                      // debugging
@@ -505,10 +461,24 @@ void MainWindow::insertCatalogEntry_shorePower(){
 
     // Set the name of the entry
     QList<QVariant> inptData;
-    inptData << QVariant(inptName) << QVariant(type);
+    inptData << QVariant(name) << QVariant(type);
     myGrid.catalog->setFullData(child, inptData, Qt::EditRole);
-    // Save the node reference in the child
-    myGrid.catalog->setNodeData(child, newCatalogEntry);
+    // Update the ID, database name, and mark this as a catalog entry
+
+
+    // ----------------------------------------------------------
+    // THIS NEEDS TO BE UPDATED SO THAT THE UNIQUE ID IS CREATED BY SQL DRIVER:
+    int tempUniqueID = 1;
+
+    // Also need to create the new entry in the database
+
+    // ----------------------------------------------------------
+
+
+    myGrid.catalog->setUniqueID(child, tempUniqueID);
+    myGrid.catalog->set_dbName(child, myGrid.catalog->getName(parentIndex));    // The database name is the same as the parentIndex
+    myGrid.catalog->setCatalog(child, true);
+
 
     updateActions_catalogConst();
     updateActions_catalogNetwork();

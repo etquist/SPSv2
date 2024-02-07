@@ -32,7 +32,7 @@ QString customQuestionBox(QString boxTitle, QString boxText, QString boxInformat
 }
 
 // Searches the referenced tree for all components that starts with the name
-// "catalogName"
+// "searchString"
 int checkNumComponentInstances(QString searchString, customNodeTree* tree, int colIdx, Qt::CaseSensitivity caseSensitivity){
     int numMatches = 0;
 
@@ -46,4 +46,17 @@ int checkNumComponentInstances(QString searchString, customNodeTree* tree, int c
     }
 
     return numMatches;
+}
+
+QString promptForNewName(QString defaultName){
+    QString defaultTxt = defaultName;
+    QString prompt = "Enter the new name.";
+    bool ok;
+    QString name = QInputDialog::getText(nullptr, "Item Name", prompt, QLineEdit::Normal, defaultTxt, &ok);
+
+    if (ok && !name.isEmpty()) {
+        return name;
+    } else {
+        return "userCNCL-exit"; // Abort the creation
+    }
 }

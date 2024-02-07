@@ -46,19 +46,11 @@ private slots:
     // void item_view_item_path_enter(QString itemPath, QPointF dropPos);
     void on_pushButton_clicked();
 
-    //void on_toolButton_4_clicked();
-
-
     // -------------------------------------
     // Catalog Slots
     // -------------------------------------
     void insertCatalogEntry();
     QModelIndex insertCatalogLabel(QString name = "[Edit Database Name]", bool initialization = false);
-    // void insertChild();
-    // bool insertColumn();
-    // void insertRow();
-    // bool removeColumn();
-    // void removeRow();
 
     void on_catalogView_doubleClicked(const QModelIndex &index);
 

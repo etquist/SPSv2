@@ -18,7 +18,7 @@ public:
     ~Grid();    // must deal with the bus and element lists
 
     struct busListElement{
-        gridBus* bus;
+        gridNode* bus;
         double busVoltage;
     };
 
@@ -26,14 +26,15 @@ public:
     void addNewCatalog();   // New catalogue entry
 
     // Functions for creating new grid objects
-    gridBus* newBus(QString inptName = "no_name_provided - def");
-    loadNode* newLoad(QString inptName = "no_name_provided - def");
-    sourceNode* newSource(QString inptName = "no_name_provided - def");
-    filterNode* newFilter(QString inptName = "no_name_provided - def");
-    esmNode* newESM(QString inptName = "no_name_provided - def");
-    transformerNode* newTransformer(QString inptName = "no_name_provided - def");
-    converterNode* newConverter(QString inptName = "no_name_provided - def");
-    gridLine* newLine(QString inptName = "no_name_provided - def");
+    gridNode* newBus(QString inptName = "no_name_provided - def");
+    gridNode* newLoad(QString inptName = "no_name_provided - def");
+    gridNode* newSource(QString inptName = "no_name_provided - def");
+    gridNode* newFilter(QString inptName = "no_name_provided - def");
+    gridNode* newESM(QString inptName = "no_name_provided - def");
+    gridNode* newTransformer(QString inptName = "no_name_provided - def");
+    gridNode* newConverter(QString inptName = "no_name_provided - def");
+    gridNode* newLine(QString inptName = "no_name_provided - def");
+    gridNode* newNode(QString inptType, bool prompt, QString inptName = "no_name_provided - def");
 
     int numBuses();
     int numLoads();
@@ -50,23 +51,21 @@ public:
     customNodeTree* catalog;
     customNodeTree* componentsList;
 
-
+    // Custom DB Manager map from name to class here
 
 private:
     // Bus list, with each element including a bus node reference and the its voltage
-    std::vector<busListElement*>* busList;
-    std::vector<loadNode*>* loads;       // Loads in this microgrid
-    std::vector<sourceNode*>* sources;   // Gensets in this microgrid
-    std::vector<filterNode*>* filters;   // Filters in this microgrid
-    std::vector<esmNode*>* ESMs;         // ESMs in this microgrid
-    std::vector<gridLine*>* lines;      // Edges (conduits) in the microgrid
-    std::vector<transformerNode*>* transformers;      // Transformers in the microgrid
-    std::vector<converterNode*>* converters;      // Converters in the microgrid
+    std::unordered_map<int, busListElement*> busList;
+    std::unordered_map<int, gridNode*> loads;       // Loads in this microgrid
+    std::unordered_map<int, gridNode*> sources;   // Gensets in this microgrid
+    std::unordered_map<int, gridNode*> filters;   // Filters in this microgrid
+    std::unordered_map<int, gridNode*> ESMs;         // ESMs in this microgrid
+    std::unordered_map<int, gridNode*> lines;      // Edges (conduits) in the microgrid
+    std::unordered_map<int, gridNode*> transformers;      // Transformers in the microgrid
+    std::unordered_map<int, gridNode*> converters;      // Converters in the microgrid
 
-    // A vector of references to the component instances. Component objects contain information to the specific instance of the grid element
-    //  and are also a subset of QLabels so they can be easily placed on a drag and drop interface. This list can also be used in the "Rats list"
-    // on the left side of the screen
-    std::vector<component*>* activeComponents;
+    std::unordered_map<int, gridNode*> allNodes;    // A hash table of everything for reference
+    int lastSN = 0; // Every time you create a new grid node, increment this by 1
 
 
     // Common mode equivalent model
