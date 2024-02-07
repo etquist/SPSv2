@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "qlistwidget.h"
 #include <QMainWindow>
 #include <QDir>
 #include <QFileInfo>
@@ -13,6 +14,9 @@
 #include <grid.h>
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QTreeView>
+#include <QDesktopServices>
+#include <QUrl>
 
 
 
@@ -31,11 +35,45 @@ public:
     ~MainWindow();
     Grid myGrid;
 
+    void insertCatalogEntry_shorePower();
+
+public slots:
+    void updateActions_catalogNetwork();
+    void updateActions_catalogConst();
+    void updateActions_compList();
+
 private slots:
-    void item_view_item_path_enter(QString itemPath, QPointF dropPos);
+    // void item_view_item_path_enter(QString itemPath, QPointF dropPos);
     void on_pushButton_clicked();
 
-    void on_toolButton_4_clicked();
+    //void on_toolButton_4_clicked();
+
+
+    // -------------------------------------
+    // Catalog Slots
+    // -------------------------------------
+    void insertCatalogEntry();
+    QModelIndex insertCatalogLabel(QString name = "[Edit Database Name]", bool initialization = false);
+    // void insertChild();
+    // bool insertColumn();
+    // void insertRow();
+    // bool removeColumn();
+    // void removeRow();
+
+    void on_catalogView_doubleClicked(const QModelIndex &index);
+
+    void newCatalogLabel_connector();
+
+    // Changes the Properties label to reflect the selected item
+    void updatePropertiesEditorLabel_input(QString name = "Item");
+
+    void on_catalogView_1_clicked(const QModelIndex &index);
+
+    // Opens the github for the project
+    void launchGitHub();
+
+    void databaseNetworkHelpButton();
+    void databaseConstructorHelpButton();
 
 private:
     Ui::MainWindow *ui;

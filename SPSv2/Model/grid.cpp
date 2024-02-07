@@ -4,15 +4,19 @@
 
 // Default constructor
 Grid::Grid(){
-    Catalog = new std::vector<int>;
-    componentsList = new std::vector<int>;
+
 
     busList = new std::vector<busListElement*>;
     loads = new std::vector<loadNode*>;
     sources = new std::vector<sourceNode*>;
     filters = new std::vector<filterNode*>;
     ESMs = new std::vector<esmNode*>;
-    edges = new std::vector<gridEdge*>;
+    transformers = new std::vector<transformerNode*>;
+    converters = new std::vector<converterNode*>;
+    lines = new std::vector<gridLine*>;
+
+    activeComponents = new std::vector<component*>;
+
 
 }
 
@@ -22,13 +26,12 @@ Grid::Grid(QString catalogFilepath, QString componentsListFilepath) {
     int numComponents = findNumComponents(componentsListFilepath);
 
     // Initiate the catalog and component list
-    Catalog = new std::vector<int>(numCatalogEntries);
-    componentsList = new std::vector<int>(numComponents);
+
 
 }
 
 Grid::~Grid(){
-    delete Catalog;
+    delete catalog;
     delete componentsList;
 
     // Active components is a vector of pointers to dynamic variables - delete all those
@@ -68,10 +71,20 @@ Grid::~Grid(){
     }
     delete ESMs;
 
-    for(size_t i = 0; i < edges->size(); i++){
-        delete (*edges)[i];
+    for(size_t i = 0; i < lines->size(); i++){
+        delete (*lines)[i];
     }
-    delete edges;
+    delete lines;
+
+    for(size_t i = 0; i < transformers->size(); i++){
+        delete (*transformers)[i];
+    }
+    delete transformers;
+
+    for(size_t i = 0; i < converters->size(); i++){
+        delete (*converters)[i];
+    }
+    delete converters;
 
 }
 
@@ -100,8 +113,8 @@ int Grid::findNumComponents(QString componentsListFilepath){
 
 // Function to create a new bus node in the grid.
 // Adds it to the list of busses and returns the pointer
-gridBus* Grid::newBus(){
-    QString name = newName("Bus");
+gridBus* Grid::newBus(QString inptName){
+    QString name = newName("Bus", inptName);
     if(name == "userCNCL-exit"){ return nullptr; }
     gridBus* myNewBus = new gridBus();  // Create a new dynamic instance of a bus
     myNewBus->setName(name);
@@ -125,8 +138,8 @@ gridBus* Grid::newBus(){
 
 // Function to create a new Load in the grid.
 // Adds it to the list of loads and returns the pointer
-loadNode* Grid::newLoad(){
-    QString name = newName("Load");
+loadNode* Grid::newLoad(QString inptName){
+    QString name = newName("Load", inptName);
     if(name == "userCNCL-exit"){ return nullptr; }
     loadNode* myNewLoad = new loadNode();   // Create a new load dynamically
     myNewLoad->setName(name);
@@ -137,8 +150,8 @@ loadNode* Grid::newLoad(){
 
 // Function to create a new Source node in the grid.
 // Adds it to the list of sourcess and returns the pointer
-sourceNode* Grid::newSource(){
-    QString name = newName("Genset");
+sourceNode* Grid::newSource(QString inptName){
+    QString name = newName("Genset", inptName);
     if(name == "userCNCL-exit"){ return nullptr; }
     sourceNode* myNewSource = new sourceNode();   // Create a new source dynamically
     myNewSource->setName(name);
@@ -149,8 +162,8 @@ sourceNode* Grid::newSource(){
 
 // Function to create a new filter node in the grid.
 // Adds it to the list of filters and returns the pointer
-filterNode* Grid::newFilter(){
-    QString name = newName("Filter");
+filterNode* Grid::newFilter(QString inptName){
+    QString name = newName("Filter", inptName);
     if(name == "userCNCL-exit"){ return nullptr; }
     filterNode* myNewFilter = new filterNode();   // Create a new filter dynamically
     myNewFilter->setName(name);
@@ -161,14 +174,49 @@ filterNode* Grid::newFilter(){
 
 // Function to create a new ESM node in the grid.
 // Adds it to the list of ESMs and returns the pointer
-esmNode* Grid::newESM(){
-    QString name = newName("ESM");
+esmNode* Grid::newESM(QString inptName){
+    QString name = newName("ESM", inptName);
     if(name == "userCNCL-exit"){ return nullptr; }
     esmNode* myNewESM = new esmNode();   // Create a new ESM dynamically
     myNewESM->setName(name);
     ESMs->push_back(myNewESM); // Add to the list of ESMs
     return myNewESM;   // return the pointer
 }
+
+// Function to create a new ESM node in the grid.
+// Adds it to the list of ESMs and returns the pointer
+transformerNode* Grid::newTransformer(QString inptName){
+    QString name = newName("Transformer", inptName);
+    if(name == "userCNCL-exit"){ return nullptr; }
+    transformerNode* myNewTransformer = new transformerNode();   // Create a new ESM dynamically
+    myNewTransformer->setName(name);
+    transformers->push_back(myNewTransformer); // Add to the list of ESMs
+    return myNewTransformer;   // return the pointer
+}
+
+
+// Function to create a new ESM node in the grid.
+// Adds it to the list of ESMs and returns the pointer
+converterNode* Grid::newConverter(QString inptName){
+    QString name = newName("Converter", inptName);
+    if(name == "userCNCL-exit"){ return nullptr; }
+    converterNode* myNewConverter = new converterNode();   // Create a new ESM dynamically
+    myNewConverter->setName(name);
+    converters->push_back(myNewConverter); // Add to the list of ESMs
+    return myNewConverter;   // return the pointer
+}
+
+// Function to create a new ESM node in the grid.
+// Adds it to the list of ESMs and returns the pointer
+gridLine* Grid::newLine(QString inptName){
+    QString name = newName("Line", inptName);
+    if(name == "userCNCL-exit"){ return nullptr; }
+    gridLine* myNewLine = new gridLine();   // Create a new ESM dynamically
+    myNewLine->setName(name);
+    lines->push_back(myNewLine); // Add to the list of ESMs
+    return myNewLine;   // return the pointer
+}
+
 
 int Grid::numBuses(){
     return busList->size();
@@ -190,12 +238,24 @@ int Grid::numESMs(){
     return ESMs->size();
 }
 
-int Grid::numEdges(){
-    return edges->size();
+int Grid::numLines(){
+    return lines->size();
+}
+
+int Grid::numTransformers(){
+    return transformers->size();
+}
+
+int Grid::numConverters(){
+    return converters->size();
 }
 
 
-QString Grid::newName(QString type){
+QString Grid::newName(QString type, QString inptName){
+    if (inptName != "no_name_provided - def"){
+        return inptName;
+    }
+
     int numExisting = 0;
     if (type == "Bus"){
         numExisting = numBuses();
@@ -206,9 +266,14 @@ QString Grid::newName(QString type){
     } else if (type == "ESM"){
         numExisting = numESMs();
     } else if (type == "Filter") {
-        numExisting = numFilters();
+        numExisting = numTransformers();
+    } else if (type == "Transformer") {
+        numExisting = numTransformers();
+    } else if (type == "Converter") {
+        numExisting = numConverters();
     }
 
+    numExisting++;
     bool ok;
     QString defaultTxt = type + QString::number(numExisting);
     QString prompt = "Enter the " + type + "'s name.";

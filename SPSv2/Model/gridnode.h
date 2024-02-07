@@ -9,21 +9,27 @@ class gridNode
 public:
     gridNode();
     ~gridNode();
+    gridNode(const gridNode &original);
 
-    QString  getType();
+    const QString& getType() const;
     void setType(QString  newType);
 
-    QString  getName();
+    const QString& getName() const;
     void setName(QString  newName);
 
     bool validityCheck();
+
+    void setCatalog(bool set);  // set the node as either a catalog entry (template) or a full-use node
+    const bool& checkCatalog() const;        // Check if the node is a catalog
+
 
 private:
     void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
     int serialNumber;
     QString name;
-    QString thumbnailImagePath;  // This is the image that will appear in the grid
     QString type = "generic";
+
+    bool catalog;   // if TRUE, the node is a template (catalog entry)
 };
 
 
@@ -31,10 +37,11 @@ private:
 
 // Derived class from gridNode, with specific info relevant to grid edges.
 // Grid edges contain information on transmission cabling, power converters, etc.
-class gridEdge : public gridNode{
+class gridLine : public gridNode{
 public:
-    gridEdge();
-    ~gridEdge();
+    gridLine();
+    ~gridLine();
+    gridLine(const gridLine &original);
     // Functions
     bool validityCheck();
 
@@ -43,8 +50,7 @@ private:
 
     // General
     double voltageA;    //  "Input" voltage to the A side. B side determined by edge properties
-    int numPhasesA;    // Valid between 1-3
-    int numPhasesB;    // ditto
+    int numPhases;    // Valid between 1-4
     double breakerRating;   // (Amps)
 
     // Conduit Properties
@@ -53,22 +59,11 @@ private:
     double conduit_Resistance;   // (Ohm)
     double conduit_Inductance;   // (H)
 
-    // Converter Properties
-    bool pwrTypeA;     // 0 = DC, 1 = AC
-    bool pwrTypeB;
-    double converter_Capacitance;  // (F)
-    double converter_Resistance;   // (Ohm)
-    double converter_Inductance;   // (H)
-
-    // Transformer Properties
-    bool transformer_3pTypeA;       // 0 = Delta, 1 = Wye
-    bool transformer_3pTypeB;
-    double transformer_windingRatio;    // (-) Winding ratio
-    double transformer_Capacitance;  // (F)
-    double transformer_Resistance;   // (Ohm)
-    double transformer_Inductance;   // (H)
 
 };
+
+
+
 
 
 
@@ -80,6 +75,7 @@ public:
 
     gridElement();
     ~gridElement();
+    gridElement(const gridElement &original);
 
     bool validityCheck();
 
@@ -95,11 +91,10 @@ class sourceNode : public gridElement{
 public:
     sourceNode();
     ~sourceNode();
+    sourceNode(const sourceNode &original);
 
     bool validityCheck();
 };
-
-
 
 
 // Derived class from gridElement, with specific info relevant to loads
@@ -107,7 +102,10 @@ class loadNode : public gridElement{
 public:
     loadNode();
     ~loadNode();    // CUSTOM: need to delete the dynamic transient table
+    loadNode(const loadNode &original);
 
+    bool validityCheck();
+private:
     // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
     // Load General Info
     bool powerType;     // 0 = DC, 1 = AC
@@ -115,7 +113,7 @@ public:
     double voltage;       // (V) nominal voltage of the load
     double constPowerDemand;    // (W) nominal power draw
 
-    bool numPhases;     // accepted 1, 2, or 3 (if AC), 1 (if DC)
+    int numPhases;     // accepted 1, 2, or 3 (if AC), 1 (if DC)
     bool phaseA;        // validity check needs to make sure the numPhases aligns with boolean selection
     bool phaseB;
     bool phaseC;
@@ -152,9 +150,7 @@ public:
     std::vector<std::vector<transientElement*>>* transientMatrix;
     // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    bool validityCheck();
 
-private:
     void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
 
 };
@@ -168,10 +164,12 @@ class esmNode : public gridElement{
 public:
     esmNode();
     ~esmNode();
+    esmNode(const esmNode &original);
 
     bool validityCheck();
 
 private:
+
     void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
 
 };
@@ -183,6 +181,7 @@ class filterNode : public gridElement{
 public:
     filterNode();
     ~filterNode();
+    filterNode(const filterNode &original);
 
     bool validityCheck();
 
@@ -199,8 +198,9 @@ private:
 // Derived class from grid node, with information relevent to busses
 class gridBus : public gridNode{
 public:
-    gridBus();      // Constructor creates a single bus with empty
-    ~gridBus();     // Destructor needs to delete all of the
+    gridBus();      // Constructor
+    ~gridBus();     // Destructor
+    gridBus(const gridBus &original);   // Copy constructor
 
     double getVoltage();
     bool validityCheck();
@@ -208,8 +208,6 @@ public:
 private:
     void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
 
-    std::vector<double>* busTrace;
-    std::vector<double>* exportTrace;
 
     int numBreakers;    //  (-) number of connection points available
     double bus_Capacitance;  // (F)     Expected impediance of bus
@@ -228,4 +226,49 @@ private:
 
 };
 
+
+class transformerNode : public gridElement{
+public:
+    transformerNode();
+    ~transformerNode();
+    transformerNode(const transformerNode &original);
+    // Functions
+    bool validityCheck();
+
+private:
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
+
+
+    // Transformer Properties
+    bool transformer_3pTypeA;       // 0 = Delta, 1 = Wye
+    bool transformer_3pTypeB;
+    double transformer_windingRatio;    // (-) Winding ratio
+    double transformer_Capacitance;  // (F)
+    double transformer_Resistance;   // (Ohm)
+    double transformer_Inductance;   // (H)
+
+};
+
+
+class converterNode : public gridElement{
+public:
+    converterNode();
+    ~converterNode();
+    converterNode(const converterNode &original);
+    // Functions
+    bool validityCheck();
+
+private:
+    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
+
+
+    // Converter Properties
+    bool pwrTypeA;     // 0 = DC, 1 = AC
+    bool pwrTypeB;
+    double converter_Capacitance;  // (F)
+    double converter_Resistance;   // (Ohm)
+    double converter_Inductance;   // (H)
+
+
+};
 #endif // GRIDNODE_H
