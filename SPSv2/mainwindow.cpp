@@ -3,6 +3,7 @@
 #include "grid.h"
 #include "gridnode.h"
 #include "helperFunctions.h"
+#include "dbManager.h"
 #include "gridEditWindow.h"
 
 
@@ -29,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->catalogView->selectionModel(), &QItemSelectionModel::selectionChanged,
             this, &MainWindow::updateActions_catalogNetwork);
+    connect(ui->importDatabase_tab1, &QAbstractButton::clicked,
+            this, &MainWindow::importDatabase);
 
 
     updateActions_catalogNetwork();
@@ -46,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::updateActions_catalogConst);
 
     connect(ui->newCatalogEntry_tab1, &QAbstractButton::clicked,
-            this, &MainWindow::insertCatalogEntry);
+            this, &MainWindow::insertCatalogEntry_connector);
     connect(ui->newDatabaseName_tab1, &QAbstractButton::clicked,
             this, &MainWindow::newCatalogLabel_connector);
 
@@ -109,6 +112,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_6, &QPushButton::clicked, this, &MainWindow::databaseNetworkHelpButton);
     connect(ui->pushButton_7, &QPushButton::clicked, this, &MainWindow::databaseNetworkHelpButton);
     connect(ui->pushButton_8, &QPushButton::clicked, this, &MainWindow::databaseConstructorHelpButton);
+
+
+    // -----------------------------------------------
+    // Testing -- Initialize a database
+    // -----------------------------------------------
+
+
+
+
 }
 
 MainWindow::~MainWindow()
@@ -124,26 +136,44 @@ void MainWindow::on_pushButton_clicked()
     ui->listWidget_3->addItem(name);
 }
 
+void MainWindow::insertCatalogEntry_connector(){
+    insertCatalogEntry();
+}
 
-void MainWindow::insertCatalogEntry(){
-    // First, prompt the user to select the type of database entry that they would like to create.
-    QString boxTitle = "Define a New Catalog Entry";
-    QString boxText = "Select a Type of Grid Element to Create.";
-    QString boxInformativeText = "";
-    std::vector<QString> options = {"Bus", "Load", "Generator", "Energy Storage Module", "Filter", "Transformer", "Converter"};
-    QString selection = customQuestionBox(boxTitle, boxText, boxInformativeText, options);
-    qDebug() << selection;
 
-    if (selection == "aborted_dlg_box"){
-        qDebug() << "Aborted Catalog Entry Creation";
-        return;
+void MainWindow::insertCatalogEntry(QString nameInpt, QString typeInpt, int uniqueIDInpt){
+    QString name;
+    QString type;
+    int uniqueID;
+
+    if (uniqueIDInpt == -1){
+        // First, prompt the user to select the type of database entry that they would like to create.
+        QString boxTitle = "Define a New Catalog Entry";
+        QString boxText = "Select a Type of Grid Element to Create.";
+        QString boxInformativeText = "";
+        std::vector<QString> options = {"Bus", "Load", "Generator", "Energy Storage Module", "Filter", "Transformer", "Converter"};
+        QString selection = customQuestionBox(boxTitle, boxText, boxInformativeText, options);
+        qDebug() << selection;
+
+        if (selection == "aborted_dlg_box"){
+            qDebug() << "Aborted Catalog Entry Creation";
+            return;
+        }
+
+        int numInstances = checkNumComponentInstances(selection, myGrid.catalog, 0, Qt::CaseSensitive);
+        QString defaultName = selection + QString::number(++numInstances);
+
+        name = promptForNewName(defaultName);  // Pass the default as the name
+        type = selection;
+
+        // THIS NEEDS TO BE UPDATED SO THAT THE UNIQUE ID IS CREATED BY SQL DRIVER:
+        uniqueID = 1;
+
+    } else{
+        name = nameInpt;
+        type = typeInpt;
+        uniqueID = uniqueIDInpt;
     }
-
-    int numInstances = checkNumComponentInstances(selection, myGrid.catalog, 0, Qt::CaseSensitive);
-    QString defaultName = selection + QString::number(++numInstances);
-
-    QString name = promptForNewName(defaultName);  // Pass the default as the name
-    QString type = selection;
 
     // Update the catalog with the new entry
 
@@ -195,9 +225,8 @@ void MainWindow::insertCatalogEntry(){
     // Update the ID, database name, and mark this as a catalog entry
 
 
-    // THIS NEEDS TO BE UPDATED SO THAT THE UNIQUE ID IS CREATED BY SQL DRIVER:
-    int tempUniqueID = 1;
-    myGrid.catalog->setUniqueID(child, tempUniqueID);
+
+    myGrid.catalog->setUniqueID(child, uniqueID);
     myGrid.catalog->set_dbName(child, myGrid.catalog->getName(parentIndex));    // The database name is the same as the parentIndex
     myGrid.catalog->setCatalog(child, true);
 
@@ -302,6 +331,7 @@ void MainWindow::on_catalogView_doubleClicked(const QModelIndex &indexCatalog) {
     gridNode* newInstance = myGrid.newNode(old_type, false);
 
     newInstance->setType(old_type);
+    newInstance->setUniqueID(myGrid.catalog->getUniqueID(indexCatalog));
 
     // Update the name as oldName_#ofThisType
     int numInstances = checkNumComponentInstances(myGrid.catalog->getName(indexCatalog), myGrid.componentsList, 0, Qt::CaseSensitive);
@@ -482,4 +512,62 @@ void MainWindow::insertCatalogEntry_shorePower(){
 
     updateActions_catalogConst();
     updateActions_catalogNetwork();
+}
+
+
+// Creates a new database manager associated with the chosen file by the user
+//  updates the catalog, and then adds the database to a hashtable stored in myGrid
+void MainWindow::importDatabase()
+{
+    QString dbPath = QFileDialog::getOpenFileName(this, "Open File", "", "Databases (*.db)");
+    QString dbName = extractFileName(dbPath);
+    if (dbPath == "null"){
+        qDebug() << "Failed to open database at path: " << dbPath;
+        return;
+    }
+
+    // While the database name already exists in the catalog
+    if (myGrid.dbPathList.end() != myGrid.dbPathList.find(dbName)){
+        qDebug() << "User has already opened this.";
+        QMessageBox msgBox;
+        msgBox.setText("Database already opened.");
+        msgBox.exec();
+        return;
+    }
+
+    dbManager newDB(dbPath, dbName);
+
+    // Get the current index. Move it upward until the next level is the parent
+    QModelIndex currentIndex = ui->catalogView_1->selectionModel()->currentIndex(); // Currently selected index
+    while (!myGrid.catalog->isRoot(currentIndex.parent())){ // While the parent is not the root
+        currentIndex = currentIndex.parent(); // Keep going higher. The root node will be the highest stopping point
+    }
+    // The parent is now the root, so we've reached the top level. Select this index
+    ui->catalogView_1->selectionModel()->setCurrentIndex(currentIndex, QItemSelectionModel::Select);
+
+    // Add the DB
+    insertCatalogLabel(dbName);
+
+    // Select the newly made index
+    int column = 0;
+    QModelIndex newLabel = myGrid.catalog->index(currentIndex.row() + 1, column, currentIndex.parent());
+    ui->catalogView_1->selectionModel()->setCurrentIndex(newLabel, QItemSelectionModel::Select);
+
+    // Get all the entry data from the database
+    std::vector<QList<QVariant>> entries = newDB.getAllEntries_basicData();
+
+    // Iterate through the entries in the database, returning the uniqueID, name, and type
+    for (size_t i = 0; i < entries.size(); i++){
+        QString nameInpt = entries.at(i)[0].toString();
+        QString typeInpt = entries.at(i)[1].toString();
+        int uniqueIDInpt = entries.at(i)[2].toInt();
+
+        insertCatalogEntry(nameInpt, typeInpt, uniqueIDInpt);
+    }
+
+
+    myGrid.dbList.emplace(dbName, newDB); // Store the database for later use
+    myGrid.dbPathList.emplace(dbName, dbPath);  // Store the path for later reference if needed
+    return;
+
 }

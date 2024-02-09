@@ -6,6 +6,7 @@
 #include <gridnode.h>
 #include <commonmodegrid.h>
 #include "customnodetree.h"
+#include <dbmanager.h>
 
 
 class Grid
@@ -51,7 +52,10 @@ public:
     customNodeTree* catalog;
     customNodeTree* componentsList;
 
+
     // Custom DB Manager map from name to class here
+    std::unordered_map<QString, dbManager> dbList;
+    std::unordered_map<QString, QString> dbPathList;
 
 private:
     // Bus list, with each element including a bus node reference and the its voltage

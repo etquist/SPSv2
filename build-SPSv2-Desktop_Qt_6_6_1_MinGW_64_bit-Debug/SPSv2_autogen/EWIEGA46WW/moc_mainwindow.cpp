@@ -45,7 +45,11 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "updateActions_catalogConst",
     "updateActions_compList",
     "on_pushButton_clicked",
+    "insertCatalogEntry_connector",
     "insertCatalogEntry",
+    "nameInpt",
+    "typeInpt",
+    "uniqueID_Inpt",
     "insertCatalogLabel",
     "QModelIndex",
     "name",
@@ -57,30 +61,36 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "on_catalogView_1_clicked",
     "launchGitHub",
     "databaseNetworkHelpButton",
-    "databaseConstructorHelpButton"
+    "databaseConstructorHelpButton",
+    "importDatabase"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[38];
+    uint offsetsAndSizes[48];
     char stringdata0[11];
     char stringdata1[29];
     char stringdata2[1];
     char stringdata3[27];
     char stringdata4[23];
     char stringdata5[22];
-    char stringdata6[19];
+    char stringdata6[29];
     char stringdata7[19];
-    char stringdata8[12];
-    char stringdata9[5];
-    char stringdata10[15];
-    char stringdata11[29];
-    char stringdata12[6];
-    char stringdata13[26];
-    char stringdata14[34];
-    char stringdata15[25];
-    char stringdata16[13];
+    char stringdata8[9];
+    char stringdata9[9];
+    char stringdata10[14];
+    char stringdata11[19];
+    char stringdata12[12];
+    char stringdata13[5];
+    char stringdata14[15];
+    char stringdata15[29];
+    char stringdata16[6];
     char stringdata17[26];
-    char stringdata18[30];
+    char stringdata18[34];
+    char stringdata19[25];
+    char stringdata20[13];
+    char stringdata21[26];
+    char stringdata22[30];
+    char stringdata23[15];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -92,19 +102,24 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(41, 26),  // "updateActions_catalogConst"
         QT_MOC_LITERAL(68, 22),  // "updateActions_compList"
         QT_MOC_LITERAL(91, 21),  // "on_pushButton_clicked"
-        QT_MOC_LITERAL(113, 18),  // "insertCatalogEntry"
-        QT_MOC_LITERAL(132, 18),  // "insertCatalogLabel"
-        QT_MOC_LITERAL(151, 11),  // "QModelIndex"
-        QT_MOC_LITERAL(163, 4),  // "name"
-        QT_MOC_LITERAL(168, 14),  // "initialization"
-        QT_MOC_LITERAL(183, 28),  // "on_catalogView_doubleClicked"
-        QT_MOC_LITERAL(212, 5),  // "index"
-        QT_MOC_LITERAL(218, 25),  // "newCatalogLabel_connector"
-        QT_MOC_LITERAL(244, 33),  // "updatePropertiesEditorLabel_i..."
-        QT_MOC_LITERAL(278, 24),  // "on_catalogView_1_clicked"
-        QT_MOC_LITERAL(303, 12),  // "launchGitHub"
-        QT_MOC_LITERAL(316, 25),  // "databaseNetworkHelpButton"
-        QT_MOC_LITERAL(342, 29)   // "databaseConstructorHelpButton"
+        QT_MOC_LITERAL(113, 28),  // "insertCatalogEntry_connector"
+        QT_MOC_LITERAL(142, 18),  // "insertCatalogEntry"
+        QT_MOC_LITERAL(161, 8),  // "nameInpt"
+        QT_MOC_LITERAL(170, 8),  // "typeInpt"
+        QT_MOC_LITERAL(179, 13),  // "uniqueID_Inpt"
+        QT_MOC_LITERAL(193, 18),  // "insertCatalogLabel"
+        QT_MOC_LITERAL(212, 11),  // "QModelIndex"
+        QT_MOC_LITERAL(224, 4),  // "name"
+        QT_MOC_LITERAL(229, 14),  // "initialization"
+        QT_MOC_LITERAL(244, 28),  // "on_catalogView_doubleClicked"
+        QT_MOC_LITERAL(273, 5),  // "index"
+        QT_MOC_LITERAL(279, 25),  // "newCatalogLabel_connector"
+        QT_MOC_LITERAL(305, 33),  // "updatePropertiesEditorLabel_i..."
+        QT_MOC_LITERAL(339, 24),  // "on_catalogView_1_clicked"
+        QT_MOC_LITERAL(364, 12),  // "launchGitHub"
+        QT_MOC_LITERAL(377, 25),  // "databaseNetworkHelpButton"
+        QT_MOC_LITERAL(403, 29),  // "databaseConstructorHelpButton"
+        QT_MOC_LITERAL(433, 14)   // "importDatabase"
     },
     "MainWindow",
     "updateActions_catalogNetwork",
@@ -112,7 +127,11 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "updateActions_catalogConst",
     "updateActions_compList",
     "on_pushButton_clicked",
+    "insertCatalogEntry_connector",
     "insertCatalogEntry",
+    "nameInpt",
+    "typeInpt",
+    "uniqueID_Inpt",
     "insertCatalogLabel",
     "QModelIndex",
     "name",
@@ -124,7 +143,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_catalogView_1_clicked",
     "launchGitHub",
     "databaseNetworkHelpButton",
-    "databaseConstructorHelpButton"
+    "databaseConstructorHelpButton",
+    "importDatabase"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -136,7 +156,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -144,22 +164,27 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  110,    2, 0x0a,    1 /* Public */,
-       3,    0,  111,    2, 0x0a,    2 /* Public */,
-       4,    0,  112,    2, 0x0a,    3 /* Public */,
-       5,    0,  113,    2, 0x08,    4 /* Private */,
-       6,    0,  114,    2, 0x08,    5 /* Private */,
-       7,    2,  115,    2, 0x08,    6 /* Private */,
-       7,    1,  120,    2, 0x28,    9 /* Private | MethodCloned */,
-       7,    0,  123,    2, 0x28,   11 /* Private | MethodCloned */,
-      11,    1,  124,    2, 0x08,   12 /* Private */,
-      13,    0,  127,    2, 0x08,   14 /* Private */,
-      14,    1,  128,    2, 0x08,   15 /* Private */,
-      14,    0,  131,    2, 0x28,   17 /* Private | MethodCloned */,
-      15,    1,  132,    2, 0x08,   18 /* Private */,
-      16,    0,  135,    2, 0x08,   20 /* Private */,
-      17,    0,  136,    2, 0x08,   21 /* Private */,
-      18,    0,  137,    2, 0x08,   22 /* Private */,
+       1,    0,  140,    2, 0x0a,    1 /* Public */,
+       3,    0,  141,    2, 0x0a,    2 /* Public */,
+       4,    0,  142,    2, 0x0a,    3 /* Public */,
+       5,    0,  143,    2, 0x08,    4 /* Private */,
+       6,    0,  144,    2, 0x08,    5 /* Private */,
+       7,    3,  145,    2, 0x08,    6 /* Private */,
+       7,    2,  152,    2, 0x28,   10 /* Private | MethodCloned */,
+       7,    1,  157,    2, 0x28,   13 /* Private | MethodCloned */,
+       7,    0,  160,    2, 0x28,   15 /* Private | MethodCloned */,
+      11,    2,  161,    2, 0x08,   16 /* Private */,
+      11,    1,  166,    2, 0x28,   19 /* Private | MethodCloned */,
+      11,    0,  169,    2, 0x28,   21 /* Private | MethodCloned */,
+      15,    1,  170,    2, 0x08,   22 /* Private */,
+      17,    0,  173,    2, 0x08,   24 /* Private */,
+      18,    1,  174,    2, 0x08,   25 /* Private */,
+      18,    0,  177,    2, 0x28,   27 /* Private | MethodCloned */,
+      19,    1,  178,    2, 0x08,   28 /* Private */,
+      20,    0,  181,    2, 0x08,   30 /* Private */,
+      21,    0,  182,    2, 0x08,   31 /* Private */,
+      22,    0,  183,    2, 0x08,   32 /* Private */,
+      23,    0,  184,    2, 0x08,   33 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -167,14 +192,19 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    0x80000000 | 8, QMetaType::QString, QMetaType::Bool,    9,   10,
-    0x80000000 | 8, QMetaType::QString,    9,
-    0x80000000 | 8,
-    QMetaType::Void, 0x80000000 | 8,   12,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::Int,    8,    9,   10,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,    8,    9,
+    QMetaType::Void, QMetaType::QString,    8,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    9,
+    0x80000000 | 12, QMetaType::QString, QMetaType::Bool,   13,   14,
+    0x80000000 | 12, QMetaType::QString,   13,
+    0x80000000 | 12,
+    QMetaType::Void, 0x80000000 | 12,   16,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 8,   12,
+    QMetaType::Void, QMetaType::QString,   13,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 12,   16,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -199,6 +229,20 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_pushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'insertCatalogEntry_connector'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'insertCatalogEntry'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'insertCatalogEntry'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'insertCatalogEntry'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'insertCatalogEntry'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'insertCatalogLabel'
@@ -228,6 +272,8 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'databaseNetworkHelpButton'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'databaseConstructorHelpButton'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'importDatabase'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -243,21 +289,26 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->updateActions_catalogConst(); break;
         case 2: _t->updateActions_compList(); break;
         case 3: _t->on_pushButton_clicked(); break;
-        case 4: _t->insertCatalogEntry(); break;
-        case 5: { QModelIndex _r = _t->insertCatalogLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])));
+        case 4: _t->insertCatalogEntry_connector(); break;
+        case 5: _t->insertCatalogEntry((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[3]))); break;
+        case 6: _t->insertCatalogEntry((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 7: _t->insertCatalogEntry((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 8: _t->insertCatalogEntry(); break;
+        case 9: { QModelIndex _r = _t->insertCatalogLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])));
             if (_a[0]) *reinterpret_cast< QModelIndex*>(_a[0]) = std::move(_r); }  break;
-        case 6: { QModelIndex _r = _t->insertCatalogLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])));
+        case 10: { QModelIndex _r = _t->insertCatalogLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])));
             if (_a[0]) *reinterpret_cast< QModelIndex*>(_a[0]) = std::move(_r); }  break;
-        case 7: { QModelIndex _r = _t->insertCatalogLabel();
+        case 11: { QModelIndex _r = _t->insertCatalogLabel();
             if (_a[0]) *reinterpret_cast< QModelIndex*>(_a[0]) = std::move(_r); }  break;
-        case 8: _t->on_catalogView_doubleClicked((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
-        case 9: _t->newCatalogLabel_connector(); break;
-        case 10: _t->updatePropertiesEditorLabel_input((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 11: _t->updatePropertiesEditorLabel_input(); break;
-        case 12: _t->on_catalogView_1_clicked((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
-        case 13: _t->launchGitHub(); break;
-        case 14: _t->databaseNetworkHelpButton(); break;
-        case 15: _t->databaseConstructorHelpButton(); break;
+        case 12: _t->on_catalogView_doubleClicked((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
+        case 13: _t->newCatalogLabel_connector(); break;
+        case 14: _t->updatePropertiesEditorLabel_input((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 15: _t->updatePropertiesEditorLabel_input(); break;
+        case 16: _t->on_catalogView_1_clicked((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
+        case 17: _t->launchGitHub(); break;
+        case 18: _t->databaseNetworkHelpButton(); break;
+        case 19: _t->databaseConstructorHelpButton(); break;
+        case 20: _t->importDatabase(); break;
         default: ;
         }
     }
@@ -282,13 +333,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 21)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 16;
+        _id -= 21;
     }
     return _id;
 }

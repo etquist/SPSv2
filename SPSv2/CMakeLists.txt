@@ -11,6 +11,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Sql)
+
 
 set(PROJECT_SOURCES
         main.cpp
@@ -34,6 +36,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         View/customnodetree.h View/customnodetree.cpp
         View/customTreeItem.h View/customTreeItem.cpp
         View/grideditwindow.h View/grideditwindow.cpp
+        Model/dbmanager.h Model/dbmanager.cpp
     )
 
 
@@ -70,7 +73,12 @@ else()
     endif()
 endif()
 
-target_link_libraries(SPSv2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(SPSv2 PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Sql
+    Qt6::Widgets
+)
 target_include_directories(SPSv2 PRIVATE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/>
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/View/>

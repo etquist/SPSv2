@@ -20,6 +20,9 @@ public:
     int getSN();
     void setSN(int newSN);
 
+    int getUniqueID();
+    void setUniqueID(int newUniqueID);
+
     bool validityCheck();
 
     void setCatalog(bool set);  // set the node as either a catalog entry (template) or a full-use node

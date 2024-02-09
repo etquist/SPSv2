@@ -60,3 +60,11 @@ QString promptForNewName(QString defaultName){
         return "userCNCL-exit"; // Abort the creation
     }
 }
+
+// Uses QFileInfo's filename extraction
+QString extractFileName(const QString& filePath) {
+    QFileInfo fileInfo(filePath);
+    return fileInfo.baseName();
+}
+
+

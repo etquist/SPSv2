@@ -43,6 +43,16 @@ void gridNode::setSN(int newSN){
 }
 
 
+int gridNode::getUniqueID(){
+    return uniqueID;
+}
+
+void gridNode::setUniqueID(int newUniqueID){
+    uniqueID = newUniqueID;
+    return;
+}
+
+
 const QString& gridNode::getName() const{
     return name;
 }

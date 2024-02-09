@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "qlistwidget.h"
 #include <QMainWindow>
 #include <QDir>
 #include <QFileInfo>
@@ -17,6 +16,11 @@
 #include <QTreeView>
 #include <QDesktopServices>
 #include <QUrl>
+#include "dbManager.h"
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QCoreApplication>
 
 
 
@@ -49,7 +53,8 @@ private slots:
     // -------------------------------------
     // Catalog Slots
     // -------------------------------------
-    void insertCatalogEntry();
+    void insertCatalogEntry_connector();
+    void insertCatalogEntry(QString nameInpt = "default", QString typeInpt = "default", int uniqueID_Inpt = -1);
     QModelIndex insertCatalogLabel(QString name = "[Edit Database Name]", bool initialization = false);
 
     void on_catalogView_doubleClicked(const QModelIndex &index);
@@ -66,6 +71,10 @@ private slots:
 
     void databaseNetworkHelpButton();
     void databaseConstructorHelpButton();
+
+    // Open the file explorer and allow the user to select a database for use within the SPS
+    void importDatabase();
+
 
 private:
     Ui::MainWindow *ui;
