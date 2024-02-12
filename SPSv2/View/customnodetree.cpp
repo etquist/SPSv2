@@ -264,7 +264,7 @@ bool customNodeTree::setCatalogLabel(const QModelIndex &index, QString labelName
 
 // Check if the row at the specified index is a label
 bool customNodeTree::checkLabel(const QModelIndex &index){
-
+    // Returns 1 if the index is a label
     customTreeItem *item = getItem(index);
     if (!item){ return false; }
     return item->checkLabel();

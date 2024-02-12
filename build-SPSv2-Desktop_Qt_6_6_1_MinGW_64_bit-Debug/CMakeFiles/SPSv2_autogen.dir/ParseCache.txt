@@ -3,8 +3,8 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/commonmodegrid.h
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/grideditwindow.cpp
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/dbmanager.h
-C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/grid.h
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/gridnode.h
+C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/grid.h
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.cpp
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.h
  mmc:Q_OBJECT
@@ -1159,11 +1159,11 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/moc_predefs.h
-C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/mainwindow.cpp
  uic:ui_mainwindow.h
-C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/grideditwindow.h
+C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/main.cpp
+C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/grideditwindow.h
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.h
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/mainwindow.h
  mmc:Q_OBJECT
@@ -1172,6 +1172,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/6.6.1/mingw_64/include/QtCore/QDeadlineTimer
  mdp:C:/Qt/6.6.1/mingw_64/include/QtCore/QDebug
  mdp:C:/Qt/6.6.1/mingw_64/include/QtCore/QDir
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtCore/QDirIterator
  mdp:C:/Qt/6.6.1/mingw_64/include/QtCore/QFileInfo
  mdp:C:/Qt/6.6.1/mingw_64/include/QtCore/QHash
  mdp:C:/Qt/6.6.1/mingw_64/include/QtCore/QIODevice
@@ -1505,6 +1506,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlversion.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsScene
@@ -1512,24 +1514,33 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMainWindow
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QPushButton
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTreeView
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QVBoxLayout
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractbutton.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qboxlayout.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qfiledialog.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsitem.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsscene.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgridlayout.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qinputdialog.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlayout.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlayoutitem.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlineedit.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmainwindow.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qpushbutton.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h
@@ -1874,6 +1885,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h
+ mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/mainwindow.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/moc_predefs.h
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/commonmodegrid.cpp

@@ -76,6 +76,8 @@ private slots:
     void importDatabase();
 
 
+    void on_catalogView_1_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *Scene;

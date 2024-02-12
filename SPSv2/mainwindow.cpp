@@ -163,7 +163,7 @@ void MainWindow::insertCatalogEntry(QString nameInpt, QString typeInpt, int uniq
         int numInstances = checkNumComponentInstances(selection, myGrid.catalog, 0, Qt::CaseSensitive);
         QString defaultName = selection + QString::number(++numInstances);
 
-        name = promptForNewName(defaultName);  // Pass the default as the name
+        name = promptForText(defaultName);  // Pass the default as the name
         type = selection;
 
         // THIS NEEDS TO BE UPDATED SO THAT THE UNIQUE ID IS CREATED BY SQL DRIVER:
@@ -571,3 +571,67 @@ void MainWindow::importDatabase()
     return;
 
 }
+
+void MainWindow::on_catalogView_1_doubleClicked(const QModelIndex &index)
+{
+    // Make sure the index is valid
+    if(!index.isValid()){
+        return;
+    }
+
+
+    // Check to see what we selected here
+    if (myGrid.catalog->checkLabel(index)){
+        // if it's a database label
+        QString original = myGrid.catalog->getName(index);
+        QString modified = promptForText("Enter a New Name", "Enter the new name for the database. No duplicates allowed.");
+        if (modified == "userCNCL-exit"){
+            return;
+        }
+
+        if( myGrid.dbList.find(original) != myGrid.dbList.end()){
+            dbManager* selectedDB = &myGrid.dbList[original];
+            QString orig_dbName = selectedDB->getDBPath();
+            QString orig_connectionName = selectedDB->getConnectionName();
+
+            if (!selectedDB->changeDBName(modified)){
+                // Successful name change. We now have a modified database manager object
+
+                // Change the key associated with the old name to the new name
+                myGrid.dbList[modified] = *selectedDB;
+                myGrid.dbPathList[modified] = selectedDB->getDBPath();
+
+                myGrid.dbList.erase(orig_connectionName);
+                myGrid.dbPathList.erase(orig_connectionName);
+        }
+
+
+
+
+        } else{
+            // Unsuccessful, revert back to original name
+            myGrid.catalog->setCatalogLabel(index, original, Qt::EditRole);
+        }
+
+
+    } else{
+        // if it's a catalog entry, only allow editing on the name itself
+        if (index.column() == 0){
+            QString newName = promptForText("Enter a New Name", "Enter the new name for the database entry.");
+            if (newName == "userCNCL-exit"){
+                return;
+            }
+            myGrid.catalog->setData(index, newName);
+
+            dbManager* selectedDB = &myGrid.dbList[myGrid.catalog->get_dbName(index)];
+
+            int uniqueID = myGrid.catalog->getUniqueID(index);
+            selectedDB->setEntryName(uniqueID, newName);
+        }
+
+    }
+
+
+
+}
+

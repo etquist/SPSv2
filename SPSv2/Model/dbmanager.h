@@ -5,21 +5,38 @@
 #include <QtSql>
 #include <QDebug>
 #include <QSqlQuery>
+#include <filesystem>
+#include "helperFunctions.h"
 
 class dbManager
 {
 public:
+    dbManager();
     dbManager(const QString& path, QString dbNameInpt);
     ~dbManager();
 
     // returns all of the entries in the database (typically used for catalog initialization)
     std::vector<QList<QVariant>> getAllEntries_basicData();
 
+    // Creates an empty maint table with all the required headers
+    bool createNewMainTable();
+
+    // Attempts to change the database name. Returns 1 if unsuccessful
+    bool changeDBName(QString newName);
+
+    // Change the name assocated with uniqueID in the table
+    void setEntryName(int uniqueID, QString name);
+
+    QString getDBPath();
+    QString getConnectionName();
 private:
     QSqlDatabase my_db;
-    QString dbName;
-    QString connectionName;
+    QString dbName; // Assigned as the file path during creation
+    QString connectionName; // Assigned as the filename
 
+
+
+    bool openDB();
 };
 
 #endif // DBMANAGER_H

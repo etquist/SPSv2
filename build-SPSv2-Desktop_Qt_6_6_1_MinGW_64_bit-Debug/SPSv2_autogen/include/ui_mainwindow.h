@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -51,13 +52,13 @@ public:
     QWidget *DatabaseEditor;
     QGridLayout *gridLayout_6;
     QGridLayout *gridLayout_5;
+    QPushButton *importDatabase_tab1;
+    QPushButton *newDatabaseName_tab1;
     QLabel *label_3;
     QLabel *label_2;
-    QPushButton *newCatalogEntry_tab1;
-    QPushButton *newDatabaseName_tab1;
-    QPushButton *importDatabase_tab1;
-    QTreeView *catalogView_1;
     QPushButton *pushButton_8;
+    QPushButton *newCatalogEntry_tab1;
+    QTreeView *catalogView_1;
     QStackedWidget *PropertiesEditor;
     QWidget *ESMs;
     QGridLayout *gridLayout_7;
@@ -101,6 +102,7 @@ public:
     QSpacerItem *verticalSpacer_6;
     QWidget *tab_12;
     QWidget *tab_13;
+    QLabel *label_24;
     QWidget *Transformers;
     QGridLayout *gridLayout_8;
     QTabWidget *databaseEditor_2;
@@ -123,6 +125,7 @@ public:
     QLineEdit *lineEdit_18;
     QSpacerItem *verticalSpacer_9;
     QWidget *tab_19;
+    QLabel *label_47;
     QWidget *Converters;
     QGridLayout *gridLayout_41;
     QTabWidget *databaseEditor_7;
@@ -164,6 +167,7 @@ public:
     QLineEdit *lineEdit_63;
     QSpacerItem *verticalSpacer_24;
     QWidget *tab_49;
+    QLabel *label_23;
     QWidget *Gensets;
     QGridLayout *gridLayout_21;
     QTabWidget *databaseEditor_3;
@@ -206,18 +210,19 @@ public:
     QSpacerItem *verticalSpacer_12;
     QWidget *tab_24;
     QWidget *tab_25;
+    QLabel *label_26;
     QWidget *Buses;
     QGridLayout *gridLayout_26;
     QTabWidget *databaseEditor_4;
     QWidget *tab_26;
     QGridLayout *gridLayout_22;
+    QSpacerItem *verticalSpacer_13;
+    QLineEdit *lineEdit_28;
+    QLabel *label_44;
+    QLabel *label_45;
+    QLabel *label_43;
     QLineEdit *lineEdit_29;
     QLineEdit *lineEdit_30;
-    QLabel *label_44;
-    QLabel *label_43;
-    QLineEdit *lineEdit_28;
-    QSpacerItem *verticalSpacer_13;
-    QLabel *label_45;
     QWidget *tab_29;
     QGridLayout *gridLayout_25;
     QLabel *label_53;
@@ -228,18 +233,23 @@ public:
     QLineEdit *lineEdit_36;
     QSpacerItem *verticalSpacer_15;
     QWidget *tab_31;
+    QLabel *label_22;
     QWidget *Loads;
     QGridLayout *gridLayout_31;
     QTabWidget *databaseEditor_5;
     QWidget *tab_32;
     QGridLayout *gridLayout_27;
-    QLineEdit *lineEdit_37;
-    QLabel *label_56;
-    QLineEdit *lineEdit_38;
-    QLineEdit *lineEdit_39;
-    QLabel *label_57;
     QLabel *label_58;
-    QSpacerItem *verticalSpacer_16;
+    QComboBox *load_powerType_edit;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QGridLayout *gridLayout_23;
+    QSpacerItem *verticalSpacer_14;
+    QComboBox *load_phaseConfig_edit;
+    QLabel *label_57;
+    QWidget *page_2;
+    QLabel *label_56;
+    QLineEdit *load_name_edit;
     QWidget *tab_33;
     QGridLayout *gridLayout_28;
     QTableView *tableView_2;
@@ -268,6 +278,7 @@ public:
     QSpacerItem *verticalSpacer_18;
     QWidget *tab_36;
     QWidget *tab_37;
+    QLabel *label_46;
     QWidget *Filters;
     QGridLayout *gridLayout_36;
     QTabWidget *databaseEditor_6;
@@ -290,6 +301,7 @@ public:
     QLineEdit *lineEdit_54;
     QSpacerItem *verticalSpacer_21;
     QWidget *tab_43;
+    QLabel *label_25;
     QWidget *page_3;
     QGridLayout *gridLayout_14;
     QWidget *NetworkDesign;
@@ -377,6 +389,25 @@ public:
         gridLayout_6->setObjectName("gridLayout_6");
         gridLayout_5 = new QGridLayout();
         gridLayout_5->setObjectName("gridLayout_5");
+        importDatabase_tab1 = new QPushButton(DatabaseEditor);
+        importDatabase_tab1->setObjectName("importDatabase_tab1");
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(importDatabase_tab1->sizePolicy().hasHeightForWidth());
+        importDatabase_tab1->setSizePolicy(sizePolicy);
+        importDatabase_tab1->setMaximumSize(QSize(16777215, 16777215));
+
+        gridLayout_5->addWidget(importDatabase_tab1, 2, 0, 1, 2);
+
+        newDatabaseName_tab1 = new QPushButton(DatabaseEditor);
+        newDatabaseName_tab1->setObjectName("newDatabaseName_tab1");
+        sizePolicy.setHeightForWidth(newDatabaseName_tab1->sizePolicy().hasHeightForWidth());
+        newDatabaseName_tab1->setSizePolicy(sizePolicy);
+        newDatabaseName_tab1->setMaximumSize(QSize(150, 16777215));
+
+        gridLayout_5->addWidget(newDatabaseName_tab1, 1, 0, 1, 1);
+
         label_3 = new QLabel(DatabaseEditor);
         label_3->setObjectName("label_3");
         QFont font1;
@@ -389,52 +420,48 @@ public:
 
         label_2 = new QLabel(DatabaseEditor);
         label_2->setObjectName("label_2");
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
-        label_2->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
+        label_2->setSizePolicy(sizePolicy1);
         label_2->setMaximumSize(QSize(500, 16777215));
         label_2->setFont(font1);
         label_2->setAlignment(Qt::AlignCenter);
 
         gridLayout_5->addWidget(label_2, 0, 0, 1, 2);
 
+        pushButton_8 = new QPushButton(DatabaseEditor);
+        pushButton_8->setObjectName("pushButton_8");
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(pushButton_8->sizePolicy().hasHeightForWidth());
+        pushButton_8->setSizePolicy(sizePolicy2);
+        pushButton_8->setMaximumSize(QSize(25, 16777215));
+        QFont font2;
+        font2.setPointSize(10);
+        pushButton_8->setFont(font2);
+
+        gridLayout_5->addWidget(pushButton_8, 0, 4, 1, 1);
+
         newCatalogEntry_tab1 = new QPushButton(DatabaseEditor);
         newCatalogEntry_tab1->setObjectName("newCatalogEntry_tab1");
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(newCatalogEntry_tab1->sizePolicy().hasHeightForWidth());
-        newCatalogEntry_tab1->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(newCatalogEntry_tab1->sizePolicy().hasHeightForWidth());
+        newCatalogEntry_tab1->setSizePolicy(sizePolicy);
         newCatalogEntry_tab1->setMaximumSize(QSize(150, 16777215));
 
         gridLayout_5->addWidget(newCatalogEntry_tab1, 1, 1, 1, 1);
 
-        newDatabaseName_tab1 = new QPushButton(DatabaseEditor);
-        newDatabaseName_tab1->setObjectName("newDatabaseName_tab1");
-        sizePolicy1.setHeightForWidth(newDatabaseName_tab1->sizePolicy().hasHeightForWidth());
-        newDatabaseName_tab1->setSizePolicy(sizePolicy1);
-        newDatabaseName_tab1->setMaximumSize(QSize(150, 16777215));
-
-        gridLayout_5->addWidget(newDatabaseName_tab1, 1, 0, 1, 1);
-
-        importDatabase_tab1 = new QPushButton(DatabaseEditor);
-        importDatabase_tab1->setObjectName("importDatabase_tab1");
-        sizePolicy1.setHeightForWidth(importDatabase_tab1->sizePolicy().hasHeightForWidth());
-        importDatabase_tab1->setSizePolicy(sizePolicy1);
-        importDatabase_tab1->setMaximumSize(QSize(16777215, 16777215));
-
-        gridLayout_5->addWidget(importDatabase_tab1, 2, 0, 1, 2);
-
         catalogView_1 = new QTreeView(DatabaseEditor);
         catalogView_1->setObjectName("catalogView_1");
-        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(catalogView_1->sizePolicy().hasHeightForWidth());
-        catalogView_1->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(catalogView_1->sizePolicy().hasHeightForWidth());
+        catalogView_1->setSizePolicy(sizePolicy3);
         catalogView_1->setMaximumSize(QSize(16777215, 16777215));
+        catalogView_1->setEditTriggers(QAbstractItemView::EditKeyPressed);
         catalogView_1->setDragEnabled(true);
         catalogView_1->setDragDropOverwriteMode(true);
         catalogView_1->setDragDropMode(QAbstractItemView::InternalMove);
@@ -443,32 +470,18 @@ public:
 
         gridLayout_5->addWidget(catalogView_1, 3, 0, 1, 2);
 
-        pushButton_8 = new QPushButton(DatabaseEditor);
-        pushButton_8->setObjectName("pushButton_8");
-        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(pushButton_8->sizePolicy().hasHeightForWidth());
-        pushButton_8->setSizePolicy(sizePolicy3);
-        pushButton_8->setMaximumSize(QSize(25, 16777215));
-        QFont font2;
-        font2.setPointSize(10);
-        pushButton_8->setFont(font2);
-
-        gridLayout_5->addWidget(pushButton_8, 0, 4, 1, 1);
-
         PropertiesEditor = new QStackedWidget(DatabaseEditor);
         PropertiesEditor->setObjectName("PropertiesEditor");
-        sizePolicy.setHeightForWidth(PropertiesEditor->sizePolicy().hasHeightForWidth());
-        PropertiesEditor->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(PropertiesEditor->sizePolicy().hasHeightForWidth());
+        PropertiesEditor->setSizePolicy(sizePolicy1);
         ESMs = new QWidget();
         ESMs->setObjectName("ESMs");
         gridLayout_7 = new QGridLayout(ESMs);
         gridLayout_7->setObjectName("gridLayout_7");
         databaseEditor = new QTabWidget(ESMs);
         databaseEditor->setObjectName("databaseEditor");
-        sizePolicy2.setHeightForWidth(databaseEditor->sizePolicy().hasHeightForWidth());
-        databaseEditor->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(databaseEditor->sizePolicy().hasHeightForWidth());
+        databaseEditor->setSizePolicy(sizePolicy3);
         databaseEditor->setAutoFillBackground(true);
         tab_8 = new QWidget();
         tab_8->setObjectName("tab_8");
@@ -579,8 +592,8 @@ public:
 
         frame_2 = new QFrame(tab_9);
         frame_2->setObjectName("frame_2");
-        sizePolicy.setHeightForWidth(frame_2->sizePolicy().hasHeightForWidth());
-        frame_2->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(frame_2->sizePolicy().hasHeightForWidth());
+        frame_2->setSizePolicy(sizePolicy1);
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         label_16 = new QLabel(frame_2);
@@ -641,7 +654,12 @@ public:
         tab_13->setObjectName("tab_13");
         databaseEditor->addTab(tab_13, QString());
 
-        gridLayout_7->addWidget(databaseEditor, 0, 0, 1, 1);
+        gridLayout_7->addWidget(databaseEditor, 1, 0, 1, 1);
+
+        label_24 = new QLabel(ESMs);
+        label_24->setObjectName("label_24");
+
+        gridLayout_7->addWidget(label_24, 0, 0, 1, 1);
 
         PropertiesEditor->addWidget(ESMs);
         Transformers = new QWidget();
@@ -733,7 +751,12 @@ public:
         tab_19->setObjectName("tab_19");
         databaseEditor_2->addTab(tab_19, QString());
 
-        gridLayout_8->addWidget(databaseEditor_2, 0, 0, 1, 1);
+        gridLayout_8->addWidget(databaseEditor_2, 1, 0, 1, 1);
+
+        label_47 = new QLabel(Transformers);
+        label_47->setObjectName("label_47");
+
+        gridLayout_8->addWidget(label_47, 0, 0, 1, 1);
 
         PropertiesEditor->addWidget(Transformers);
         Converters = new QWidget();
@@ -852,8 +875,8 @@ public:
 
         frame_14 = new QFrame(tab_46);
         frame_14->setObjectName("frame_14");
-        sizePolicy.setHeightForWidth(frame_14->sizePolicy().hasHeightForWidth());
-        frame_14->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(frame_14->sizePolicy().hasHeightForWidth());
+        frame_14->setSizePolicy(sizePolicy1);
         frame_14->setFrameShape(QFrame::StyledPanel);
         frame_14->setFrameShadow(QFrame::Raised);
         label_90 = new QLabel(frame_14);
@@ -911,7 +934,12 @@ public:
         tab_49->setObjectName("tab_49");
         databaseEditor_7->addTab(tab_49, QString());
 
-        gridLayout_41->addWidget(databaseEditor_7, 0, 0, 1, 1);
+        gridLayout_41->addWidget(databaseEditor_7, 1, 0, 1, 1);
+
+        label_23 = new QLabel(Converters);
+        label_23->setObjectName("label_23");
+
+        gridLayout_41->addWidget(label_23, 0, 0, 1, 1);
 
         PropertiesEditor->addWidget(Converters);
         Gensets = new QWidget();
@@ -1030,8 +1058,8 @@ public:
 
         frame_6 = new QFrame(tab_22);
         frame_6->setObjectName("frame_6");
-        sizePolicy.setHeightForWidth(frame_6->sizePolicy().hasHeightForWidth());
-        frame_6->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(frame_6->sizePolicy().hasHeightForWidth());
+        frame_6->setSizePolicy(sizePolicy1);
         frame_6->setFrameShape(QFrame::StyledPanel);
         frame_6->setFrameShadow(QFrame::Raised);
         label_38 = new QLabel(frame_6);
@@ -1092,7 +1120,12 @@ public:
         tab_25->setObjectName("tab_25");
         databaseEditor_3->addTab(tab_25, QString());
 
-        gridLayout_21->addWidget(databaseEditor_3, 0, 0, 1, 1);
+        gridLayout_21->addWidget(databaseEditor_3, 1, 0, 1, 1);
+
+        label_26 = new QLabel(Gensets);
+        label_26->setObjectName("label_26");
+
+        gridLayout_21->addWidget(label_26, 0, 0, 1, 1);
 
         PropertiesEditor->addWidget(Gensets);
         Buses = new QWidget();
@@ -1106,39 +1139,39 @@ public:
         tab_26->setObjectName("tab_26");
         gridLayout_22 = new QGridLayout(tab_26);
         gridLayout_22->setObjectName("gridLayout_22");
-        lineEdit_29 = new QLineEdit(tab_26);
-        lineEdit_29->setObjectName("lineEdit_29");
+        verticalSpacer_13 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_22->addWidget(lineEdit_29, 2, 1, 1, 1);
-
-        lineEdit_30 = new QLineEdit(tab_26);
-        lineEdit_30->setObjectName("lineEdit_30");
-
-        gridLayout_22->addWidget(lineEdit_30, 0, 1, 1, 1);
-
-        label_44 = new QLabel(tab_26);
-        label_44->setObjectName("label_44");
-
-        gridLayout_22->addWidget(label_44, 3, 0, 1, 1);
-
-        label_43 = new QLabel(tab_26);
-        label_43->setObjectName("label_43");
-
-        gridLayout_22->addWidget(label_43, 2, 0, 1, 1);
+        gridLayout_22->addItem(verticalSpacer_13, 5, 1, 1, 1);
 
         lineEdit_28 = new QLineEdit(tab_26);
         lineEdit_28->setObjectName("lineEdit_28");
 
-        gridLayout_22->addWidget(lineEdit_28, 3, 1, 1, 1);
+        gridLayout_22->addWidget(lineEdit_28, 4, 1, 1, 1);
 
-        verticalSpacer_13 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        label_44 = new QLabel(tab_26);
+        label_44->setObjectName("label_44");
 
-        gridLayout_22->addItem(verticalSpacer_13, 4, 1, 1, 1);
+        gridLayout_22->addWidget(label_44, 4, 0, 1, 1);
 
         label_45 = new QLabel(tab_26);
         label_45->setObjectName("label_45");
 
-        gridLayout_22->addWidget(label_45, 0, 0, 1, 1);
+        gridLayout_22->addWidget(label_45, 1, 0, 1, 1);
+
+        label_43 = new QLabel(tab_26);
+        label_43->setObjectName("label_43");
+
+        gridLayout_22->addWidget(label_43, 3, 0, 1, 1);
+
+        lineEdit_29 = new QLineEdit(tab_26);
+        lineEdit_29->setObjectName("lineEdit_29");
+
+        gridLayout_22->addWidget(lineEdit_29, 3, 1, 1, 1);
+
+        lineEdit_30 = new QLineEdit(tab_26);
+        lineEdit_30->setObjectName("lineEdit_30");
+
+        gridLayout_22->addWidget(lineEdit_30, 1, 1, 1, 1);
 
         databaseEditor_4->addTab(tab_26, QString());
         tab_29 = new QWidget();
@@ -1184,7 +1217,13 @@ public:
         tab_31->setObjectName("tab_31");
         databaseEditor_4->addTab(tab_31, QString());
 
-        gridLayout_26->addWidget(databaseEditor_4, 0, 0, 1, 1);
+        gridLayout_26->addWidget(databaseEditor_4, 1, 0, 1, 2);
+
+        label_22 = new QLabel(Buses);
+        label_22->setObjectName("label_22");
+        label_22->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        gridLayout_26->addWidget(label_22, 0, 0, 1, 2);
 
         PropertiesEditor->addWidget(Buses);
         Loads = new QWidget();
@@ -1198,39 +1237,67 @@ public:
         tab_32->setObjectName("tab_32");
         gridLayout_27 = new QGridLayout(tab_32);
         gridLayout_27->setObjectName("gridLayout_27");
-        lineEdit_37 = new QLineEdit(tab_32);
-        lineEdit_37->setObjectName("lineEdit_37");
-
-        gridLayout_27->addWidget(lineEdit_37, 3, 1, 1, 1);
-
-        label_56 = new QLabel(tab_32);
-        label_56->setObjectName("label_56");
-
-        gridLayout_27->addWidget(label_56, 2, 0, 1, 1);
-
-        lineEdit_38 = new QLineEdit(tab_32);
-        lineEdit_38->setObjectName("lineEdit_38");
-
-        gridLayout_27->addWidget(lineEdit_38, 2, 1, 1, 1);
-
-        lineEdit_39 = new QLineEdit(tab_32);
-        lineEdit_39->setObjectName("lineEdit_39");
-
-        gridLayout_27->addWidget(lineEdit_39, 0, 1, 1, 1);
-
-        label_57 = new QLabel(tab_32);
-        label_57->setObjectName("label_57");
-
-        gridLayout_27->addWidget(label_57, 3, 0, 1, 1);
-
         label_58 = new QLabel(tab_32);
         label_58->setObjectName("label_58");
 
         gridLayout_27->addWidget(label_58, 0, 0, 1, 1);
 
-        verticalSpacer_16 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        load_powerType_edit = new QComboBox(tab_32);
+        load_powerType_edit->addItem(QString());
+        load_powerType_edit->addItem(QString());
+        load_powerType_edit->setObjectName("load_powerType_edit");
 
-        gridLayout_27->addItem(verticalSpacer_16, 4, 1, 1, 1);
+        gridLayout_27->addWidget(load_powerType_edit, 3, 2, 1, 1);
+
+        stackedWidget = new QStackedWidget(tab_32);
+        stackedWidget->setObjectName("stackedWidget");
+        page = new QWidget();
+        page->setObjectName("page");
+        gridLayout_23 = new QGridLayout(page);
+        gridLayout_23->setObjectName("gridLayout_23");
+        verticalSpacer_14 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_23->addItem(verticalSpacer_14, 1, 0, 1, 2);
+
+        load_phaseConfig_edit = new QComboBox(page);
+        load_phaseConfig_edit->addItem(QString());
+        load_phaseConfig_edit->addItem(QString());
+        load_phaseConfig_edit->addItem(QString());
+        load_phaseConfig_edit->addItem(QString());
+        load_phaseConfig_edit->addItem(QString());
+        load_phaseConfig_edit->addItem(QString());
+        load_phaseConfig_edit->addItem(QString());
+        load_phaseConfig_edit->addItem(QString());
+        load_phaseConfig_edit->setObjectName("load_phaseConfig_edit");
+
+        gridLayout_23->addWidget(load_phaseConfig_edit, 0, 1, 1, 1);
+
+        label_57 = new QLabel(page);
+        label_57->setObjectName("label_57");
+        QSizePolicy sizePolicy4(QSizePolicy::Maximum, QSizePolicy::Preferred);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(label_57->sizePolicy().hasHeightForWidth());
+        label_57->setSizePolicy(sizePolicy4);
+
+        gridLayout_23->addWidget(label_57, 0, 0, 1, 1);
+
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName("page_2");
+        stackedWidget->addWidget(page_2);
+
+        gridLayout_27->addWidget(stackedWidget, 4, 0, 1, 3);
+
+        label_56 = new QLabel(tab_32);
+        label_56->setObjectName("label_56");
+
+        gridLayout_27->addWidget(label_56, 3, 0, 1, 1);
+
+        load_name_edit = new QLineEdit(tab_32);
+        load_name_edit->setObjectName("load_name_edit");
+
+        gridLayout_27->addWidget(load_name_edit, 0, 2, 1, 1);
 
         databaseEditor_5->addTab(tab_32, QString());
         tab_33 = new QWidget();
@@ -1287,8 +1354,8 @@ public:
 
         frame_10 = new QFrame(tab_34);
         frame_10->setObjectName("frame_10");
-        sizePolicy.setHeightForWidth(frame_10->sizePolicy().hasHeightForWidth());
-        frame_10->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(frame_10->sizePolicy().hasHeightForWidth());
+        frame_10->setSizePolicy(sizePolicy1);
         frame_10->setFrameShape(QFrame::StyledPanel);
         frame_10->setFrameShadow(QFrame::Raised);
         gridLayout_15 = new QGridLayout(frame_10);
@@ -1354,7 +1421,12 @@ public:
         tab_37->setObjectName("tab_37");
         databaseEditor_5->addTab(tab_37, QString());
 
-        gridLayout_31->addWidget(databaseEditor_5, 0, 0, 1, 1);
+        gridLayout_31->addWidget(databaseEditor_5, 1, 0, 1, 1);
+
+        label_46 = new QLabel(Loads);
+        label_46->setObjectName("label_46");
+
+        gridLayout_31->addWidget(label_46, 0, 0, 1, 1);
 
         PropertiesEditor->addWidget(Loads);
         Filters = new QWidget();
@@ -1446,7 +1518,12 @@ public:
         tab_43->setObjectName("tab_43");
         databaseEditor_6->addTab(tab_43, QString());
 
-        gridLayout_36->addWidget(databaseEditor_6, 0, 0, 1, 1);
+        gridLayout_36->addWidget(databaseEditor_6, 1, 0, 1, 1);
+
+        label_25 = new QLabel(Filters);
+        label_25->setObjectName("label_25");
+
+        gridLayout_36->addWidget(label_25, 0, 0, 1, 1);
 
         PropertiesEditor->addWidget(Filters);
         page_3 = new QWidget();
@@ -1469,11 +1546,11 @@ public:
         gridLayout->setObjectName("gridLayout");
         componentsListView = new QTreeView(NetworkDesign);
         componentsListView->setObjectName("componentsListView");
-        QSizePolicy sizePolicy4(QSizePolicy::Maximum, QSizePolicy::Expanding);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(componentsListView->sizePolicy().hasHeightForWidth());
-        componentsListView->setSizePolicy(sizePolicy4);
+        QSizePolicy sizePolicy5(QSizePolicy::Maximum, QSizePolicy::Expanding);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(componentsListView->sizePolicy().hasHeightForWidth());
+        componentsListView->setSizePolicy(sizePolicy5);
         componentsListView->setFont(font2);
         componentsListView->setDragEnabled(true);
         componentsListView->setDragDropMode(QAbstractItemView::DragDrop);
@@ -1482,11 +1559,11 @@ public:
 
         Toolbar = new QFrame(NetworkDesign);
         Toolbar->setObjectName("Toolbar");
-        QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy5.setHorizontalStretch(0);
-        sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(Toolbar->sizePolicy().hasHeightForWidth());
-        Toolbar->setSizePolicy(sizePolicy5);
+        QSizePolicy sizePolicy6(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(Toolbar->sizePolicy().hasHeightForWidth());
+        Toolbar->setSizePolicy(sizePolicy6);
         Toolbar->setMinimumSize(QSize(0, 40));
         Toolbar->setFrameShape(QFrame::WinPanel);
         Toolbar->setFrameShadow(QFrame::Raised);
@@ -1508,8 +1585,8 @@ public:
 
         pushButton_6 = new QPushButton(NetworkDesign);
         pushButton_6->setObjectName("pushButton_6");
-        sizePolicy3.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
-        pushButton_6->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
+        pushButton_6->setSizePolicy(sizePolicy2);
         pushButton_6->setMaximumSize(QSize(25, 16777215));
         pushButton_6->setFont(font);
 
@@ -1517,19 +1594,19 @@ public:
 
         tableWidget = new QTableWidget(NetworkDesign);
         tableWidget->setObjectName("tableWidget");
-        QSizePolicy sizePolicy6(QSizePolicy::Expanding, QSizePolicy::Maximum);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
-        tableWidget->setSizePolicy(sizePolicy6);
+        QSizePolicy sizePolicy7(QSizePolicy::Expanding, QSizePolicy::Maximum);
+        sizePolicy7.setHorizontalStretch(0);
+        sizePolicy7.setVerticalStretch(0);
+        sizePolicy7.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
+        tableWidget->setSizePolicy(sizePolicy7);
         tableWidget->setFont(font2);
 
         gridLayout->addWidget(tableWidget, 6, 0, 1, 9);
 
         catalogView = new QTreeView(NetworkDesign);
         catalogView->setObjectName("catalogView");
-        sizePolicy4.setHeightForWidth(catalogView->sizePolicy().hasHeightForWidth());
-        catalogView->setSizePolicy(sizePolicy4);
+        sizePolicy5.setHeightForWidth(catalogView->sizePolicy().hasHeightForWidth());
+        catalogView->setSizePolicy(sizePolicy5);
         catalogView->setFont(font2);
         catalogView->setEditTriggers(QAbstractItemView::EditKeyPressed);
         catalogView->setSortingEnabled(false);
@@ -1563,8 +1640,8 @@ public:
 
         pushButton_7 = new QPushButton(NetworkDesign);
         pushButton_7->setObjectName("pushButton_7");
-        sizePolicy3.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
-        pushButton_7->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
+        pushButton_7->setSizePolicy(sizePolicy2);
         pushButton_7->setMaximumSize(QSize(25, 16777215));
         pushButton_7->setFont(font2);
 
@@ -1592,8 +1669,8 @@ public:
 
         gridEditWindow = new QFrame(NetworkDesign);
         gridEditWindow->setObjectName("gridEditWindow");
-        sizePolicy.setHeightForWidth(gridEditWindow->sizePolicy().hasHeightForWidth());
-        gridEditWindow->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(gridEditWindow->sizePolicy().hasHeightForWidth());
+        gridEditWindow->setSizePolicy(sizePolicy1);
         gridEditWindow->setMinimumSize(QSize(200, 200));
         gridEditWindow->setAutoFillBackground(false);
         gridEditWindow->setStyleSheet(QString::fromUtf8("background-color:  white"));
@@ -1732,10 +1809,11 @@ public:
         PropertiesEditor->setCurrentIndex(5);
         databaseEditor->setCurrentIndex(0);
         databaseEditor_2->setCurrentIndex(1);
-        databaseEditor_7->setCurrentIndex(1);
+        databaseEditor_7->setCurrentIndex(0);
         databaseEditor_3->setCurrentIndex(0);
         databaseEditor_4->setCurrentIndex(0);
         databaseEditor_5->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(0);
         databaseEditor_6->setCurrentIndex(0);
 
 
@@ -1752,12 +1830,12 @@ public:
         actionNew->setText(QCoreApplication::translate("MainWindow", "New", nullptr));
         actionLaunch_GitHub->setText(QCoreApplication::translate("MainWindow", "Launch GitHub", nullptr));
         actionOpen_Documentation_2->setText(QCoreApplication::translate("MainWindow", "Open Documentation", nullptr));
+        importDatabase_tab1->setText(QCoreApplication::translate("MainWindow", "Import Database", nullptr));
+        newDatabaseName_tab1->setText(QCoreApplication::translate("MainWindow", "New Database", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Item Properties", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Database", nullptr));
-        newCatalogEntry_tab1->setText(QCoreApplication::translate("MainWindow", "New Database Entry", nullptr));
-        newDatabaseName_tab1->setText(QCoreApplication::translate("MainWindow", "New Database", nullptr));
-        importDatabase_tab1->setText(QCoreApplication::translate("MainWindow", "Import Database", nullptr));
         pushButton_8->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
+        newCatalogEntry_tab1->setText(QCoreApplication::translate("MainWindow", "New Database Entry", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "Voltage", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
@@ -1777,6 +1855,7 @@ public:
         databaseEditor->setTabText(databaseEditor->indexOf(tab_11), QCoreApplication::translate("MainWindow", "Common Mode", nullptr));
         databaseEditor->setTabText(databaseEditor->indexOf(tab_12), QCoreApplication::translate("MainWindow", "Vibration Steady State", nullptr));
         databaseEditor->setTabText(databaseEditor->indexOf(tab_13), QCoreApplication::translate("MainWindow", "...", nullptr));
+        label_24->setText(QCoreApplication::translate("MainWindow", "ESM Properties", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "Voltage", nullptr));
         label_18->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_19->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
@@ -1786,6 +1865,7 @@ public:
         label_29->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         databaseEditor_2->setTabText(databaseEditor_2->indexOf(tab_17), QCoreApplication::translate("MainWindow", "Common Mode", nullptr));
         databaseEditor_2->setTabText(databaseEditor_2->indexOf(tab_19), QCoreApplication::translate("MainWindow", "...", nullptr));
+        label_47->setText(QCoreApplication::translate("MainWindow", "Transformer Properties", nullptr));
         label_82->setText(QCoreApplication::translate("MainWindow", "Voltage", nullptr));
         label_83->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_84->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
@@ -1804,6 +1884,7 @@ public:
         label_94->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         databaseEditor_7->setTabText(databaseEditor_7->indexOf(tab_47), QCoreApplication::translate("MainWindow", "Common Mode", nullptr));
         databaseEditor_7->setTabText(databaseEditor_7->indexOf(tab_49), QCoreApplication::translate("MainWindow", "...", nullptr));
+        label_23->setText(QCoreApplication::translate("MainWindow", "Converter Properties", nullptr));
         label_30->setText(QCoreApplication::translate("MainWindow", "Voltage", nullptr));
         label_31->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_32->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
@@ -1823,18 +1904,32 @@ public:
         databaseEditor_3->setTabText(databaseEditor_3->indexOf(tab_23), QCoreApplication::translate("MainWindow", "Common Mode", nullptr));
         databaseEditor_3->setTabText(databaseEditor_3->indexOf(tab_24), QCoreApplication::translate("MainWindow", "Vibration Steady State", nullptr));
         databaseEditor_3->setTabText(databaseEditor_3->indexOf(tab_25), QCoreApplication::translate("MainWindow", "...", nullptr));
+        label_26->setText(QCoreApplication::translate("MainWindow", "Generator Set Properties", nullptr));
         label_44->setText(QCoreApplication::translate("MainWindow", "Number of Breakers", nullptr));
-        label_43->setText(QCoreApplication::translate("MainWindow", "Voltage", nullptr));
         label_45->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
+        label_43->setText(QCoreApplication::translate("MainWindow", "Voltage", nullptr));
         databaseEditor_4->setTabText(databaseEditor_4->indexOf(tab_26), QCoreApplication::translate("MainWindow", "General", nullptr));
         label_53->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_54->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_55->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         databaseEditor_4->setTabText(databaseEditor_4->indexOf(tab_29), QCoreApplication::translate("MainWindow", "Common Mode", nullptr));
         databaseEditor_4->setTabText(databaseEditor_4->indexOf(tab_31), QCoreApplication::translate("MainWindow", "...", nullptr));
-        label_56->setText(QCoreApplication::translate("MainWindow", "Voltage", nullptr));
-        label_57->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
+        label_22->setText(QCoreApplication::translate("MainWindow", "Bus Properties", nullptr));
         label_58->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
+        load_powerType_edit->setItemText(0, QCoreApplication::translate("MainWindow", "AC", nullptr));
+        load_powerType_edit->setItemText(1, QCoreApplication::translate("MainWindow", "DC", nullptr));
+
+        load_phaseConfig_edit->setItemText(0, QCoreApplication::translate("MainWindow", "Single Phase - A", nullptr));
+        load_phaseConfig_edit->setItemText(1, QCoreApplication::translate("MainWindow", "Single Phase - B", nullptr));
+        load_phaseConfig_edit->setItemText(2, QCoreApplication::translate("MainWindow", "Single Phase - C", nullptr));
+        load_phaseConfig_edit->setItemText(3, QCoreApplication::translate("MainWindow", "Two Phase - A/B", nullptr));
+        load_phaseConfig_edit->setItemText(4, QCoreApplication::translate("MainWindow", "Two Phase - B/C", nullptr));
+        load_phaseConfig_edit->setItemText(5, QCoreApplication::translate("MainWindow", "Two Phase - A/C", nullptr));
+        load_phaseConfig_edit->setItemText(6, QCoreApplication::translate("MainWindow", "Three Phase - Delta", nullptr));
+        load_phaseConfig_edit->setItemText(7, QCoreApplication::translate("MainWindow", "Three Phase - Wye", nullptr));
+
+        label_57->setText(QCoreApplication::translate("MainWindow", "AC Phase Configuration", nullptr));
+        label_56->setText(QCoreApplication::translate("MainWindow", "Power Type", nullptr));
         databaseEditor_5->setTabText(databaseEditor_5->indexOf(tab_32), QCoreApplication::translate("MainWindow", "General", nullptr));
         label_62->setText(QCoreApplication::translate("MainWindow", "Trace Preview", nullptr));
         label_21->setText(QCoreApplication::translate("MainWindow", "State Definition", nullptr));
@@ -1849,6 +1944,7 @@ public:
         databaseEditor_5->setTabText(databaseEditor_5->indexOf(tab_35), QCoreApplication::translate("MainWindow", "Common Mode", nullptr));
         databaseEditor_5->setTabText(databaseEditor_5->indexOf(tab_36), QCoreApplication::translate("MainWindow", "Vibration Steady State", nullptr));
         databaseEditor_5->setTabText(databaseEditor_5->indexOf(tab_37), QCoreApplication::translate("MainWindow", "...", nullptr));
+        label_46->setText(QCoreApplication::translate("MainWindow", "Load Properties", nullptr));
         label_69->setText(QCoreApplication::translate("MainWindow", "Voltage", nullptr));
         label_70->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_71->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
@@ -1858,6 +1954,7 @@ public:
         label_81->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         databaseEditor_6->setTabText(databaseEditor_6->indexOf(tab_41), QCoreApplication::translate("MainWindow", "Common Mode", nullptr));
         databaseEditor_6->setTabText(databaseEditor_6->indexOf(tab_43), QCoreApplication::translate("MainWindow", "...", nullptr));
+        label_25->setText(QCoreApplication::translate("MainWindow", "Filter Properties", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(DatabaseEditor), QCoreApplication::translate("MainWindow", "Database Editor", nullptr));
         pushButton_6->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
         label_20->setText(QCoreApplication::translate("MainWindow", "Database", nullptr));

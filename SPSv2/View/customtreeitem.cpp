@@ -123,6 +123,7 @@ bool customTreeItem::removeColumns(int position, int columns)
 }
 
 // Change the value of a data point within the selected item
+// Returns true if successful
 bool customTreeItem::setData(int column, const QVariant &value)
 {
     if (column < 0 || column >= itemData.size())

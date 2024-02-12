@@ -62,11 +62,12 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "launchGitHub",
     "databaseNetworkHelpButton",
     "databaseConstructorHelpButton",
-    "importDatabase"
+    "importDatabase",
+    "on_catalogView_1_doubleClicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[48];
+    uint offsetsAndSizes[50];
     char stringdata0[11];
     char stringdata1[29];
     char stringdata2[1];
@@ -91,6 +92,7 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata21[26];
     char stringdata22[30];
     char stringdata23[15];
+    char stringdata24[31];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -119,7 +121,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(364, 12),  // "launchGitHub"
         QT_MOC_LITERAL(377, 25),  // "databaseNetworkHelpButton"
         QT_MOC_LITERAL(403, 29),  // "databaseConstructorHelpButton"
-        QT_MOC_LITERAL(433, 14)   // "importDatabase"
+        QT_MOC_LITERAL(433, 14),  // "importDatabase"
+        QT_MOC_LITERAL(448, 30)   // "on_catalogView_1_doubleClicked"
     },
     "MainWindow",
     "updateActions_catalogNetwork",
@@ -144,7 +147,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "launchGitHub",
     "databaseNetworkHelpButton",
     "databaseConstructorHelpButton",
-    "importDatabase"
+    "importDatabase",
+    "on_catalogView_1_doubleClicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -156,7 +160,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      21,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -164,27 +168,28 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  140,    2, 0x0a,    1 /* Public */,
-       3,    0,  141,    2, 0x0a,    2 /* Public */,
-       4,    0,  142,    2, 0x0a,    3 /* Public */,
-       5,    0,  143,    2, 0x08,    4 /* Private */,
-       6,    0,  144,    2, 0x08,    5 /* Private */,
-       7,    3,  145,    2, 0x08,    6 /* Private */,
-       7,    2,  152,    2, 0x28,   10 /* Private | MethodCloned */,
-       7,    1,  157,    2, 0x28,   13 /* Private | MethodCloned */,
-       7,    0,  160,    2, 0x28,   15 /* Private | MethodCloned */,
-      11,    2,  161,    2, 0x08,   16 /* Private */,
-      11,    1,  166,    2, 0x28,   19 /* Private | MethodCloned */,
-      11,    0,  169,    2, 0x28,   21 /* Private | MethodCloned */,
-      15,    1,  170,    2, 0x08,   22 /* Private */,
-      17,    0,  173,    2, 0x08,   24 /* Private */,
-      18,    1,  174,    2, 0x08,   25 /* Private */,
-      18,    0,  177,    2, 0x28,   27 /* Private | MethodCloned */,
-      19,    1,  178,    2, 0x08,   28 /* Private */,
-      20,    0,  181,    2, 0x08,   30 /* Private */,
-      21,    0,  182,    2, 0x08,   31 /* Private */,
-      22,    0,  183,    2, 0x08,   32 /* Private */,
-      23,    0,  184,    2, 0x08,   33 /* Private */,
+       1,    0,  146,    2, 0x0a,    1 /* Public */,
+       3,    0,  147,    2, 0x0a,    2 /* Public */,
+       4,    0,  148,    2, 0x0a,    3 /* Public */,
+       5,    0,  149,    2, 0x08,    4 /* Private */,
+       6,    0,  150,    2, 0x08,    5 /* Private */,
+       7,    3,  151,    2, 0x08,    6 /* Private */,
+       7,    2,  158,    2, 0x28,   10 /* Private | MethodCloned */,
+       7,    1,  163,    2, 0x28,   13 /* Private | MethodCloned */,
+       7,    0,  166,    2, 0x28,   15 /* Private | MethodCloned */,
+      11,    2,  167,    2, 0x08,   16 /* Private */,
+      11,    1,  172,    2, 0x28,   19 /* Private | MethodCloned */,
+      11,    0,  175,    2, 0x28,   21 /* Private | MethodCloned */,
+      15,    1,  176,    2, 0x08,   22 /* Private */,
+      17,    0,  179,    2, 0x08,   24 /* Private */,
+      18,    1,  180,    2, 0x08,   25 /* Private */,
+      18,    0,  183,    2, 0x28,   27 /* Private | MethodCloned */,
+      19,    1,  184,    2, 0x08,   28 /* Private */,
+      20,    0,  187,    2, 0x08,   30 /* Private */,
+      21,    0,  188,    2, 0x08,   31 /* Private */,
+      22,    0,  189,    2, 0x08,   32 /* Private */,
+      23,    0,  190,    2, 0x08,   33 /* Private */,
+      24,    1,  191,    2, 0x08,   34 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -208,6 +213,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 12,   16,
 
        0        // eod
 };
@@ -274,7 +280,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'databaseConstructorHelpButton'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'importDatabase'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_catalogView_1_doubleClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QModelIndex &, std::false_type>
     >,
     nullptr
 } };
@@ -309,6 +318,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 18: _t->databaseNetworkHelpButton(); break;
         case 19: _t->databaseConstructorHelpButton(); break;
         case 20: _t->importDatabase(); break;
+        case 21: _t->on_catalogView_1_doubleClicked((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
         default: ;
         }
     }
@@ -333,13 +343,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 22;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
+        if (_id < 22)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 21;
+        _id -= 22;
     }
     return _id;
 }

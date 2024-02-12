@@ -5,6 +5,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QDir \
+  C:/Qt/6.6.1/mingw_64/include/QtCore/QDirIterator \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QFileInfo \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QHash \
   C:/Qt/6.6.1/mingw_64/include/QtCore/QIODevice \
@@ -338,6 +339,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlversion.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsScene \
@@ -345,24 +347,33 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTreeView \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/QVBoxLayout \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qfiledialog.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qinputdialog.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
@@ -706,4 +717,5 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/gridnode.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.h \
-  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h
+  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h \
+  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.h
