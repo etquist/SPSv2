@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "qlistwidget.h"
 #include <QMainWindow>
 #include <QDir>
 #include <QFileInfo>
@@ -17,6 +16,12 @@
 #include <QTreeView>
 #include <QDesktopServices>
 #include <QUrl>
+#include "dbManager.h"
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QCoreApplication>
+#include "grideditwindow.h"
 
 
 
@@ -46,19 +51,12 @@ private slots:
     // void item_view_item_path_enter(QString itemPath, QPointF dropPos);
     void on_pushButton_clicked();
 
-    //void on_toolButton_4_clicked();
-
-
     // -------------------------------------
     // Catalog Slots
     // -------------------------------------
-    void insertCatalogEntry();
-    QModelIndex insertCatalogLabel(QString name = "[Edit Database Name]", bool initialization = false);
-    // void insertChild();
-    // bool insertColumn();
-    // void insertRow();
-    // bool removeColumn();
-    // void removeRow();
+    void newDatabaseEntryButton();
+    void insertCatalogEntry(QString nameInpt = "default", QString typeInpt = "default", int uniqueIDInpt = -1);
+    QModelIndex insertCatalogLabel(QString name = "[Edit Database Name]", bool promptForPath = false, bool initialization = false);
 
     void on_catalogView_doubleClicked(const QModelIndex &index);
 
@@ -74,6 +72,15 @@ private slots:
 
     void databaseNetworkHelpButton();
     void databaseConstructorHelpButton();
+
+    // Open the file explorer and allow the user to select a database for use within the SPS
+    void importDatabase();
+
+
+    void on_catalogView_1_doubleClicked(const QModelIndex &index);
+
+    void deleteCatalogEntry();
+
 
 private:
     Ui::MainWindow *ui;

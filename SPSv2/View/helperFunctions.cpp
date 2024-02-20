@@ -32,7 +32,7 @@ QString customQuestionBox(QString boxTitle, QString boxText, QString boxInformat
 }
 
 // Searches the referenced tree for all components that starts with the name
-// "catalogName"
+// "searchString"
 int checkNumComponentInstances(QString searchString, customNodeTree* tree, int colIdx, Qt::CaseSensitivity caseSensitivity){
     int numMatches = 0;
 
@@ -47,3 +47,42 @@ int checkNumComponentInstances(QString searchString, customNodeTree* tree, int c
 
     return numMatches;
 }
+
+QString promptForText(QString defaultName, QString msgPrompt){
+    QString defaultTxt = defaultName;
+    QString prompt = msgPrompt;
+    bool ok;
+    QString name = QInputDialog::getText(nullptr, "Item Name", prompt, QLineEdit::Normal, defaultTxt, &ok);
+
+    if (ok && !name.isEmpty()) {
+        return name;
+    } else {
+        return "userCNCL-exit"; // Abort the creation
+    }
+}
+
+// Uses QFileInfo's filename extraction
+QString extractFileName(const QString& filePath) {
+    QFileInfo fileInfo(filePath);
+    return fileInfo.baseName();
+}
+
+// Uses QFileInfo's file path extraction. ends in a slash
+QString extractFilePath(const QString& filePath) {
+    QFileInfo fileInfo(filePath);
+    return fileInfo.path();
+}
+
+bool isInDirectory(const QString& path, const QString& filename){
+    QDirIterator it(path, {"*.db"}, QDir::Files);
+    while (it.hasNext()){
+        QFileInfo f(it.next());
+        qDebug() << "Filename: " << f.baseName();
+        if (f.baseName().toLower() == filename.toLower()){ // account for case sensitivity by lowercasing it
+            qDebug() << "Filename '" << filename << "' was found in directory: '" << path << "'.";
+            return 1;
+        }
+    }
+    return 0;
+}
+

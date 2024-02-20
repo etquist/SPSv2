@@ -39,8 +39,14 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-
+    // returns the flags corresponding to the type of behavior that the model can accomodate
     Qt::ItemFlags flags(const QModelIndex &index) const override;
+    Qt::ItemFlags dropFlags(const QModelIndex &index) const;
+
+
+    // Returns the types of mime data the model can export
+    QStringList mimeTypes() const override;
+
     bool setData(const QModelIndex &index, const QVariant &value,
                  int role = Qt::EditRole) override;
     bool setHeaderData(int section, Qt::Orientation orientation,
@@ -59,7 +65,7 @@ public:
     bool setCatalogLabel(const QModelIndex &index, QString labelName, int role);
 
 
-    bool setFullData(const QModelIndex &index, const QList<QVariant> &data, int role = Qt::EditRole);
+    bool setFullData(QModelIndex &index, const QList<QVariant> &data, int role = Qt::EditRole);
 
     bool checkLabel(const QModelIndex &index);
 
@@ -71,9 +77,31 @@ public:
     customTreeItem* getRoot();
     bool isRoot(const QModelIndex &index);
 
-    // Setter and getter functions for checking dragability
+    // Get and set the unique ID
+    int getUniqueID(const QModelIndex &index);
+    void setUniqueID(QModelIndex &index, int inputID);
+
+    // Get and set the database Name
+    QString get_dbName(const QModelIndex &index);
+    void set_dbName(QModelIndex &index, QString inputName);
+
+    // Get and set this node's status as catalog or components list
+    bool checkCatalog(const QModelIndex &index);
+    void setCatalog(QModelIndex &index, bool setVal);
+
+    // Setter and getter functions for database name and ID
     void setExtDrag(bool draggable);
     bool checkExtDrag();
+
+    // These two are viable only for components list items (catalog == false)
+    int getSN(const QModelIndex &index) const;
+    void setSN(QModelIndex &index, int newSN);
+
+
+    // Find the child ("Name") within the database (index) specified
+    // Note. If two entries exist with the same name, this will only return the first one.
+    QModelIndex findChildInDB(QString queryName, QModelIndex indexInpt);
+    QMimeData* mimeData(const QModelIndex &index) const;
 
 private:
     void setupModelData(const QStringList &lines, customTreeItem *parent);
@@ -82,10 +110,10 @@ private:
     customTreeItem *rootItem;
     bool externalDragEnabled;
 
-    QMimeData* mimeData(const QModelIndex &index) const;
+
 
 protected:
-
+    void mousePressEvent(QMouseEvent *event);
 };
 
 #endif // customNodeTree_H

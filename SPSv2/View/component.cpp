@@ -1,39 +1,57 @@
 #include "component.h"
 
-component::component(QLabel *parent)
+component::component(QWidget *parent)
     : QLabel{parent}
 {}
+
+component::component(QWidget *parent, Grid* myGridRef_Inpt, int SN_Inpt)
+    : QLabel{parent}
+{
+    myGridRef = myGridRef_Inpt;
+    SN = SN_Inpt;
+
+    node = myGridRef->findNode(SN);
+
+    name = node->getName();
+    type = node->getType();
+
+    // Set the thumbnail based on the type of node
+    if (type == "Bus")          { thumbnail = QPixmap(":/images/bus.png");}
+    else if (type == "Load")    { thumbnail = QPixmap(":/images/load.png");}
+    else if (type == "ESM")     { thumbnail = QPixmap(":/images/esm.png");}
+    else if (type == "Filter")  { thumbnail = QPixmap(":/images/filter.png");}
+    else if (type == "Line")    { thumbnail = QPixmap(":/images/line.png");}
+    else if (type == "Generator")  { thumbnail = QPixmap(":/images/generator.png");}
+    else if (type == "Converter")  { thumbnail = QPixmap(":/images/converter.jpeg");}
+    else if (type == "Transformer")  { thumbnail = QPixmap(":/images/transformer.png");}
+    else                        { thumbnail = QPixmap(":/images/blank.png");}
+
+
+    QSize newSize(100, 100);    // resize to consistent size
+    thumbnail = thumbnail.scaled(newSize, Qt::KeepAspectRatio);
+}
 
 component::~component(){
 
 }
 
-component::component(gridNode* inputNodeRef){
 
-    nodeRef = inputNodeRef;
-    name = nodeRef->getName();
-    QString type = nodeRef->getType();
-
-
-    // Set the thumbnail based on the type of node
-    if (type == "bus")          { thumbnail = QPixmap(":/thumbnailImages/bus.png");}
-    else if (type == "load")    { thumbnail = QPixmap(":/thumbnailImages/load.png");}
-    else if (type == "esm")     { thumbnail = QPixmap(":/thumbnailImages/esm.png");}
-    else if (type == "filter")  { thumbnail = QPixmap(":/thumbnailImages/filter.png");}
-    else if (type == "edge")    { thumbnail = QPixmap(":/thumbnailImages/edge.png");}
-    else if (type == "genset")  { thumbnail = QPixmap(":/thumbnailImages/source.png");}
-    else                        { thumbnail = QPixmap(":/thumbnailImages/blank.png");}
-
-}
 
 QString component::checkNodeType(){
     // Returns the type of Node that the element is
 
     QString type;
-    type = nodeRef->getType();
     return type;
 }
 
-gridNode* component::getNodeData(){
-    return nodeRef;
+void component::updateThumbnail(){
+
+}
+
+QPixmap component::getThumbnail(){
+    return thumbnail;
+}
+
+int component::getSN(){
+    return SN;
 }
