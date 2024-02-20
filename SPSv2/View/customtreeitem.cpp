@@ -20,19 +20,13 @@ customTreeItem* customTreeItem::child(int number){
 }
 
 
-// // Serializer for mime Data
-// QDataStream& operator<<(QDataStream &out, customTreeItem* item){
-//     gridNode* nodeRef = item->returnRefNode();
-//     out << nodeRef; // just send the pointer
-//     return out;
-// }
+// Serializer for mime Data being sent
+QDataStream& operator<<(QDataStream &out, customTreeItem* item){
+    int SN = item->getSN();
+    out << SN; // just send the pointer
+    return out;
+}
 
-// QDataStream& operator>>(QDataStream &in, customTreeItem* item){
-//     gridNode* nodeRef;
-//     in >> nodeRef; // just send the pointer
-//     item->setRefNode(nodeRef);
-//     return in;
-// }
 
 // Count the number of children that this node has
 int customTreeItem::childCount() const
@@ -175,4 +169,13 @@ void customTreeItem::setCatalog(bool setVal){
 }
 
 
+
+int customTreeItem::getSN() const{
+    return SN;
+}
+
+void customTreeItem::setSN(int SN_inpt){
+    SN = SN_inpt;
+
+}
 

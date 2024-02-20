@@ -33,6 +33,7 @@ dbManager::~dbManager(){
 // Returns a lsit of the format <String Name, String Type, int uniqueID>
 std::vector<QList<QVariant>> dbManager::getAllEntries_basicData(){
     // Check if the databse is open and valid
+    my_db.open();
     if(!my_db.isOpen()){
         qDebug() << "Hey, I'm not open!" << Qt::endl;
     }
@@ -142,8 +143,13 @@ bool dbManager::changeDBName(QString newName){
 
     // Attempt to rename the file
     try {
-        QFile old(oldDBName);
-        old.rename(newConnectionName);
+        std::filesystem::path oldPath = oldDBName.toStdString();
+        QFile old(oldPath);
+        if (old.rename(newConnectionName)){
+            qDebug() << "Successful Renaming";
+        } else{
+            qDebug() << " Renaming Unsuccessful. The new filename already exists.";
+        }
     } catch (const std::exception& e) {
         qDebug() << "Exception caught while trying to rename the dabase (" << connectionName << ") to (" << newConnectionName << ").";
         return 1;
@@ -217,4 +223,87 @@ void dbManager::setEntryName(int uniqueID, QString name){
     query.exec();
 
     return;
+}
+
+// Returns the uniqueID if successful. Return -1 if unsuccessful
+int dbManager::newEntry(QString nameInpt, QString typeInpt){
+    my_db.open();
+    if(!my_db.isOpen()){
+        qDebug() << "Hey, I'm not open!" << Qt::endl;
+    }
+
+    QSqlQuery query(my_db);
+    // Prepare the query with placeholders
+    query.prepare("INSERT INTO main (Name, Type) VALUES (:name, :type)");
+
+    // Bind values to placeholders
+    query.bindValue(":name", nameInpt);
+    query.bindValue(":type", typeInpt);
+
+    if(!query.exec()){
+        qDebug() << "Error executing query 1:" << query.lastError().text();
+    }
+
+    QSqlQuery query2("SELECT UniqueID FROM main ORDER BY UniqueID DESC LIMIT 1", my_db);
+    if (!query2.exec()) {
+        qDebug() << "Error executing query 2:" << query2.lastError().text();
+    } else {
+        int uniqueID_id = query2.record().indexOf("UniqueID");
+
+        while(query2.next()){
+            int uniqueID = query2.value(uniqueID_id).toInt();
+            return uniqueID;
+        }
+    }
+    return -1;
+
+}
+
+
+// Returns true if successfully deleted.
+bool dbManager::deleteEntry(int uniqueID){
+    my_db.open();
+    if(!my_db.isOpen()){
+        qDebug() << "Hey, I'm not open!" << Qt::endl;
+    }
+
+    QSqlQuery deleteQuery(my_db);
+    deleteQuery.prepare("DELETE FROM main WHERE UniqueID = ?");
+    deleteQuery.addBindValue(uniqueID);
+
+    if (!deleteQuery.exec()) {
+        qDebug() << "Error deleting entry:" << deleteQuery.lastError().text();
+        return false;
+    } else {
+        qDebug() << "Entry with UniqueID" << uniqueID << "deleted successfully.";
+        return true;
+    }
+}
+
+// Returns -1 if not found, returns UniqueId if it is found
+int dbManager::queryEntry(QString nameQuery){
+    my_db.open();
+    if(!my_db.isOpen()){
+        qDebug() << "Hey, I'm not open!" << Qt::endl;
+    }
+
+    if (my_db.isOpen()) {
+        QSqlQuery query("SELECT Name, UniqueID FROM main", my_db);
+        if (!query.exec()) {
+            qDebug() << "Error executing query:" << query.lastError().text();
+        } else {
+            int name_id = query.record().indexOf("Name");
+            int type_id = query.record().indexOf("Type");
+            int uniqueID_id = query.record().indexOf("UniqueID");
+
+            while(query.next()){
+                QString name = query.value(name_id).toString();
+                int uniqueID = query.value(uniqueID_id).toInt();
+                if (name == nameQuery){
+                    return uniqueID; // If found, return the ID
+                }
+            }
+        }
+    }
+    return -1;  // If not found, return -1
 }

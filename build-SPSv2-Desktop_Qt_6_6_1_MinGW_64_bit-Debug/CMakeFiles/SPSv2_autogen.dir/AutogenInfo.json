@@ -295,14 +295,8 @@
 		"C:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets.cmake",
 		"C:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake",
 		"C:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake",
-		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/blank.png",
-		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/bus.png",
-		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/edge.png",
-		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/esm.png",
-		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/filter.png",
-		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/load.png",
-		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/source.png",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
+		"C:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/GNUInstallDirs.cmake",
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2",
 	"DEP_FILE" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/deps",
@@ -337,6 +331,12 @@
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.h",
 			"MU",
 			"WB4RFHLAU6/moc_component.cpp",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/componentsListViewer.h",
+			"MU",
+			"WB4RFHLAU6/moc_componentsListViewer.cpp",
 			null
 		],
 		[
@@ -474,6 +474,11 @@
 		],
 		[
 			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/componentsListViewer.cpp",
 			"MU",
 			null
 		],

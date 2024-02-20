@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>blank.png</file>
+        <file>bus.png</file>
+        <file>converter.jpeg</file>
+        <file>esm.png</file>
+        <file>filter.png</file>
+        <file>generator.png</file>
+        <file>line.png</file>
+        <file>load.png</file>
+        <file>transformer.jpeg</file>
+        <file>boat.png</file>
+    </qresource>
+</RCC>

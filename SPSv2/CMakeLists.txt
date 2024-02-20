@@ -37,22 +37,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         View/customTreeItem.h View/customTreeItem.cpp
         View/grideditwindow.h View/grideditwindow.cpp
         Model/dbmanager.h Model/dbmanager.cpp
+        View/componentsListViewer.h View/componentsListViewer.cpp
+        View/thumbnailImages/resources.qrc
     )
 
-
-# Thumbnail images:
-file(GLOB thumbnail_files "View/thumbnailImages/*")
-
-# Print the list of image files during CMake configuration
-message(STATUS "List of Image Files:")
-foreach(thumbnail_file ${thumbnail_files})
-    message(STATUS "  ${thumbnail_file}")
-endforeach()
-
-qt_add_resources(thumbnailImageRSC "thumbnailImages"
-    FILES
-        ${thumbnail_files}
-)
 
 
 # Define target properties for Android with Qt 6 as:

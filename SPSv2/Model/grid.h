@@ -2,7 +2,6 @@
 #define GRID_H
 
 
-#include <component.h>
 #include <gridnode.h>
 #include <commonmodegrid.h>
 #include "customnodetree.h"
@@ -56,6 +55,9 @@ public:
     // Custom DB Manager map from name to class here
     std::unordered_map<QString, dbManager> dbList;
     std::unordered_map<QString, QString> dbPathList;
+
+    // Returns the corresponding node from the "allNode" hash table
+    gridNode* findNode(int SN);
 
 private:
     // Bus list, with each element including a bus node reference and the its voltage

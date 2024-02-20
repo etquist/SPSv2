@@ -341,6 +341,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlversion.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QInputDialog \
@@ -348,6 +349,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStyledItemDelegate \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTreeView \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget \
@@ -511,10 +513,12 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_set.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h \
@@ -582,6 +586,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/random \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h \
@@ -718,4 +723,5 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h \
+  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/grideditwindow.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.h

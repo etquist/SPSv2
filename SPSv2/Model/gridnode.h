@@ -39,6 +39,8 @@ private:
     QString name;
     QString type;
 
+
+
 };
 
 

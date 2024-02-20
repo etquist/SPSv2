@@ -21,6 +21,7 @@
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QCoreApplication>
+#include "grideditwindow.h"
 
 
 
@@ -53,9 +54,9 @@ private slots:
     // -------------------------------------
     // Catalog Slots
     // -------------------------------------
-    void insertCatalogEntry_connector();
-    void insertCatalogEntry(QString nameInpt = "default", QString typeInpt = "default", int uniqueID_Inpt = -1);
-    QModelIndex insertCatalogLabel(QString name = "[Edit Database Name]", bool initialization = false);
+    void newDatabaseEntryButton();
+    void insertCatalogEntry(QString nameInpt = "default", QString typeInpt = "default", int uniqueIDInpt = -1);
+    QModelIndex insertCatalogLabel(QString name = "[Edit Database Name]", bool promptForPath = false, bool initialization = false);
 
     void on_catalogView_doubleClicked(const QModelIndex &index);
 
@@ -77,6 +78,9 @@ private slots:
 
 
     void on_catalogView_1_doubleClicked(const QModelIndex &index);
+
+    void deleteCatalogEntry();
+
 
 private:
     Ui::MainWindow *ui;

@@ -39,6 +39,9 @@ public:
     bool checkCatalog() const;
     void setCatalog(bool setVal);
 
+    int getSN() const;
+    void setSN(int SN_inpt);
+
     // This operator is used for serializing the node pointer, and can therefore be used
     //      to pass information between the component tree and the network editor
     friend QDataStream &operator<<(QDataStream &out, customTreeItem ptr);
@@ -47,13 +50,14 @@ public:
 
 private:
     QList<customTreeItem*> childItems;
-    QList<QVariant> itemData;   //[name, type]
+    QList<QVariant> itemData;   //[name, type] for catalog, [name, type, SN] for componentsList
     customTreeItem* parentItem;
     gridNode* refNode;      // COMP. LIST ONLY: Pointer to the gridNode referenced
     int dbUniqueID;    // This ID is associated with the SQLite databse which stores information for each catalog entry
     QString dbName;    // Name of the SQLite database
     bool label = true;      // True if this is a database name or label
     bool catalog = true;    // True if this is a catalog entry, false if it's an instance
+    int SN;                 // Associated hash key for the "allNodes" container in Grid
 };
 
 #endif // customTreeItem_H

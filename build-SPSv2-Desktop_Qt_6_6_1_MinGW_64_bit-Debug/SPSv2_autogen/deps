@@ -273,11 +273,15 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtCore/qxpfunctional.h \
 	C:/Qt/6.6.1/mingw_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/QDesktopServices \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/QDrag \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/QDragEnterEvent \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/QDragLeaveEvent \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/QDragMoveEvent \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/QDropEvent \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/QMouseEvent \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/QPixmap \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/QStandardItem \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/QStandardItemModel \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qaction.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qbitmap.h \
@@ -285,14 +289,18 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qcolor.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qcursor.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qdesktopservices.h \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/qdrag.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qevent.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qeventpoint.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qfont.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qfontinfo.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qfontmetrics.h \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication.h \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qicon.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qimage.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qinputdevice.h \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qkeysequence.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qpaintdevice.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qpainter.h \
@@ -308,6 +316,7 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qscreen.h \
+	C:/Qt/6.6.1/mingw_64/include/QtGui/qstandarditemmodel.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
 	C:/Qt/6.6.1/mingw_64/include/QtGui/qtextformat.h \
@@ -342,8 +351,10 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
 	C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
 	C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlversion.h \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsScene \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsView \
@@ -354,6 +365,7 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMainWindow \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QPushButton \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStyledItemDelegate \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTreeView \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QVBoxLayout \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget \
@@ -363,6 +375,7 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qboxlayout.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qcombobox.h \
 	C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h \
@@ -711,10 +724,12 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h \
+	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
+	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_set.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h \
@@ -782,6 +797,7 @@ SPSv2_autogen/timestamp: \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/random \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
+	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept \
 	C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h \
@@ -921,6 +937,8 @@ SPSv2_autogen/timestamp: \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/gridnode.h \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.cpp \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.h \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/componentsListViewer.cpp \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/componentsListViewer.h \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customgraphicswidget.cpp \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customgraphicswidget.h \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.cpp \
@@ -931,13 +949,7 @@ SPSv2_autogen/timestamp: \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/grideditwindow.h \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.cpp \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.h \
-	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/blank.png \
-	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/bus.png \
-	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/edge.png \
-	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/esm.png \
-	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/filter.png \
-	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/load.png \
-	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/source.png \
+	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/resources.qrc \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/main.cpp \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/mainwindow.cpp \
 	C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/mainwindow.h \

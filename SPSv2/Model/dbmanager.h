@@ -27,6 +27,15 @@ public:
     // Change the name assocated with uniqueID in the table
     void setEntryName(int uniqueID, QString name);
 
+    // Returns the uniqueID of the new entry
+    int newEntry(QString nameInpt, QString typeInpt);
+
+    // Returns true if successfully deleted.
+    bool deleteEntry(int uniqueID);
+
+    // Returns -1 if an entry with the queried name exists
+    int queryEntry(QString nameQuery);
+
     QString getDBPath();
     QString getConnectionName();
 private:

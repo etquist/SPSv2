@@ -251,3 +251,8 @@ QString Grid::newName(QString type, QString inptName){
         return "userCNCL-exit"; // Abort the creation
     }
 }
+
+// Returns the corresponding node
+gridNode* Grid::findNode(int SN){
+    return allNodes[SN];
+}

@@ -3,10 +3,10 @@
 
 #include <QObject>
 #include <QLabel>
-#include <gridnode.h>
 #include <QGraphicsPixmapItem>
 #include <QDir>
 #include <QCoreApplication>
+#include <grid.h>
 
 // This is a custom implementation of QLabel which will
 //      hold the relevant information needed for each
@@ -19,27 +19,29 @@ class component : public QLabel
 {
     Q_OBJECT
 public:
-    explicit component(QLabel *parent = nullptr);
+    explicit component(QWidget *parent = nullptr);
+    explicit component(QWidget *parent = nullptr, Grid* myGridRef_Inpt = nullptr, int SN = -1);
     ~component();
-
-    component(gridNode* nodeRef);   // Construct an instance with a node object.
 
     QString checkNodeType();    // Returns whether the node is a bus, esm, load, etc.
 
     gridNode* getNodeData(); // Returns all of the data for the referenced node
     void updateThumbnail();
     void updateName();
+    QPixmap getThumbnail();
+    int getSN();
 
 signals:
 
 
 private:
-    gridNode* nodeRef;  // Reference to the node which contains all the information for this type of component (catalogue entry)
-    QString name; // name of the component
+    QString type;
+    QString name; // name of the component -- Used to look up the corresponding gridNode in the database hash table
     QPixmap thumbnail; // A reference to the QGraphicsPixmapItem (image) that will appear on the screen of the microgrid simulator
+    int SN; // Serial number reference to the gridNode storage container in myGrid
+    gridNode* node;
 
-
-
+    Grid* myGridRef;
 };
 
 #endif // COMPONENT_H

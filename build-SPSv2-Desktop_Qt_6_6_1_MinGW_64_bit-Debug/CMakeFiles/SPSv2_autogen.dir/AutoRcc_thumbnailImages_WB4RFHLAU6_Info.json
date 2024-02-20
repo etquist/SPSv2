@@ -1,0 +1,30 @@
+{
+	"BUILD_DIR" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2",
+	"CMAKE_SOURCE_DIR" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2",
+	"INCLUDE_DIR" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/SPSv2_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/filter.png",
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/blank.png",
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/transformer.jpeg",
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/esm.png",
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/generator.png",
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/converter.jpeg",
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/bus.png",
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/line.png",
+		"C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages/load.png"
+	],
+	"LOCK_FILE" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/CMakeFiles/SPSv2_autogen.dir/AutoRcc_thumbnailImages_WB4RFHLAU6_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "thumbnailImages" ],
+	"OUTPUT_CHECKSUM" : "WB4RFHLAU6",
+	"OUTPUT_NAME" : "qrc_thumbnailImages.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.6.1/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/CMakeFiles/SPSv2_autogen.dir/AutoRcc_thumbnailImages_WB4RFHLAU6_Used.txt",
+	"SOURCE" : "C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/thumbnailImages.qrc",
+	"VERBOSITY" : 0
+}

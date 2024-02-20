@@ -33,6 +33,8 @@
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <componentslistviewer.h>
+#include <grideditwindow.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -52,13 +54,14 @@ public:
     QWidget *DatabaseEditor;
     QGridLayout *gridLayout_6;
     QGridLayout *gridLayout_5;
-    QPushButton *importDatabase_tab1;
     QPushButton *newDatabaseName_tab1;
-    QLabel *label_3;
     QLabel *label_2;
-    QPushButton *pushButton_8;
     QPushButton *newCatalogEntry_tab1;
     QTreeView *catalogView_1;
+    QPushButton *pushButton_8;
+    QPushButton *importDatabase_tab1;
+    QLabel *label_3;
+    QPushButton *deleteEntry_button;
     QStackedWidget *PropertiesEditor;
     QWidget *ESMs;
     QGridLayout *gridLayout_7;
@@ -307,7 +310,7 @@ public:
     QWidget *NetworkDesign;
     QGridLayout *gridLayout_3;
     QGridLayout *gridLayout;
-    QTreeView *componentsListView;
+    componentsListViewer *componentsListView;
     QFrame *Toolbar;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_3;
@@ -325,7 +328,7 @@ public:
     QSpacerItem *horizontalSpacer;
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *verticalSpacer_4;
-    QFrame *gridEditWindow;
+    gridEditWindow *gridEditor;
     QWidget *SystemDefinition;
     QWidget *MissionDefinition;
     QWidget *Timeline;
@@ -389,34 +392,16 @@ public:
         gridLayout_6->setObjectName("gridLayout_6");
         gridLayout_5 = new QGridLayout();
         gridLayout_5->setObjectName("gridLayout_5");
-        importDatabase_tab1 = new QPushButton(DatabaseEditor);
-        importDatabase_tab1->setObjectName("importDatabase_tab1");
+        newDatabaseName_tab1 = new QPushButton(DatabaseEditor);
+        newDatabaseName_tab1->setObjectName("newDatabaseName_tab1");
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(importDatabase_tab1->sizePolicy().hasHeightForWidth());
-        importDatabase_tab1->setSizePolicy(sizePolicy);
-        importDatabase_tab1->setMaximumSize(QSize(16777215, 16777215));
-
-        gridLayout_5->addWidget(importDatabase_tab1, 2, 0, 1, 2);
-
-        newDatabaseName_tab1 = new QPushButton(DatabaseEditor);
-        newDatabaseName_tab1->setObjectName("newDatabaseName_tab1");
         sizePolicy.setHeightForWidth(newDatabaseName_tab1->sizePolicy().hasHeightForWidth());
         newDatabaseName_tab1->setSizePolicy(sizePolicy);
         newDatabaseName_tab1->setMaximumSize(QSize(150, 16777215));
 
         gridLayout_5->addWidget(newDatabaseName_tab1, 1, 0, 1, 1);
-
-        label_3 = new QLabel(DatabaseEditor);
-        label_3->setObjectName("label_3");
-        QFont font1;
-        font1.setPointSize(11);
-        font1.setBold(true);
-        label_3->setFont(font1);
-        label_3->setAlignment(Qt::AlignCenter);
-
-        gridLayout_5->addWidget(label_3, 0, 2, 1, 2);
 
         label_2 = new QLabel(DatabaseEditor);
         label_2->setObjectName("label_2");
@@ -426,24 +411,13 @@ public:
         sizePolicy1.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
         label_2->setSizePolicy(sizePolicy1);
         label_2->setMaximumSize(QSize(500, 16777215));
+        QFont font1;
+        font1.setPointSize(11);
+        font1.setBold(true);
         label_2->setFont(font1);
         label_2->setAlignment(Qt::AlignCenter);
 
         gridLayout_5->addWidget(label_2, 0, 0, 1, 2);
-
-        pushButton_8 = new QPushButton(DatabaseEditor);
-        pushButton_8->setObjectName("pushButton_8");
-        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(pushButton_8->sizePolicy().hasHeightForWidth());
-        pushButton_8->setSizePolicy(sizePolicy2);
-        pushButton_8->setMaximumSize(QSize(25, 16777215));
-        QFont font2;
-        font2.setPointSize(10);
-        pushButton_8->setFont(font2);
-
-        gridLayout_5->addWidget(pushButton_8, 0, 4, 1, 1);
 
         newCatalogEntry_tab1 = new QPushButton(DatabaseEditor);
         newCatalogEntry_tab1->setObjectName("newCatalogEntry_tab1");
@@ -455,11 +429,11 @@ public:
 
         catalogView_1 = new QTreeView(DatabaseEditor);
         catalogView_1->setObjectName("catalogView_1");
-        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(catalogView_1->sizePolicy().hasHeightForWidth());
-        catalogView_1->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(catalogView_1->sizePolicy().hasHeightForWidth());
+        catalogView_1->setSizePolicy(sizePolicy2);
         catalogView_1->setMaximumSize(QSize(16777215, 16777215));
         catalogView_1->setEditTriggers(QAbstractItemView::EditKeyPressed);
         catalogView_1->setDragEnabled(true);
@@ -469,6 +443,46 @@ public:
         catalogView_1->setSortingEnabled(true);
 
         gridLayout_5->addWidget(catalogView_1, 3, 0, 1, 2);
+
+        pushButton_8 = new QPushButton(DatabaseEditor);
+        pushButton_8->setObjectName("pushButton_8");
+        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(pushButton_8->sizePolicy().hasHeightForWidth());
+        pushButton_8->setSizePolicy(sizePolicy3);
+        pushButton_8->setMaximumSize(QSize(25, 16777215));
+        QFont font2;
+        font2.setPointSize(10);
+        pushButton_8->setFont(font2);
+
+        gridLayout_5->addWidget(pushButton_8, 0, 4, 1, 1);
+
+        importDatabase_tab1 = new QPushButton(DatabaseEditor);
+        importDatabase_tab1->setObjectName("importDatabase_tab1");
+        sizePolicy.setHeightForWidth(importDatabase_tab1->sizePolicy().hasHeightForWidth());
+        importDatabase_tab1->setSizePolicy(sizePolicy);
+        importDatabase_tab1->setMaximumSize(QSize(16777215, 16777215));
+
+        gridLayout_5->addWidget(importDatabase_tab1, 2, 0, 1, 2);
+
+        label_3 = new QLabel(DatabaseEditor);
+        label_3->setObjectName("label_3");
+        label_3->setFont(font1);
+        label_3->setAlignment(Qt::AlignCenter);
+
+        gridLayout_5->addWidget(label_3, 0, 2, 1, 2);
+
+        deleteEntry_button = new QPushButton(DatabaseEditor);
+        deleteEntry_button->setObjectName("deleteEntry_button");
+        QPalette palette;
+        QBrush brush(QColor(255, 0, 0, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        deleteEntry_button->setPalette(palette);
+
+        gridLayout_5->addWidget(deleteEntry_button, 4, 0, 1, 2);
 
         PropertiesEditor = new QStackedWidget(DatabaseEditor);
         PropertiesEditor->setObjectName("PropertiesEditor");
@@ -480,8 +494,8 @@ public:
         gridLayout_7->setObjectName("gridLayout_7");
         databaseEditor = new QTabWidget(ESMs);
         databaseEditor->setObjectName("databaseEditor");
-        sizePolicy3.setHeightForWidth(databaseEditor->sizePolicy().hasHeightForWidth());
-        databaseEditor->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(databaseEditor->sizePolicy().hasHeightForWidth());
+        databaseEditor->setSizePolicy(sizePolicy2);
         databaseEditor->setAutoFillBackground(true);
         tab_8 = new QWidget();
         tab_8->setObjectName("tab_8");
@@ -1532,7 +1546,7 @@ public:
         gridLayout_14->setObjectName("gridLayout_14");
         PropertiesEditor->addWidget(page_3);
 
-        gridLayout_5->addWidget(PropertiesEditor, 1, 2, 3, 3);
+        gridLayout_5->addWidget(PropertiesEditor, 1, 2, 4, 3);
 
 
         gridLayout_6->addLayout(gridLayout_5, 0, 0, 1, 1);
@@ -1544,7 +1558,7 @@ public:
         gridLayout_3->setObjectName("gridLayout_3");
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
-        componentsListView = new QTreeView(NetworkDesign);
+        componentsListView = new componentsListViewer(NetworkDesign);
         componentsListView->setObjectName("componentsListView");
         QSizePolicy sizePolicy5(QSizePolicy::Maximum, QSizePolicy::Expanding);
         sizePolicy5.setHorizontalStretch(0);
@@ -1553,7 +1567,7 @@ public:
         componentsListView->setSizePolicy(sizePolicy5);
         componentsListView->setFont(font2);
         componentsListView->setDragEnabled(true);
-        componentsListView->setDragDropMode(QAbstractItemView::DragDrop);
+        componentsListView->setDragDropMode(QAbstractItemView::DragOnly);
 
         gridLayout->addWidget(componentsListView, 4, 0, 1, 3);
 
@@ -1585,8 +1599,8 @@ public:
 
         pushButton_6 = new QPushButton(NetworkDesign);
         pushButton_6->setObjectName("pushButton_6");
-        sizePolicy2.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
-        pushButton_6->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
+        pushButton_6->setSizePolicy(sizePolicy3);
         pushButton_6->setMaximumSize(QSize(25, 16777215));
         pushButton_6->setFont(font);
 
@@ -1609,6 +1623,9 @@ public:
         catalogView->setSizePolicy(sizePolicy5);
         catalogView->setFont(font2);
         catalogView->setEditTriggers(QAbstractItemView::EditKeyPressed);
+        catalogView->setDragEnabled(true);
+        catalogView->setDragDropMode(QAbstractItemView::DragOnly);
+        catalogView->setDefaultDropAction(Qt::IgnoreAction);
         catalogView->setSortingEnabled(false);
 
         gridLayout->addWidget(catalogView, 4, 6, 1, 3);
@@ -1640,8 +1657,8 @@ public:
 
         pushButton_7 = new QPushButton(NetworkDesign);
         pushButton_7->setObjectName("pushButton_7");
-        sizePolicy2.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
-        pushButton_7->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
+        pushButton_7->setSizePolicy(sizePolicy3);
         pushButton_7->setMaximumSize(QSize(25, 16777215));
         pushButton_7->setFont(font2);
 
@@ -1667,17 +1684,17 @@ public:
 
         gridLayout->addItem(verticalSpacer_4, 5, 6, 1, 3);
 
-        gridEditWindow = new QFrame(NetworkDesign);
-        gridEditWindow->setObjectName("gridEditWindow");
-        sizePolicy1.setHeightForWidth(gridEditWindow->sizePolicy().hasHeightForWidth());
-        gridEditWindow->setSizePolicy(sizePolicy1);
-        gridEditWindow->setMinimumSize(QSize(200, 200));
-        gridEditWindow->setAutoFillBackground(false);
-        gridEditWindow->setStyleSheet(QString::fromUtf8("background-color:  white"));
-        gridEditWindow->setFrameShape(QFrame::Box);
-        gridEditWindow->setFrameShadow(QFrame::Plain);
+        gridEditor = new gridEditWindow(NetworkDesign);
+        gridEditor->setObjectName("gridEditor");
+        sizePolicy1.setHeightForWidth(gridEditor->sizePolicy().hasHeightForWidth());
+        gridEditor->setSizePolicy(sizePolicy1);
+        gridEditor->setMinimumSize(QSize(200, 200));
+        gridEditor->setAutoFillBackground(false);
+        gridEditor->setStyleSheet(QString::fromUtf8("background-color:  white"));
+        gridEditor->setFrameShape(QFrame::Box);
+        gridEditor->setFrameShadow(QFrame::Plain);
 
-        gridLayout->addWidget(gridEditWindow, 2, 4, 4, 1);
+        gridLayout->addWidget(gridEditor, 2, 4, 4, 1);
 
 
         gridLayout_3->addLayout(gridLayout, 0, 0, 1, 1);
@@ -1805,7 +1822,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
         PropertiesEditor->setCurrentIndex(5);
         databaseEditor->setCurrentIndex(0);
         databaseEditor_2->setCurrentIndex(1);
@@ -1830,12 +1847,13 @@ public:
         actionNew->setText(QCoreApplication::translate("MainWindow", "New", nullptr));
         actionLaunch_GitHub->setText(QCoreApplication::translate("MainWindow", "Launch GitHub", nullptr));
         actionOpen_Documentation_2->setText(QCoreApplication::translate("MainWindow", "Open Documentation", nullptr));
-        importDatabase_tab1->setText(QCoreApplication::translate("MainWindow", "Import Database", nullptr));
         newDatabaseName_tab1->setText(QCoreApplication::translate("MainWindow", "New Database", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "Item Properties", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Database", nullptr));
-        pushButton_8->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
         newCatalogEntry_tab1->setText(QCoreApplication::translate("MainWindow", "New Database Entry", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
+        importDatabase_tab1->setText(QCoreApplication::translate("MainWindow", "Import Database", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Item Properties", nullptr));
+        deleteEntry_button->setText(QCoreApplication::translate("MainWindow", "Delete Database Entry", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "Voltage", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));

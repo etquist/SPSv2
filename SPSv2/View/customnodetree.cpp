@@ -63,7 +63,38 @@ Qt::ItemFlags customNodeTree::flags(const QModelIndex &index) const
     if (!index.isValid())
         return Qt::NoItemFlags;
 
-    return Qt::ItemIsEditable | QAbstractItemModel::flags(index);
+    if (!getItem(index)->checkCatalog()){
+        // Components list items are draggable (externally)
+        return Qt::ItemIsEditable | Qt::ItemIsDragEnabled | QAbstractItemModel::flags(index);
+    }
+    else{
+        // Catalog item
+        return Qt::ItemIsEditable | QAbstractItemModel::flags(index);
+    }
+
+}
+
+Qt::ItemFlags customNodeTree::dropFlags(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return Qt::NoItemFlags;
+
+    if (!getItem(index)->checkCatalog()){
+        // Components list items are draggable (externally)
+        return Qt::ItemIsDragEnabled;
+    }
+    else{
+        // Catalog item
+        return Qt::NoItemFlags;
+    }
+
+}
+
+QStringList customNodeTree::mimeTypes() const
+{
+    QStringList types;
+    types << "compExport";
+    return types;
 }
 
 
@@ -213,7 +244,7 @@ bool customNodeTree::setHeaderData(int section, Qt::Orientation orientation,
     return result;
 }
 
-bool customNodeTree::setFullData(const QModelIndex &index, const QList<QVariant> &data, int role){
+bool customNodeTree::setFullData(QModelIndex &index, const QList<QVariant> &data, int role){
 
     if (role != Qt::EditRole)
         return false;
@@ -221,10 +252,14 @@ bool customNodeTree::setFullData(const QModelIndex &index, const QList<QVariant>
     customTreeItem *item = getItem(index);
     bool result;
     for(size_t i = 0; i < data.size(); i++){
+        if (i == 2){
+            setSN(index, data.at(i).toInt());   // This is the component list's serial number
+        }
         result = item->setData(i, data.at(i));
         if (!result){
             break;
         }
+
     }
     bool label = false;
     item->setLabel(label);  // This is an actual catalog entry
@@ -239,9 +274,10 @@ QMimeData* customNodeTree::mimeData(const QModelIndex &index) const {
     QMimeData* mimeData = new QMimeData();
     QByteArray encodedData;
     QDataStream dataStream(&encodedData, QIODevice::WriteOnly);
-    //encodedData << getItem(index)->returnRefNode();
+    dataStream << getItem(index)->getSN();
 
-    mimeData->setData("componentList_networkEditor_type", encodedData);;
+
+    mimeData->setData("compExport", encodedData);;
     return mimeData;
 }
 
@@ -397,4 +433,64 @@ void customNodeTree::setupModelData(const QStringList &lines, customTreeItem *pa
         ++number;
     }
 }
+
+
+
+
+// Viable only for components list items (catalog == false)
+int customNodeTree::getSN(const QModelIndex &index) const{
+    if (!index.isValid()){
+        return -1;  // Invalid
+    }
+    const customTreeItem* item = getItem(index);
+
+    if (item->checkCatalog() == true){
+        return -1; // Catalog item, not comp list item.
+    }
+
+    return item->getSN();
+}
+
+// Viable only for components list items (catalog == false)
+void customNodeTree::setSN(QModelIndex &index, int newSN){
+    if (!index.isValid()){
+        return;  // Invalid
+    }
+
+    customTreeItem* item = getItem(index);
+
+    if (item->checkCatalog() == true){
+        return; // Catalog item, not comp list item.
+    }
+
+    item->setSN(newSN);
+    return;
+}
+
+// Note. If two entries exist with the same name, this will only return the first one.
+QModelIndex customNodeTree::findChildInDB(QString queryName, QModelIndex indexInpt){
+    QModelIndex dbLabel = indexInpt;
+    while (!checkLabel(dbLabel)){ // While the selection is not a database label
+        if (isRoot(dbLabel.parent())){
+            return dbLabel; // Don't go past the root
+        }
+        dbLabel = dbLabel.parent(); // Keep going higher
+    }
+
+
+    int numChilds = rowCount(dbLabel);
+
+    for (int child = 0; child < numChilds; ++child) {
+        customTreeItem childItem = *getItem(dbLabel)->child(child);
+        // Do something with the child index, e.g., access data
+        QString name = childItem.data(0).toString();
+
+        if(name == queryName){
+            return index(child, 0, dbLabel);
+        }
+        // Recursively iterate through children of the child index
+    }
+    return QModelIndex();
+}
+
 
