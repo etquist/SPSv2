@@ -1,0 +1,23 @@
+# ninja log v5
+1	1134	7301609026002505	SPSv2_autogen/timestamp	ec11e7ae65085843
+1	1134	7301609026002505	SPSv2_autogen/mocs_compilation.cpp	ec11e7ae65085843
+1	1134	7301609026002505	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Release/SPSv2_autogen/timestamp	ec11e7ae65085843
+1	1134	7301609026002505	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Release/SPSv2_autogen/mocs_compilation.cpp	ec11e7ae65085843
+1135	1236	7301609027608516	SPSv2_autogen/6KQPTAECHS/qrc_resources.cpp	a05034a441b14c28
+1135	1236	7301609027608516	C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/build-SPSv2-Desktop_Qt_6_6_1_MinGW_64_bit-Release/SPSv2_autogen/6KQPTAECHS/qrc_resources.cpp	a05034a441b14c28
+1273	1633	7301609030083313	CMakeFiles/SPSv2.dir/Model/commonmodegrid.cpp.obj	d394a2e5d5e63823
+1299	5547	7301609070724426	CMakeFiles/SPSv2.dir/View/customtreeitem.cpp.obj	f2ad2ad3ea240706
+1281	5552	7301609070777538	CMakeFiles/SPSv2.dir/View/helperFunctions.cpp.obj	8343cf6d5418aaad
+1637	5614	7301609071347834	CMakeFiles/SPSv2.dir/View/componentsListViewer.cpp.obj	f43c12292ae2ece
+1258	5622	7301609071536403	CMakeFiles/SPSv2.dir/Model/gridnode.cpp.obj	19f6ddd66c40c585
+1290	5638	7301609071697298	CMakeFiles/SPSv2.dir/View/customnodetree.cpp.obj	ce05ea2346985cb4
+1252	5657	7301609071801962	CMakeFiles/SPSv2.dir/View/customgraphicswidget.cpp.obj	d54b0b5762fda21f
+1342	5673	7301609072030015	CMakeFiles/SPSv2.dir/SPSv2_autogen/6KQPTAECHS/qrc_resources.cpp.obj	c2fe4a430acaf57e
+1262	7510	7301609090369815	CMakeFiles/SPSv2.dir/View/component.cpp.obj	c97caa1940e8ce17
+1247	7723	7301609092484500	CMakeFiles/SPSv2.dir/main.cpp.obj	fffed43cc455fda1
+1267	7876	7301609093955349	CMakeFiles/SPSv2.dir/Model/grid.cpp.obj	4534136dfdb37c87
+1326	8086	7301609096092495	CMakeFiles/SPSv2.dir/Model/dbmanager.cpp.obj	740489cdc73b4523
+1236	8228	7301609097528338	CMakeFiles/SPSv2.dir/SPSv2_autogen/mocs_compilation.cpp.obj	613621ba87c19465
+1318	9611	7301609111283020	CMakeFiles/SPSv2.dir/View/grideditwindow.cpp.obj	5e2638b648b7c66e
+1243	10129	7301609116554103	CMakeFiles/SPSv2.dir/mainwindow.cpp.obj	54274f7e5be6d7d2
+10129	10322	7301609118410028	SPSv2.exe	2305ea44912ce2b3
