@@ -20,6 +20,17 @@ public:
     struct busListElement{
         gridNode* bus;
         double busVoltage;
+
+        std::unordered_map<int, gridNode*> lines;       // Lines connected to this bus
+                                                        // Each line has another grid element (or more) at the other end of it.
+    };
+
+    // This organizes the hierachy for the systems
+    struct systemHierNode{
+        QString name;
+        std::set<int> SNs;
+
+        std::set<systemHierNode*> childs;
     };
 
     void addNewComponent(); // New components list entry
@@ -33,7 +44,7 @@ public:
     gridNode* newESM(QString inptName = "no_name_provided - def");
     gridNode* newTransformer(QString inptName = "no_name_provided - def");
     gridNode* newConverter(QString inptName = "no_name_provided - def");
-    gridNode* newLine(QString inptName = "no_name_provided - def");
+    gridNode* newLine(bool autoCreation = false, QString inptName = "no_name_provided - def");
     gridNode* newNode(QString inptType, bool prompt, QString inptName = "no_name_provided - def");
 
     int numBuses();
@@ -50,6 +61,10 @@ public:
 
     customNodeTree* catalog;
     customNodeTree* componentsList;
+    customNodeTree* networkComponents;
+
+    // This is a pointer to the root element in the power network
+    gridNode* rootNode;
 
 
     // Custom DB Manager map from name to class here
@@ -58,6 +73,12 @@ public:
 
     // Returns the corresponding node from the "allNode" hash table
     gridNode* findNode(int SN);
+
+
+    // Functions and declarations related to the system hierarchy
+    systemHierNode* insertSystem(QString name_inpt);
+    systemHierNode* insertSubSystem(QString name_inpt, Grid::systemHierNode* selectedSys);
+    systemHierNode* systemHierarchyTreeParent;
 
 private:
     // Bus list, with each element including a bus node reference and the its voltage

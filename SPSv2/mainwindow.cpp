@@ -95,6 +95,35 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     // -----------------------------------------------
+    // Network Components List
+    // -----------------------------------------------
+    const QStringList netCompListHeaders({"Name", "Type", "SN", "System"}); // Column header names for the catalog
+    myGrid.networkComponents = new customNodeTree(netCompListHeaders, this);
+
+    ui->networkComponentsViewer->setModel(myGrid.networkComponents);   //
+    ui->networkComponentsViewer->sortByColumn(1, Qt::AscendingOrder);
+
+    myGrid.networkComponents->setExtDrag(draggable);
+
+    connect(ui->networkComponentsViewer->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, &MainWindow::updateActions_netCompList);
+    updateActions_netCompList();
+
+    for (int column = 0; column < myGrid.networkComponents->columnCount(); ++column)
+        ui->networkComponentsViewer->resizeColumnToContents(column);
+
+    ui->gridEditor->setNetCompView(ui->networkComponentsViewer);
+
+    // -----------------------------------------------
+    // System Hierarchy Window
+    // -----------------------------------------------
+    Grid::systemHierNode* universal = new Grid::systemHierNode();
+    universal->name = "Universal";
+    myGrid.systemHierarchyTreeParent = universal;
+    ui->systemHierarchyViewer->systemHierarchyTreeParent = universal;
+
+
+    // -----------------------------------------------
     // Properties Edit Window
     // -----------------------------------------------
     updatePropertiesEditorLabel_input("Select a Component from the Database");
@@ -389,13 +418,33 @@ void MainWindow::updateActions_compList()
 }
 
 
+
+// Update actions function for the tree view widgets
+void MainWindow::updateActions_netCompList()
+{
+    const bool hasCurrent = ui->networkComponentsViewer->selectionModel()->currentIndex().isValid();
+
+    if (hasCurrent) {
+        ui->networkComponentsViewer->closePersistentEditor(ui->networkComponentsViewer->selectionModel()->currentIndex());
+
+        const int row = ui->networkComponentsViewer->selectionModel()->currentIndex().row();
+        const int column = ui->networkComponentsViewer->selectionModel()->currentIndex().column();
+        if (ui->networkComponentsViewer->selectionModel()->currentIndex().parent().isValid())
+            statusBar()->showMessage(tr("Position: (%1,%2)").arg(row).arg(column));
+        else
+            statusBar()->showMessage(tr("Position: (%1,%2) in top level").arg(row).arg(column));
+    }
+}
+
+
+
 // Double clicking on the catalog should make a new instance of the item in the components list
 void MainWindow::on_catalogView_doubleClicked(const QModelIndex &indexCatalog) {
     if (myGrid.catalog->checkLabel(indexCatalog)){
         return; // This item is just a label
     }
 
-    // Get the type and old name from the database entry, and then update the name for the new gridNode
+    // Get the type from the database entry
     QString old_type = myGrid.catalog->getType(indexCatalog);
 
     // The new gridNode which will be inserted into the grid, and then into the components list
@@ -661,5 +710,22 @@ void MainWindow::deleteCatalogEntry(){
     }
     return;
 
+}
+
+// Add a system and re-render the viewer
+void MainWindow::on_pushButton_9_clicked()
+{
+
+    QString name = promptForText("Enter a System Name", "Enter a name for the system.");
+    myGrid.insertSystem(name);
+    ui->systemHierarchyViewer->renderView();
+}
+
+// Add a subsystem and re-render the view
+void MainWindow::on_pushButton_10_clicked()
+{
+    QString name = promptForText("Enter a Sub-System Name", "Enter a name for the sub-system.");
+    myGrid.insertSystem(name); // TO DO: FIX THIS
+    ui->systemHierarchyViewer->renderView();
 }
 

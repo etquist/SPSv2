@@ -507,10 +507,12 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h
+ mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h
+ mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_set.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h
@@ -578,6 +580,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/random
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio
+ mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h
@@ -1385,10 +1388,12 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h
+ mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h
+ mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_set.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h
@@ -1443,6 +1448,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio
+ mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/streambuf
@@ -1739,10 +1745,12 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h
+ mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h
+ mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_set.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h
@@ -1797,6 +1805,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio
+ mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h
  mdp:C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/streambuf
@@ -2156,8 +2165,12 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/6.6.1/mingw_64/include/QtCore/qxpfunctional.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtCore/qxptype_traits.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/QDesktopServices
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/QDrag
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/QDragMoveEvent
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/QMouseEvent
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/QPixmap
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/QStandardItem
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/QStandardItemModel
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qaction.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qbitmap.h
@@ -2165,14 +2178,18 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qcolor.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qcursor.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qdesktopservices.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qdrag.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qevent.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qeventpoint.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qfont.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qfontinfo.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qfontmetrics.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qicon.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qimage.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qinputdevice.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qkeysequence.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qpaintdevice.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qpainterpath.h
@@ -2187,6 +2204,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qscreen.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qstandarditemmodel.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtGui/qtextformat.h
@@ -2221,6 +2239,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlversion.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame
@@ -2241,6 +2260,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h
+ mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qboxlayout.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h
@@ -2603,6 +2623,8 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/grid.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/gridnode.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.h
+ mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/componentsListViewer.h
+ mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h
  mdp:C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/grideditwindow.h
@@ -2617,3 +2639,5 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customgraphicswidget.cpp
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.cpp
 C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/helperFunctions.cpp
+C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/systemhierarchyframe.h
+C:/Users/ethan/OneDrive/Desktop/College/Graduate School/Research/Shipboard Power Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/systemhierarchyframe.cpp

@@ -274,8 +274,12 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtCore/qxpfunctional.h \
   C:/Qt/6.6.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/QDesktopServices \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/QDrag \
   C:/Qt/6.6.1/mingw_64/include/QtGui/QDragMoveEvent \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/QMouseEvent \
   C:/Qt/6.6.1/mingw_64/include/QtGui/QPixmap \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/QStandardItem \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/QStandardItemModel \
   C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qbitmap.h \
@@ -283,14 +287,18 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtGui/qcolor.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qcursor.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qdesktopservices.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/qdrag.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qevent.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qeventpoint.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qfont.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qfontinfo.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qfontmetrics.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qicon.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qimage.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qinputdevice.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qpainterpath.h \
@@ -305,6 +313,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qscreen.h \
+  C:/Qt/6.6.1/mingw_64/include/QtGui/qstandarditemmodel.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
   C:/Qt/6.6.1/mingw_64/include/QtGui/qtextformat.h \
@@ -339,6 +348,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlversion.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
@@ -359,6 +369,7 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+  C:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h \
@@ -721,6 +732,8 @@ C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Pow
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/grid.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/Model/gridnode.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/component.h \
+  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/componentsListViewer.h \
+  C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customNodeTree.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customnodetree.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/customtreeitem.h \
   C:/Users/ethan/OneDrive/Desktop/College/Graduate\ School/Research/Shipboard\ Power\ Simulator/V2_Almquist/Code/SPSv2_git/SPSv2/SPSv2/View/grideditwindow.h \

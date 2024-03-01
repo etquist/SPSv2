@@ -35,6 +35,7 @@
 #include <QtWidgets/QWidget>
 #include <componentslistviewer.h>
 #include <grideditwindow.h>
+#include <systemhierarchyframe.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -310,26 +311,34 @@ public:
     QWidget *NetworkDesign;
     QGridLayout *gridLayout_3;
     QGridLayout *gridLayout;
-    componentsListViewer *componentsListView;
+    QLabel *label;
+    QSpacerItem *verticalSpacer_3;
+    QTableWidget *tableWidget;
+    QSpacerItem *horizontalSpacer_2;
+    QLabel *label_20;
+    QSpacerItem *horizontalSpacer_10;
+    QSpacerItem *horizontalSpacer_9;
+    QTreeView *catalogView;
+    QPushButton *pushButton_6;
+    QSpacerItem *verticalSpacer_4;
+    QPushButton *pushButton_7;
     QFrame *Toolbar;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_3;
     QSpacerItem *horizontalSpacer_4;
-    QPushButton *pushButton_6;
-    QTableWidget *tableWidget;
-    QTreeView *catalogView;
-    QLabel *label_20;
-    QSpacerItem *verticalSpacer_3;
-    QLabel *label;
-    QSpacerItem *horizontalSpacer_10;
-    QPushButton *pushButton_7;
-    QSpacerItem *horizontalSpacer_9;
-    QSpacerItem *horizontalSpacer_2;
     QSpacerItem *horizontalSpacer;
-    QSpacerItem *verticalSpacer_2;
-    QSpacerItem *verticalSpacer_4;
     gridEditWindow *gridEditor;
+    componentsListViewer *componentsListView;
+    QSpacerItem *verticalSpacer_2;
     QWidget *SystemDefinition;
+    QGridLayout *gridLayout_24;
+    QLabel *label_48;
+    QPushButton *pushButton_9;
+    QPushButton *pushButton_10;
+    systemHierarchyFrame *systemHierarchyViewer;
+    QComboBox *comboBox;
+    QLabel *label_49;
+    componentsListViewer *networkComponentsViewer;
     QWidget *MissionDefinition;
     QWidget *Timeline;
     QWidget *Results;
@@ -361,7 +370,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1040, 646);
+        MainWindow->resize(1150, 611);
         actionOpen = new QAction(MainWindow);
         actionOpen->setObjectName("actionOpen");
         actionSave = new QAction(MainWindow);
@@ -1558,26 +1567,95 @@ public:
         gridLayout_3->setObjectName("gridLayout_3");
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
-        componentsListView = new componentsListViewer(NetworkDesign);
-        componentsListView->setObjectName("componentsListView");
-        QSizePolicy sizePolicy5(QSizePolicy::Maximum, QSizePolicy::Expanding);
+        label = new QLabel(NetworkDesign);
+        label->setObjectName("label");
+        QFont font3;
+        font3.setPointSize(10);
+        font3.setBold(true);
+        label->setFont(font3);
+        label->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+
+        gridLayout->addWidget(label, 2, 1, 1, 2);
+
+        verticalSpacer_3 = new QSpacerItem(10, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        gridLayout->addItem(verticalSpacer_3, 1, 0, 1, 10);
+
+        tableWidget = new QTableWidget(NetworkDesign);
+        tableWidget->setObjectName("tableWidget");
+        QSizePolicy sizePolicy5(QSizePolicy::Expanding, QSizePolicy::Maximum);
         sizePolicy5.setHorizontalStretch(0);
         sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(componentsListView->sizePolicy().hasHeightForWidth());
-        componentsListView->setSizePolicy(sizePolicy5);
-        componentsListView->setFont(font2);
-        componentsListView->setDragEnabled(true);
-        componentsListView->setDragDropMode(QAbstractItemView::DragOnly);
+        sizePolicy5.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
+        tableWidget->setSizePolicy(sizePolicy5);
+        tableWidget->setFont(font2);
 
-        gridLayout->addWidget(componentsListView, 4, 0, 1, 3);
+        gridLayout->addWidget(tableWidget, 7, 0, 1, 10);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_2, 2, 6, 5, 1);
+
+        label_20 = new QLabel(NetworkDesign);
+        label_20->setObjectName("label_20");
+        label_20->setFont(font3);
+        label_20->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+
+        gridLayout->addWidget(label_20, 2, 8, 1, 1);
+
+        horizontalSpacer_10 = new QSpacerItem(25, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_10, 2, 3, 1, 1);
+
+        horizontalSpacer_9 = new QSpacerItem(25, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_9, 2, 7, 1, 1);
+
+        catalogView = new QTreeView(NetworkDesign);
+        catalogView->setObjectName("catalogView");
+        QSizePolicy sizePolicy6(QSizePolicy::Maximum, QSizePolicy::Expanding);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(catalogView->sizePolicy().hasHeightForWidth());
+        catalogView->setSizePolicy(sizePolicy6);
+        catalogView->setFont(font2);
+        catalogView->setEditTriggers(QAbstractItemView::EditKeyPressed);
+        catalogView->setDragEnabled(true);
+        catalogView->setDragDropMode(QAbstractItemView::DragOnly);
+        catalogView->setDefaultDropAction(Qt::IgnoreAction);
+        catalogView->setSortingEnabled(false);
+
+        gridLayout->addWidget(catalogView, 3, 7, 3, 3);
+
+        pushButton_6 = new QPushButton(NetworkDesign);
+        pushButton_6->setObjectName("pushButton_6");
+        sizePolicy3.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
+        pushButton_6->setSizePolicy(sizePolicy3);
+        pushButton_6->setMaximumSize(QSize(25, 16777215));
+        pushButton_6->setFont(font);
+
+        gridLayout->addWidget(pushButton_6, 2, 9, 1, 1);
+
+        verticalSpacer_4 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Maximum);
+
+        gridLayout->addItem(verticalSpacer_4, 6, 7, 1, 3);
+
+        pushButton_7 = new QPushButton(NetworkDesign);
+        pushButton_7->setObjectName("pushButton_7");
+        sizePolicy3.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
+        pushButton_7->setSizePolicy(sizePolicy3);
+        pushButton_7->setMaximumSize(QSize(25, 16777215));
+        pushButton_7->setFont(font2);
+
+        gridLayout->addWidget(pushButton_7, 2, 0, 1, 1);
 
         Toolbar = new QFrame(NetworkDesign);
         Toolbar->setObjectName("Toolbar");
-        QSizePolicy sizePolicy6(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(Toolbar->sizePolicy().hasHeightForWidth());
-        Toolbar->setSizePolicy(sizePolicy6);
+        QSizePolicy sizePolicy7(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy7.setHorizontalStretch(0);
+        sizePolicy7.setVerticalStretch(0);
+        sizePolicy7.setHeightForWidth(Toolbar->sizePolicy().hasHeightForWidth());
+        Toolbar->setSizePolicy(sizePolicy7);
         Toolbar->setMinimumSize(QSize(0, 40));
         Toolbar->setFrameShape(QFrame::WinPanel);
         Toolbar->setFrameShadow(QFrame::Raised);
@@ -1595,94 +1673,11 @@ public:
         horizontalLayout->addItem(horizontalSpacer_4);
 
 
-        gridLayout->addWidget(Toolbar, 0, 0, 1, 9);
-
-        pushButton_6 = new QPushButton(NetworkDesign);
-        pushButton_6->setObjectName("pushButton_6");
-        sizePolicy3.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
-        pushButton_6->setSizePolicy(sizePolicy3);
-        pushButton_6->setMaximumSize(QSize(25, 16777215));
-        pushButton_6->setFont(font);
-
-        gridLayout->addWidget(pushButton_6, 2, 8, 2, 1);
-
-        tableWidget = new QTableWidget(NetworkDesign);
-        tableWidget->setObjectName("tableWidget");
-        QSizePolicy sizePolicy7(QSizePolicy::Expanding, QSizePolicy::Maximum);
-        sizePolicy7.setHorizontalStretch(0);
-        sizePolicy7.setVerticalStretch(0);
-        sizePolicy7.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
-        tableWidget->setSizePolicy(sizePolicy7);
-        tableWidget->setFont(font2);
-
-        gridLayout->addWidget(tableWidget, 6, 0, 1, 9);
-
-        catalogView = new QTreeView(NetworkDesign);
-        catalogView->setObjectName("catalogView");
-        sizePolicy5.setHeightForWidth(catalogView->sizePolicy().hasHeightForWidth());
-        catalogView->setSizePolicy(sizePolicy5);
-        catalogView->setFont(font2);
-        catalogView->setEditTriggers(QAbstractItemView::EditKeyPressed);
-        catalogView->setDragEnabled(true);
-        catalogView->setDragDropMode(QAbstractItemView::DragOnly);
-        catalogView->setDefaultDropAction(Qt::IgnoreAction);
-        catalogView->setSortingEnabled(false);
-
-        gridLayout->addWidget(catalogView, 4, 6, 1, 3);
-
-        label_20 = new QLabel(NetworkDesign);
-        label_20->setObjectName("label_20");
-        QFont font3;
-        font3.setPointSize(10);
-        font3.setBold(true);
-        label_20->setFont(font3);
-        label_20->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
-
-        gridLayout->addWidget(label_20, 2, 7, 2, 1);
-
-        verticalSpacer_3 = new QSpacerItem(10, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
-
-        gridLayout->addItem(verticalSpacer_3, 1, 0, 1, 9);
-
-        label = new QLabel(NetworkDesign);
-        label->setObjectName("label");
-        label->setFont(font3);
-        label->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
-
-        gridLayout->addWidget(label, 2, 1, 2, 1);
-
-        horizontalSpacer_10 = new QSpacerItem(25, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_10, 2, 2, 2, 1);
-
-        pushButton_7 = new QPushButton(NetworkDesign);
-        pushButton_7->setObjectName("pushButton_7");
-        sizePolicy3.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
-        pushButton_7->setSizePolicy(sizePolicy3);
-        pushButton_7->setMaximumSize(QSize(25, 16777215));
-        pushButton_7->setFont(font2);
-
-        gridLayout->addWidget(pushButton_7, 2, 0, 2, 1);
-
-        horizontalSpacer_9 = new QSpacerItem(25, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_9, 2, 6, 2, 1);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_2, 2, 5, 4, 1);
+        gridLayout->addWidget(Toolbar, 0, 0, 1, 10);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer, 2, 3, 4, 1);
-
-        verticalSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Maximum);
-
-        gridLayout->addItem(verticalSpacer_2, 5, 0, 1, 3);
-
-        verticalSpacer_4 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Maximum);
-
-        gridLayout->addItem(verticalSpacer_4, 5, 6, 1, 3);
+        gridLayout->addItem(horizontalSpacer, 2, 4, 5, 1);
 
         gridEditor = new gridEditWindow(NetworkDesign);
         gridEditor->setObjectName("gridEditor");
@@ -1692,9 +1687,23 @@ public:
         gridEditor->setAutoFillBackground(false);
         gridEditor->setStyleSheet(QString::fromUtf8("background-color:  white"));
         gridEditor->setFrameShape(QFrame::Box);
-        gridEditor->setFrameShadow(QFrame::Plain);
+        gridEditor->setFrameShadow(QFrame::Raised);
 
-        gridLayout->addWidget(gridEditor, 2, 4, 4, 1);
+        gridLayout->addWidget(gridEditor, 2, 5, 5, 1);
+
+        componentsListView = new componentsListViewer(NetworkDesign);
+        componentsListView->setObjectName("componentsListView");
+        sizePolicy6.setHeightForWidth(componentsListView->sizePolicy().hasHeightForWidth());
+        componentsListView->setSizePolicy(sizePolicy6);
+        componentsListView->setFont(font2);
+        componentsListView->setDragEnabled(true);
+        componentsListView->setDragDropMode(QAbstractItemView::DragOnly);
+
+        gridLayout->addWidget(componentsListView, 3, 0, 3, 4);
+
+        verticalSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Maximum);
+
+        gridLayout->addItem(verticalSpacer_2, 6, 0, 1, 4);
 
 
         gridLayout_3->addLayout(gridLayout, 0, 0, 1, 1);
@@ -1702,6 +1711,68 @@ public:
         tabWidget->addTab(NetworkDesign, QString());
         SystemDefinition = new QWidget();
         SystemDefinition->setObjectName("SystemDefinition");
+        gridLayout_24 = new QGridLayout(SystemDefinition);
+        gridLayout_24->setObjectName("gridLayout_24");
+        label_48 = new QLabel(SystemDefinition);
+        label_48->setObjectName("label_48");
+        QSizePolicy sizePolicy8(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy8.setHorizontalStretch(0);
+        sizePolicy8.setVerticalStretch(0);
+        sizePolicy8.setHeightForWidth(label_48->sizePolicy().hasHeightForWidth());
+        label_48->setSizePolicy(sizePolicy8);
+        label_48->setFont(font3);
+        label_48->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+
+        gridLayout_24->addWidget(label_48, 0, 0, 1, 1);
+
+        pushButton_9 = new QPushButton(SystemDefinition);
+        pushButton_9->setObjectName("pushButton_9");
+
+        gridLayout_24->addWidget(pushButton_9, 2, 1, 1, 1);
+
+        pushButton_10 = new QPushButton(SystemDefinition);
+        pushButton_10->setObjectName("pushButton_10");
+
+        gridLayout_24->addWidget(pushButton_10, 2, 2, 1, 1);
+
+        systemHierarchyViewer = new systemHierarchyFrame(SystemDefinition);
+        systemHierarchyViewer->setObjectName("systemHierarchyViewer");
+        QSizePolicy sizePolicy9(QSizePolicy::Preferred, QSizePolicy::Expanding);
+        sizePolicy9.setHorizontalStretch(0);
+        sizePolicy9.setVerticalStretch(0);
+        sizePolicy9.setHeightForWidth(systemHierarchyViewer->sizePolicy().hasHeightForWidth());
+        systemHierarchyViewer->setSizePolicy(sizePolicy9);
+        systemHierarchyViewer->setStyleSheet(QString::fromUtf8("background-color:  white"));
+        systemHierarchyViewer->setFrameShape(QFrame::Box);
+        systemHierarchyViewer->setFrameShadow(QFrame::Raised);
+
+        gridLayout_24->addWidget(systemHierarchyViewer, 3, 1, 1, 2);
+
+        comboBox = new QComboBox(SystemDefinition);
+        comboBox->setObjectName("comboBox");
+
+        gridLayout_24->addWidget(comboBox, 1, 1, 1, 2);
+
+        label_49 = new QLabel(SystemDefinition);
+        label_49->setObjectName("label_49");
+        sizePolicy8.setHeightForWidth(label_49->sizePolicy().hasHeightForWidth());
+        label_49->setSizePolicy(sizePolicy8);
+        label_49->setFont(font3);
+        label_49->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+
+        gridLayout_24->addWidget(label_49, 0, 1, 1, 2);
+
+        networkComponentsViewer = new componentsListViewer(SystemDefinition);
+        networkComponentsViewer->setObjectName("networkComponentsViewer");
+        sizePolicy6.setHeightForWidth(networkComponentsViewer->sizePolicy().hasHeightForWidth());
+        networkComponentsViewer->setSizePolicy(sizePolicy6);
+        networkComponentsViewer->setMaximumSize(QSize(400, 16777215));
+        networkComponentsViewer->setFont(font2);
+        networkComponentsViewer->setDragEnabled(true);
+        networkComponentsViewer->setDragDropMode(QAbstractItemView::DragOnly);
+
+        gridLayout_24->addWidget(networkComponentsViewer, 1, 0, 3, 1);
+
         tabWidget->addTab(SystemDefinition, QString());
         MissionDefinition = new QWidget();
         MissionDefinition->setObjectName("MissionDefinition");
@@ -1794,7 +1865,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1040, 21));
+        menubar->setGeometry(QRect(0, 0, 1150, 21));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName("menuFile");
         menuSave = new QMenu(menubar);
@@ -1822,7 +1893,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
         PropertiesEditor->setCurrentIndex(5);
         databaseEditor->setCurrentIndex(0);
         databaseEditor_2->setCurrentIndex(1);
@@ -1974,11 +2045,15 @@ public:
         databaseEditor_6->setTabText(databaseEditor_6->indexOf(tab_43), QCoreApplication::translate("MainWindow", "...", nullptr));
         label_25->setText(QCoreApplication::translate("MainWindow", "Filter Properties", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(DatabaseEditor), QCoreApplication::translate("MainWindow", "Database Editor", nullptr));
-        pushButton_6->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
-        label_20->setText(QCoreApplication::translate("MainWindow", "Database", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Project Components", nullptr));
+        label_20->setText(QCoreApplication::translate("MainWindow", "Database", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
         pushButton_7->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(NetworkDesign), QCoreApplication::translate("MainWindow", "Network Design", nullptr));
+        label_48->setText(QCoreApplication::translate("MainWindow", "Power Network Components", nullptr));
+        pushButton_9->setText(QCoreApplication::translate("MainWindow", "Add New System", nullptr));
+        pushButton_10->setText(QCoreApplication::translate("MainWindow", "Add Sub-System to Selected System", nullptr));
+        label_49->setText(QCoreApplication::translate("MainWindow", "System Hierarchy", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(SystemDefinition), QCoreApplication::translate("MainWindow", "System Definition", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(MissionDefinition), QCoreApplication::translate("MainWindow", "Mission Definition", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(Timeline), QCoreApplication::translate("MainWindow", "Timeline", nullptr));

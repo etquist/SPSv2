@@ -31,6 +31,8 @@ public:
     QPixmap getThumbnail();
     int getSN();
 
+    gridNode* getNodeRef();
+
 signals:
 
 

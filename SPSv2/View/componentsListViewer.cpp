@@ -37,10 +37,12 @@ void componentsListViewer::startDrag(Qt::DropActions supportedActions) {
     QByteArray itemData;
     QDataStream dataStream(&itemData, QIODevice::WriteOnly);
 
-    // Swap the index to the column which contains the serial number
+    // Swap the index to the column which contains the serial number and type
     const QModelIndex SN_index = model()->index(index.row(), 2, index.parent());
+    const QModelIndex Type_index = model()->index(index.row(), 1, index.parent());
 
-    dataStream << model()->data(SN_index).toInt();
+    // Serialize the data to send to the graphics viewer
+    dataStream << model()->data(SN_index).toInt() << model()->data(Type_index).toString();
     qDebug() << "SN: " << model()->data(SN_index).toInt();
 
     QMimeData *mimeData = new QMimeData;

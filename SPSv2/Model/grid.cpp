@@ -172,7 +172,7 @@ gridNode* Grid::newConverter(QString inptName){
 
 // Function to create a new ESM node in the grid.
 // Adds it to the list of ESMs and returns the pointer
-gridNode* Grid::newLine(QString inptName){
+gridNode* Grid::newLine(bool autoCreation, QString inptName){
     QString name = newName("Line", inptName);
     if(name == "userCNCL-exit"){ return nullptr; }
     gridNode* myNewLine = new gridNode();   // Create a new ESM dynamically
@@ -180,6 +180,11 @@ gridNode* Grid::newLine(QString inptName){
     myNewLine->setType("Line");
     myNewLine->setSN(++lastSN);
     lines[myNewLine->getSN()] = myNewLine; // Add it to the Grid's container
+    if (autoCreation){
+        // If this is an automatic creation due to dropping an element in graphics window,
+        //      add it to the list of all nodes too
+        allNodes[myNewLine->getSN()] = myNewLine;
+    }
     return myNewLine;   // return the pointer
 }
 
@@ -255,4 +260,23 @@ QString Grid::newName(QString type, QString inptName){
 // Returns the corresponding node
 gridNode* Grid::findNode(int SN){
     return allNodes[SN];
+}
+
+
+Grid::systemHierNode* Grid::insertSystem(QString name_inpt){
+    Grid::systemHierNode* newSys = new Grid::systemHierNode();
+    newSys->name = name_inpt;
+
+    systemHierarchyTreeParent->childs.insert(newSys);
+
+    return newSys;
+}
+
+Grid::systemHierNode* Grid::insertSubSystem(QString name_inpt, Grid::systemHierNode* selectedSys){
+    Grid::systemHierNode* newSys = new Grid::systemHierNode();
+    newSys->name = name_inpt;
+
+    selectedSys->childs.insert(newSys);
+
+    return newSys;
 }

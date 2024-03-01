@@ -1,7 +1,8 @@
 #ifndef GRIDNODE_H
 #define GRIDNODE_H
 
-#include<QObject>
+#include <QObject>
+#include <set>
 
 // Highest level of class hierarchy that describes the components of a microgrid
 class gridNode
@@ -30,16 +31,18 @@ public:
 
     double getBusVoltage(); // Returns -1 if not a bus
 
+    void insertConnection(gridNode* newConnect);
+
 
 private:
-    void loadFromDatafile(QString filepath);    // Populate the node instance from a datafile
     int uniqueID;   //  Unique ID for the SQLite database
     int nodeSN;     // serial number of this node
     QString dbName;
     QString name;
     QString type;
 
-
+    // This is a list of all the connected nodes to this one
+    std::set<gridNode*> connections;
 
 };
 

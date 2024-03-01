@@ -103,6 +103,8 @@ public:
     QModelIndex findChildInDB(QString queryName, QModelIndex indexInpt);
     QMimeData* mimeData(const QModelIndex &index) const;
 
+    QModelIndex getRootIndex();
+
 private:
     void setupModelData(const QStringList &lines, customTreeItem *parent);
     customTreeItem *getItem(const QModelIndex &index) const;

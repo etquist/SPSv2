@@ -46,6 +46,7 @@ public slots:
     void updateActions_catalogNetwork();
     void updateActions_catalogConst();
     void updateActions_compList();
+    void updateActions_netCompList();
 
 private slots:
     // void item_view_item_path_enter(QString itemPath, QPointF dropPos);
@@ -81,6 +82,10 @@ private slots:
 
     void deleteCatalogEntry();
 
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_10_clicked();
 
 private:
     Ui::MainWindow *ui;

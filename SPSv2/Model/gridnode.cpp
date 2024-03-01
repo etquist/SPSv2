@@ -62,6 +62,10 @@ void gridNode::setName(QString newName){
     return;
 }
 
+void gridNode::insertConnection(gridNode* newConnect){
+    connections.insert(newConnect);
+}
+
 
 
 //--------------------------------------------------

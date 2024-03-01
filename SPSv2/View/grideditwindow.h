@@ -6,6 +6,7 @@
 #include <component.h>
 #include <set>
 #include <QStyledItemDelegate>
+#include <componentsListViewer.h>
 
 
 
@@ -15,6 +16,7 @@ public:
     explicit gridEditWindow(QWidget *parent = nullptr);
 
     void setGridRef(Grid* myGridRef);
+    void setNetCompView(componentsListViewer* networkComponentsList_inpt);
 
 signals:
 
@@ -30,6 +32,7 @@ protected:
 private:
     Grid* myGridRef;
     std::set<int> SN_list;
+    componentsListViewer* networkComponentsList;
 
 };
 

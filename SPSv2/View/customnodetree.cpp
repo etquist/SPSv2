@@ -493,4 +493,3 @@ QModelIndex customNodeTree::findChildInDB(QString queryName, QModelIndex indexIn
     return QModelIndex();
 }
 
-

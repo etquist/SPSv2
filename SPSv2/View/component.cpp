@@ -15,7 +15,7 @@ component::component(QWidget *parent, Grid* myGridRef_Inpt, int SN_Inpt)
     name = node->getName();
     type = node->getType();
 
-    // Set the thumbnail based on the type of node
+    // Set the thumbnail based on the type of node, and add the
     if (type == "Bus")          { thumbnail = QPixmap(":/images/bus.png");}
     else if (type == "Load")    { thumbnail = QPixmap(":/images/load.png");}
     else if (type == "ESM")     { thumbnail = QPixmap(":/images/esm.png");}
@@ -27,7 +27,7 @@ component::component(QWidget *parent, Grid* myGridRef_Inpt, int SN_Inpt)
     else                        { thumbnail = QPixmap(":/images/blank.png");}
 
 
-    QSize newSize(100, 100);    // resize to consistent size
+    QSize newSize(50, 50);    // resize to consistent size
     thumbnail = thumbnail.scaled(newSize, Qt::KeepAspectRatio);
 }
 
@@ -54,4 +54,8 @@ QPixmap component::getThumbnail(){
 
 int component::getSN(){
     return SN;
+}
+
+gridNode* component::getNodeRef(){
+    return node;
 }
