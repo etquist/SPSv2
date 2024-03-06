@@ -3,4 +3,5 @@
 #include "WB4RFHLAU6/moc_componentsListViewer.cpp"
 #include "WB4RFHLAU6/moc_customgraphicswidget.cpp"
 #include "WB4RFHLAU6/moc_customnodetree.cpp"
+#include "WB4RFHLAU6/moc_systemlabel.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"

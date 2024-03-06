@@ -97,13 +97,20 @@ public:
     int getSN(const QModelIndex &index) const;
     void setSN(QModelIndex &index, int newSN);
 
+    // These two are viable only for network components list items (catalog == false)
+    QString getSystem(const QModelIndex &index) const;
+    void setSystem(QModelIndex &index, QString newSystem);
+
+    // These two are viable only for network components list items (catalog == false)
+    QString getSubSystem(const QModelIndex &index) const;
+    void setSubSystem(QModelIndex &index, QString newSubSystem);
+
 
     // Find the child ("Name") within the database (index) specified
     // Note. If two entries exist with the same name, this will only return the first one.
     QModelIndex findChildInDB(QString queryName, QModelIndex indexInpt);
     QMimeData* mimeData(const QModelIndex &index) const;
 
-    QModelIndex getRootIndex();
 
 private:
     void setupModelData(const QStringList &lines, customTreeItem *parent);

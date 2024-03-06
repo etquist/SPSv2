@@ -19,6 +19,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -332,13 +333,19 @@ public:
     QSpacerItem *verticalSpacer_2;
     QWidget *SystemDefinition;
     QGridLayout *gridLayout_24;
-    QLabel *label_48;
-    QPushButton *pushButton_9;
-    QPushButton *pushButton_10;
-    systemHierarchyFrame *systemHierarchyViewer;
-    QComboBox *comboBox;
-    QLabel *label_49;
+    QLabel *label_51;
     componentsListViewer *networkComponentsViewer;
+    QListView *systemCompsList;
+    systemHierarchyFrame *systemHierarchyViewer;
+    QLabel *label_49;
+    QFrame *line;
+    QPushButton *pushButton_10;
+    QComboBox *comboBox_subsystem;
+    QPushButton *pushButton_9;
+    QLabel *label_48;
+    QPushButton *pushButton_11;
+    QComboBox *comboBox_system;
+    QLabel *label_50;
     QWidget *MissionDefinition;
     QWidget *Timeline;
     QWidget *Results;
@@ -370,7 +377,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1150, 611);
+        MainWindow->resize(1224, 521);
         actionOpen = new QAction(MainWindow);
         actionOpen->setObjectName("actionOpen");
         actionSave = new QAction(MainWindow);
@@ -1713,11 +1720,92 @@ public:
         SystemDefinition->setObjectName("SystemDefinition");
         gridLayout_24 = new QGridLayout(SystemDefinition);
         gridLayout_24->setObjectName("gridLayout_24");
-        label_48 = new QLabel(SystemDefinition);
-        label_48->setObjectName("label_48");
+        label_51 = new QLabel(SystemDefinition);
+        label_51->setObjectName("label_51");
+        label_51->setFont(font3);
+
+        gridLayout_24->addWidget(label_51, 0, 5, 1, 1);
+
+        networkComponentsViewer = new componentsListViewer(SystemDefinition);
+        networkComponentsViewer->setObjectName("networkComponentsViewer");
+        sizePolicy2.setHeightForWidth(networkComponentsViewer->sizePolicy().hasHeightForWidth());
+        networkComponentsViewer->setSizePolicy(sizePolicy2);
+        networkComponentsViewer->setMinimumSize(QSize(400, 0));
+        networkComponentsViewer->setMaximumSize(QSize(500, 16777215));
+        networkComponentsViewer->setFont(font2);
+        networkComponentsViewer->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        networkComponentsViewer->setProperty("showDropIndicator", QVariant(false));
+        networkComponentsViewer->setDragEnabled(false);
+        networkComponentsViewer->setDragDropMode(QAbstractItemView::NoDragDrop);
+
+        gridLayout_24->addWidget(networkComponentsViewer, 1, 0, 9, 1);
+
+        systemCompsList = new QListView(SystemDefinition);
+        systemCompsList->setObjectName("systemCompsList");
+        sizePolicy2.setHeightForWidth(systemCompsList->sizePolicy().hasHeightForWidth());
+        systemCompsList->setSizePolicy(sizePolicy2);
+        systemCompsList->setMinimumSize(QSize(200, 0));
+        systemCompsList->setMaximumSize(QSize(300, 16777215));
+        systemCompsList->setFrameShape(QFrame::Box);
+        systemCompsList->setFrameShadow(QFrame::Raised);
+
+        gridLayout_24->addWidget(systemCompsList, 1, 5, 9, 1);
+
+        systemHierarchyViewer = new systemHierarchyFrame(SystemDefinition);
+        systemHierarchyViewer->setObjectName("systemHierarchyViewer");
+        sizePolicy2.setHeightForWidth(systemHierarchyViewer->sizePolicy().hasHeightForWidth());
+        systemHierarchyViewer->setSizePolicy(sizePolicy2);
+        systemHierarchyViewer->setStyleSheet(QString::fromUtf8("background-color:  white"));
+        systemHierarchyViewer->setFrameShape(QFrame::Box);
+        systemHierarchyViewer->setFrameShadow(QFrame::Raised);
+
+        gridLayout_24->addWidget(systemHierarchyViewer, 9, 1, 1, 4);
+
+        label_49 = new QLabel(SystemDefinition);
+        label_49->setObjectName("label_49");
         QSizePolicy sizePolicy8(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy8.setHorizontalStretch(0);
         sizePolicy8.setVerticalStretch(0);
+        sizePolicy8.setHeightForWidth(label_49->sizePolicy().hasHeightForWidth());
+        label_49->setSizePolicy(sizePolicy8);
+        label_49->setFont(font3);
+        label_49->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+
+        gridLayout_24->addWidget(label_49, 8, 1, 1, 1);
+
+        line = new QFrame(SystemDefinition);
+        line->setObjectName("line");
+        QFont font4;
+        font4.setPointSize(9);
+        font4.setBold(true);
+        line->setFont(font4);
+        line->setFrameShadow(QFrame::Raised);
+        line->setLineWidth(2);
+        line->setFrameShape(QFrame::HLine);
+
+        gridLayout_24->addWidget(line, 6, 1, 1, 4);
+
+        pushButton_10 = new QPushButton(SystemDefinition);
+        pushButton_10->setObjectName("pushButton_10");
+        sizePolicy.setHeightForWidth(pushButton_10->sizePolicy().hasHeightForWidth());
+        pushButton_10->setSizePolicy(sizePolicy);
+
+        gridLayout_24->addWidget(pushButton_10, 8, 3, 1, 1);
+
+        comboBox_subsystem = new QComboBox(SystemDefinition);
+        comboBox_subsystem->setObjectName("comboBox_subsystem");
+
+        gridLayout_24->addWidget(comboBox_subsystem, 4, 3, 2, 2);
+
+        pushButton_9 = new QPushButton(SystemDefinition);
+        pushButton_9->setObjectName("pushButton_9");
+        sizePolicy.setHeightForWidth(pushButton_9->sizePolicy().hasHeightForWidth());
+        pushButton_9->setSizePolicy(sizePolicy);
+
+        gridLayout_24->addWidget(pushButton_9, 8, 2, 1, 1);
+
+        label_48 = new QLabel(SystemDefinition);
+        label_48->setObjectName("label_48");
         sizePolicy8.setHeightForWidth(label_48->sizePolicy().hasHeightForWidth());
         label_48->setSizePolicy(sizePolicy8);
         label_48->setFont(font3);
@@ -1725,53 +1813,29 @@ public:
 
         gridLayout_24->addWidget(label_48, 0, 0, 1, 1);
 
-        pushButton_9 = new QPushButton(SystemDefinition);
-        pushButton_9->setObjectName("pushButton_9");
+        pushButton_11 = new QPushButton(SystemDefinition);
+        pushButton_11->setObjectName("pushButton_11");
+        QPalette palette1;
+        palette1.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette1.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        pushButton_11->setPalette(palette1);
 
-        gridLayout_24->addWidget(pushButton_9, 2, 1, 1, 1);
+        gridLayout_24->addWidget(pushButton_11, 8, 4, 1, 1);
 
-        pushButton_10 = new QPushButton(SystemDefinition);
-        pushButton_10->setObjectName("pushButton_10");
+        comboBox_system = new QComboBox(SystemDefinition);
+        comboBox_system->setObjectName("comboBox_system");
 
-        gridLayout_24->addWidget(pushButton_10, 2, 2, 1, 1);
+        gridLayout_24->addWidget(comboBox_system, 3, 3, 1, 2);
 
-        systemHierarchyViewer = new systemHierarchyFrame(SystemDefinition);
-        systemHierarchyViewer->setObjectName("systemHierarchyViewer");
-        QSizePolicy sizePolicy9(QSizePolicy::Preferred, QSizePolicy::Expanding);
-        sizePolicy9.setHorizontalStretch(0);
-        sizePolicy9.setVerticalStretch(0);
-        sizePolicy9.setHeightForWidth(systemHierarchyViewer->sizePolicy().hasHeightForWidth());
-        systemHierarchyViewer->setSizePolicy(sizePolicy9);
-        systemHierarchyViewer->setStyleSheet(QString::fromUtf8("background-color:  white"));
-        systemHierarchyViewer->setFrameShape(QFrame::Box);
-        systemHierarchyViewer->setFrameShadow(QFrame::Raised);
+        label_50 = new QLabel(SystemDefinition);
+        label_50->setObjectName("label_50");
+        label_50->setFont(font3);
+        label_50->setAlignment(Qt::AlignCenter);
+        label_50->setWordWrap(true);
 
-        gridLayout_24->addWidget(systemHierarchyViewer, 3, 1, 1, 2);
-
-        comboBox = new QComboBox(SystemDefinition);
-        comboBox->setObjectName("comboBox");
-
-        gridLayout_24->addWidget(comboBox, 1, 1, 1, 2);
-
-        label_49 = new QLabel(SystemDefinition);
-        label_49->setObjectName("label_49");
-        sizePolicy8.setHeightForWidth(label_49->sizePolicy().hasHeightForWidth());
-        label_49->setSizePolicy(sizePolicy8);
-        label_49->setFont(font3);
-        label_49->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
-
-        gridLayout_24->addWidget(label_49, 0, 1, 1, 2);
-
-        networkComponentsViewer = new componentsListViewer(SystemDefinition);
-        networkComponentsViewer->setObjectName("networkComponentsViewer");
-        sizePolicy6.setHeightForWidth(networkComponentsViewer->sizePolicy().hasHeightForWidth());
-        networkComponentsViewer->setSizePolicy(sizePolicy6);
-        networkComponentsViewer->setMaximumSize(QSize(400, 16777215));
-        networkComponentsViewer->setFont(font2);
-        networkComponentsViewer->setDragEnabled(true);
-        networkComponentsViewer->setDragDropMode(QAbstractItemView::DragOnly);
-
-        gridLayout_24->addWidget(networkComponentsViewer, 1, 0, 3, 1);
+        gridLayout_24->addWidget(label_50, 1, 1, 5, 2);
 
         tabWidget->addTab(SystemDefinition, QString());
         MissionDefinition = new QWidget();
@@ -1860,12 +1924,12 @@ public:
 
         tabWidget->addTab(Debugging, QString());
 
-        gridLayout_2->addWidget(tabWidget, 0, 0, 1, 1);
+        gridLayout_2->addWidget(tabWidget, 0, 1, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1150, 21));
+        menubar->setGeometry(QRect(0, 0, 1224, 21));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName("menuFile");
         menuSave = new QMenu(menubar);
@@ -2050,10 +2114,13 @@ public:
         pushButton_6->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
         pushButton_7->setText(QCoreApplication::translate("MainWindow", "?", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(NetworkDesign), QCoreApplication::translate("MainWindow", "Network Design", nullptr));
-        label_48->setText(QCoreApplication::translate("MainWindow", "Power Network Components", nullptr));
-        pushButton_9->setText(QCoreApplication::translate("MainWindow", "Add New System", nullptr));
-        pushButton_10->setText(QCoreApplication::translate("MainWindow", "Add Sub-System to Selected System", nullptr));
+        label_51->setText(QCoreApplication::translate("MainWindow", "Select a system to view its components.", nullptr));
         label_49->setText(QCoreApplication::translate("MainWindow", "System Hierarchy", nullptr));
+        pushButton_10->setText(QCoreApplication::translate("MainWindow", "Add Sub-System to Selected System", nullptr));
+        pushButton_9->setText(QCoreApplication::translate("MainWindow", "Add New System", nullptr));
+        label_48->setText(QCoreApplication::translate("MainWindow", "Power Network Components", nullptr));
+        pushButton_11->setText(QCoreApplication::translate("MainWindow", "Delete Selection", nullptr));
+        label_50->setText(QCoreApplication::translate("MainWindow", "Select a component to assign its system and subsystem", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(SystemDefinition), QCoreApplication::translate("MainWindow", "System Definition", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(MissionDefinition), QCoreApplication::translate("MainWindow", "Mission Definition", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(Timeline), QCoreApplication::translate("MainWindow", "Timeline", nullptr));

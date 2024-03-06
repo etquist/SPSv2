@@ -493,3 +493,69 @@ QModelIndex customNodeTree::findChildInDB(QString queryName, QModelIndex indexIn
     return QModelIndex();
 }
 
+
+
+
+// These two are viable only for network components list items (catalog == false)
+QString customNodeTree::getSystem(const QModelIndex &index) const{
+    if (!index.isValid()){
+        return "invalid";  // Invalid
+    }
+    const customTreeItem* item = getItem(index);
+
+    if (item->checkCatalog() == true){
+        return "invalid"; // Catalog item, not comp list item.
+    }
+
+    return item->getSystem();
+}
+
+
+
+void customNodeTree::setSystem(QModelIndex &index, QString newSystem){
+    if (!index.isValid()){
+        return;  // Invalid
+    }
+
+    customTreeItem* item = getItem(index);
+
+    if (item->checkCatalog() == true){
+        return; // Catalog item, not comp list item.
+    }
+
+    item->setSystem(newSystem);
+    return;
+}
+
+
+
+// These two are viable only for network components list items (catalog == false)
+QString customNodeTree::getSubSystem(const QModelIndex &index) const{
+    if (!index.isValid()){
+        return "invalid";  // Invalid
+    }
+    const customTreeItem* item = getItem(index);
+
+    if (item->checkCatalog() == true){
+        return "invalid"; // Catalog item, not comp list item.
+    }
+
+    return item->getSubSystem();
+}
+
+
+void customNodeTree::setSubSystem(QModelIndex &index, QString newSubSystem){
+    if (!index.isValid()){
+        return;  // Invalid
+    }
+
+    customTreeItem* item = getItem(index);
+
+    if (item->checkCatalog() == true){
+        return; // Catalog item, not comp list item.
+    }
+
+    item->setSubSystem(newSubSystem);
+    return;
+}
+

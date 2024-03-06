@@ -97,7 +97,7 @@ MainWindow::MainWindow(QWidget *parent)
     // -----------------------------------------------
     // Network Components List
     // -----------------------------------------------
-    const QStringList netCompListHeaders({"Name", "Type", "SN", "System"}); // Column header names for the catalog
+    const QStringList netCompListHeaders({"Name", "Type", "SN", "System", "Subsystem"}); // Column header names for the catalog
     myGrid.networkComponents = new customNodeTree(netCompListHeaders, this);
 
     ui->networkComponentsViewer->setModel(myGrid.networkComponents);   //
@@ -117,10 +117,27 @@ MainWindow::MainWindow(QWidget *parent)
     // -----------------------------------------------
     // System Hierarchy Window
     // -----------------------------------------------
+    ui->systemHierarchyViewer->myGridRef = &myGrid;
+
     Grid::systemHierNode* universal = new Grid::systemHierNode();
     universal->name = "Universal";
     myGrid.systemHierarchyTreeParent = universal;
     ui->systemHierarchyViewer->systemHierarchyTreeParent = universal;
+    ui->systemHierarchyViewer->renderView();
+    ui->systemHierarchyViewer->setSelection(universal);    // Default
+    ui->comboBox_system->addItem(universal->name); // This is the only system that belongs in the tree
+
+    Grid::systemHierNode* unassigned = new Grid::systemHierNode();
+    unassigned->name = myGrid.unassignedName;
+    universal->childs.insert(unassigned);   // unassigned is a "system" so we can keep track of them behind the scenes
+    ui->comboBox_system->addItem(unassigned->name);
+
+    QStringListModel *systemCompList = new QStringListModel();
+    myGrid.systemComponentsList = systemCompList;
+    ui->systemCompsList->setModel(systemCompList);
+
+    connect(ui->pushButton_11, &QAbstractButton::clicked,
+            this, &MainWindow::deleteSystem);
 
 
     // -----------------------------------------------
@@ -434,6 +451,29 @@ void MainWindow::updateActions_netCompList()
         else
             statusBar()->showMessage(tr("Position: (%1,%2) in top level").arg(row).arg(column));
     }
+
+    // Update the label and combo box IF there's a valid selection
+    QModelIndex index = ui->networkComponentsViewer->currentIndex();
+
+    QString selectedName = myGrid.networkComponents->getName(index);
+
+    if (selectedName != "Name" && myGrid.networkComponents->getType(index) != "Type"){
+        ui->label_50->setText(selectedName + " parent system and subsystem: ");
+
+        // Set the current index of the combo box to the selection's mission
+        QString subsystemName = myGrid.networkComponents->getSubSystem(index);
+        QString systemName = myGrid.networkComponents->getSystem(index);
+
+        int currentSystemIndex = ui->comboBox_system->findText(systemName);
+        int currentSubSystemIndex = ui->comboBox_subsystem->findText(subsystemName);
+
+        ui->comboBox_system->setCurrentIndex(currentSystemIndex);
+        ui->comboBox_subsystem->setCurrentIndex(currentSubSystemIndex);
+
+    } else {
+        // This is the header
+        ui->label_50->setText("Select a component to assign its system and subsystem");
+    }
 }
 
 
@@ -715,17 +755,278 @@ void MainWindow::deleteCatalogEntry(){
 // Add a system and re-render the viewer
 void MainWindow::on_pushButton_9_clicked()
 {
+    QString nameInpt;
+    bool invalidName = true;
 
-    QString name = promptForText("Enter a System Name", "Enter a name for the system.");
-    myGrid.insertSystem(name);
+    while(invalidName){
+        invalidName = false;
+        nameInpt = promptForText("Enter a Unique System Name", "Enter a name for the system. Avoid duplicates of existing systems.");
+        if (nameInpt == "userCNCL-exit"){
+            return;
+        }
+
+        // If the name already, exists, prompt the user again
+        for (auto it = myGrid.systemHierarchyTreeParent->childs.begin(); it != myGrid.systemHierarchyTreeParent->childs.end(); it++){
+            if ((*it)->name == nameInpt){
+                invalidName = true;
+            }
+        }
+    }
+    myGrid.insertSystem(nameInpt);
     ui->systemHierarchyViewer->renderView();
+
+    ui->comboBox_system->addItem(nameInpt);    // Add the default subsystem to the drop down selector
+
 }
 
 // Add a subsystem and re-render the view
 void MainWindow::on_pushButton_10_clicked()
 {
-    QString name = promptForText("Enter a Sub-System Name", "Enter a name for the sub-system.");
-    myGrid.insertSystem(name); // TO DO: FIX THIS
+    // Find the currently slected node that will potentially receive the new subsystem
+    Grid::systemHierNode* curSelection = ui->systemHierarchyViewer->getSelection();
+    if (curSelection->parent == myGrid.systemHierarchyTreeParent){
+        // Good
+    } else if (curSelection == myGrid.systemHierarchyTreeParent){
+        // This is the universal node
+        return;
+    } else if (curSelection == nullptr) {
+        // This is a nullptr because there is no current selection
+        QMessageBox msgBox;
+        msgBox.setText("Select a system to insert a subsystem.");
+        msgBox.exec();
+    } else{
+        // This is a subsystem already. Change ref to the parent system
+        curSelection = curSelection->parent;
+    }
+
+
+    ui->systemHierarchyViewer->setSelection(curSelection);
+
+    QString nameInpt;
+    bool invalidName = true;
+
+    while(invalidName){
+        invalidName = false;
+        nameInpt = promptForText("Enter a Sub-System Name", "Enter a name for the sub-system.");
+        if (nameInpt == "userCNCL-exit"){
+            return;
+        }
+
+        // If the name already, exists, prompt the user again
+        for (auto it = curSelection->childs.begin(); it != curSelection->childs.end(); it++){
+            if ((*it)->name == nameInpt){
+                invalidName = true;
+            }
+        }
+    }
+
+    Grid::systemHierNode* newSubsystem = myGrid.insertSubSystem(nameInpt, curSelection);
+    ui->systemHierarchyViewer->renderView();
+
+    ui->systemHierarchyViewer->setSelection(newSubsystem);
+
+    // If the subsystem's parent is currently activated in the drop down, add the subsystem to the combo box
+    if (ui->comboBox_system->currentText() == newSubsystem->parent->name){
+        ui->comboBox_subsystem->addItem(nameInpt);
+    }
+}
+
+
+// If the tab changes to the system editor, re-render the view
+void MainWindow::on_tabWidget_currentChanged(int index)
+{
+    if (index == 2){
+        ui->systemHierarchyViewer->renderView();
+        ui->systemHierarchyViewer->setSelection(ui->systemHierarchyViewer->systemHierarchyTreeParent);
+    }
+}
+
+
+void MainWindow::resizeEvent(QResizeEvent* event)
+{
     ui->systemHierarchyViewer->renderView();
 }
 
+
+// If the system combo box is changed, update the valid entires for the subsystem box
+void MainWindow::on_comboBox_system_currentIndexChanged(int index)
+{
+    QString selectedSystem = ui->comboBox_system->currentText();
+    ui->comboBox_subsystem->clear();
+
+    // Find the selected system, and then add all of the subsystems of this system to the subsystem combo box.
+    int numAdded = 0;
+    for (auto it = myGrid.systemHierarchyTreeParent->childs.begin(); it != myGrid.systemHierarchyTreeParent->childs.end(); it++){
+        if ((*it)->name == selectedSystem){
+            for (auto it_sub = (*it)->childs.begin(); it_sub != (*it)->childs.end(); it_sub++){
+                ui->comboBox_subsystem->addItem((*it_sub)->name);
+                numAdded = numAdded + 1;
+            }
+        }
+    }
+
+    // Ensure that the system assignment is still made
+    if (numAdded == 0){
+        qDebug() << "No subsystems were added for the system " << selectedSystem << ", updating subsystem selection manually.";
+        update_SystemSubSys_Selection();
+    }
+
+}
+
+
+// If the subsystem box is changed and a valid component is selected, update the component's system/subsystem
+void MainWindow::on_comboBox_subsystem_currentIndexChanged(int index)
+{
+    update_SystemSubSys_Selection();
+}
+
+
+void MainWindow::on_networkComponentsViewer_clicked(const QModelIndex &index)
+{
+    QString selectedName = myGrid.networkComponents->getName(index);
+
+    if (selectedName != "Name" && myGrid.networkComponents->getType(index) != "Type"){
+        // Not the header
+        ui->label_50->setText(selectedName + " parent system and subsystem: ");
+
+        // Set the current index of the combo box to the selection's mission
+        QString subsystemName = myGrid.networkComponents->getSubSystem(index);
+        QString systemName = myGrid.networkComponents->getSystem(index);
+
+        int currentSystemIndex = ui->comboBox_system->findText(systemName);
+        on_comboBox_system_currentIndexChanged(currentSystemIndex);
+
+        int currentSubSystemIndex = ui->comboBox_subsystem->findText(subsystemName);
+        ui->comboBox_subsystem->setCurrentIndex(currentSubSystemIndex);
+
+    } else {
+        // This is the header
+        ui->label_50->setText("Select a component to assign its system and subsystem");
+    }
+}
+
+
+// This function looks at the current selections for the combo boxes, and shifts system assignment accordingly
+//  for the currently selected component in the network components viewer
+void MainWindow::update_SystemSubSys_Selection(){
+    QModelIndex currentSelection = ui->networkComponentsViewer->currentIndex();
+
+
+    if (currentSelection.isValid() ){
+        qDebug() << "Reassigning component: " << myGrid.networkComponents->getName(currentSelection);
+        // There is a valid component selected.
+        QString systemSelection = ui->comboBox_system->currentText();
+        QString subsystemSelection = ui->comboBox_subsystem->currentText();
+
+        // Get the serial number of the selected component
+        int SN = myGrid.networkComponents->getSN(currentSelection);
+        if (SN == -1){
+            return; // The serial number was not valid
+        }
+
+
+        // Add the serial number to the system/subsystem's list
+        Grid::systemHierNode* system = myGrid.findSystem(systemSelection);
+        Grid::systemHierNode* subsystem = myGrid.findSubSystem(systemSelection, subsystemSelection);
+
+        // If the selected system is found, insert the serial number. otherwise, return
+        if (system == nullptr){
+            qDebug() << "System not found. Selection: " << systemSelection;
+            return;
+        }
+        system->SNs.insert(SN);
+
+        // If a subsystemm is found, insert the serial number
+        if (subsystem != nullptr){
+            subsystem->SNs.insert(SN);
+
+        } else{
+            qDebug() << "No subsystem found";
+        }
+
+
+        // Remove the serial number from the original system/subsystem's list
+        QString oldSystemName = myGrid.networkComponents->getSystem(currentSelection);
+        QString oldSubSystemName = myGrid.networkComponents->getSubSystem(currentSelection);
+
+        // If the system isnt changing, dont delete from the "old one"
+        if (oldSystemName != systemSelection){
+            Grid::systemHierNode* oldSystem = myGrid.findSystem(oldSystemName);
+            oldSystem->SNs.erase(SN);
+        }
+
+        // If the subsystem hasn't changed, don't delete it from the "old one"
+        if (oldSubSystemName != subsystemSelection){
+            Grid::systemHierNode* oldSubsystem = myGrid.findSubSystem(oldSystemName, oldSubSystemName);
+            if (oldSubsystem != nullptr){
+                // The component was previously assigned to a valid subsystem
+                oldSubsystem->SNs.erase(SN);
+            } else{
+                qDebug() << "No old subsystem found";
+            }
+        }
+
+        // Add the system/subsystem name to the network components list viewer
+        myGrid.networkComponents->setSystem(currentSelection, system->name);
+        if (subsystem != nullptr){
+            // Only add if a valid system was found
+            myGrid.networkComponents->setSubSystem(currentSelection, subsystem->name);
+        } else{
+            // Otherwise, leave it blank
+            myGrid.networkComponents->setSubSystem(currentSelection, "");
+        }
+
+        ui->systemHierarchyViewer->updateSystemList(ui->systemHierarchyViewer->getSelection());
+    }
+}
+
+
+// Delete the currently selected system or subsystem from the hierarchy, and reassign all the members to "unassigned"
+void MainWindow::deleteSystem(){
+    Grid::systemHierNode* selection = ui->systemHierarchyViewer->getSelection();
+
+
+    if (selection == nullptr){
+        qDebug() << "Invalid Index";
+        return;
+    }
+
+    if (selection == myGrid.systemHierarchyTreeParent){
+        qDebug() << "Cannot delete the universal system";
+        return;
+    }
+
+    // This is a valid index, on a catalog entry
+
+    // Ask the User if they want to proceed.
+    QString boxTitle = "CAUTION";
+    QString boxText = "Are you sure that you would like to permamently delete this entry from the database?";
+    QString boxInformativeText = "";
+    std::vector<QString> options = {"Yes, Continue", "No, Do Not Delete"};
+    QString prompt_selection = customQuestionBox(boxTitle, boxText, boxInformativeText, options);
+    qDebug() << prompt_selection;
+
+    const QModelIndex index = ui->catalogView_1->selectionModel()->currentIndex();
+
+    if (prompt_selection == "aborted_dlg_box" | prompt_selection == "No, Do Not Delete"){
+        qDebug() << "Aborted Catalog Entry Creation";
+        return;
+    }
+
+
+    // Proceed with deletion procedures...
+    ui->systemHierarchyViewer->setSelection(selection->parent);
+
+    if (selection->parent == myGrid.systemHierarchyTreeParent){
+        // If it's a system, remove it's name from the combo box
+        ui->comboBox_system->removeItem(ui->comboBox_system->findText(selection->name));
+    }
+
+    ui->systemHierarchyViewer->deleteSystem(selection);
+
+    ui->systemHierarchyViewer->updateSystemList(ui->systemHierarchyViewer->getSelection());
+    ui->systemHierarchyViewer->renderView();
+
+    return;
+
+}

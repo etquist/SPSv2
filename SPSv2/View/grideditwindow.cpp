@@ -104,16 +104,18 @@ void gridEditWindow::dropEvent(QDropEvent *event)
         component* newIcon = new component(this, myGridRef, SN);
 
         // Create a new entry in the network components list for the component
-        if (type != "Line"){
+        if (type != "Line" && type != "Bus"){
             const QModelIndex indexNetList = networkComponentsList->selectionModel()->currentIndex();
             myGridRef->networkComponents->insertRow(indexNetList.row()+1, indexNetList.parent());
             QModelIndex newEntry = myGridRef->networkComponents->index(indexNetList.row() + 1, 0, indexNetList.parent());
             QList<QVariant> inptData;
-            inptData << QVariant(newIcon->getNodeRef()->getName()) << QVariant(newIcon->getNodeRef()->getType()) << QVariant(newIcon->getNodeRef()->getSN()) << QVariant("UNASSIGNED");;
+            inptData << QVariant(newIcon->getNodeRef()->getName()) << QVariant(newIcon->getNodeRef()->getType()) << QVariant(newIcon->getNodeRef()->getSN()) << QVariant("UNASSIGNED");
+            myGridRef->findSystem(myGridRef->unassignedName)->SNs.insert(newIcon->getNodeRef()->getSN());
             myGridRef->networkComponents->setFullData(newEntry, inptData, Qt::EditRole);
             myGridRef->networkComponents->setNodeData(newEntry, newIcon->getNodeRef());
+            myGridRef->networkComponents->setCatalog(newEntry, false);
+            myGridRef->networkComponents->setSN(newEntry, newIcon->getNodeRef()->getSN());
 
-            myGridRef->systemHierarchyTreeParent->SNs.insert(newIcon->getSN());
         }
 
         bool newLineCreated = false;
@@ -144,6 +146,7 @@ void gridEditWindow::dropEvent(QDropEvent *event)
             myGridRef->componentsList->setFullData(child, lineInptData, Qt::EditRole);
             // Save the node reference in the child
             myGridRef->componentsList->setNodeData(child, newLine);
+            myGridRef->componentsList->setSN(child, newLine->getSN());
 
 
             // Not going to include lines in the network components

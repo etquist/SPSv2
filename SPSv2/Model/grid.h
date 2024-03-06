@@ -31,6 +31,7 @@ public:
         std::set<int> SNs;
 
         std::set<systemHierNode*> childs;
+        systemHierNode* parent;
     };
 
     void addNewComponent(); // New components list entry
@@ -79,6 +80,15 @@ public:
     systemHierNode* insertSystem(QString name_inpt);
     systemHierNode* insertSubSystem(QString name_inpt, Grid::systemHierNode* selectedSys);
     systemHierNode* systemHierarchyTreeParent;
+
+    QString unassignedName;
+    systemHierNode* findSystem(Grid::systemHierNode* name);
+    systemHierNode* findSubSystem(Grid::systemHierNode* systemName, Grid::systemHierNode* subsystemName);
+    systemHierNode* findSystem(QString name);
+    systemHierNode* findSubSystem(QString systemName, QString subsystemName);
+
+
+    QStringListModel* systemComponentsList;
 
 private:
     // Bus list, with each element including a bus node reference and the its voltage

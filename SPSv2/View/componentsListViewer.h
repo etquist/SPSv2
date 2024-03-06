@@ -28,6 +28,7 @@ protected:
 
     void startDrag(Qt::DropActions supportedActions) override;
 
+
 private:
     QPoint startPos;
     // customNodeTree* model;

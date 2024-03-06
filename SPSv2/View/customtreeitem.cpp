@@ -179,3 +179,18 @@ void customTreeItem::setSN(int SN_inpt){
 
 }
 
+// Deals with the 3rd index
+QString customTreeItem::getSystem() const{
+    return itemData[3].toString();
+}
+void customTreeItem::setSystem(QString newSystem){
+    itemData[3] = QVariant::fromValue(newSystem);
+}
+
+// Deals with the 4th index
+QString customTreeItem::getSubSystem() const{
+    return itemData[4].toString();
+}
+void customTreeItem::setSubSystem(QString newSubSystem){
+    itemData[4] = QVariant::fromValue(newSubSystem);
+}

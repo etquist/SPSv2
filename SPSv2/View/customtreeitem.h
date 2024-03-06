@@ -42,6 +42,15 @@ public:
     int getSN() const;
     void setSN(int SN_inpt);
 
+    // Deals with the 3rd index
+    QString getSystem() const;
+    void setSystem(QString newSystem);
+
+    // Deals with the 4th index
+    QString getSubSystem() const;
+    void setSubSystem(QString newSubSystem);
+
+
     // This operator is used for serializing the node pointer, and can therefore be used
     //      to pass information between the component tree and the network editor
     friend QDataStream &operator<<(QDataStream &out, customTreeItem ptr);

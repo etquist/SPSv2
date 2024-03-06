@@ -87,6 +87,20 @@ private slots:
 
     void on_pushButton_10_clicked();
 
+    void on_tabWidget_currentChanged(int index);
+
+    void resizeEvent(QResizeEvent* event);
+
+    void on_comboBox_system_currentIndexChanged(int index);
+
+    void on_comboBox_subsystem_currentIndexChanged(int index);
+
+    void on_networkComponentsViewer_clicked(const QModelIndex &index);
+
+    void update_SystemSubSys_Selection();
+
+    void deleteSystem();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *Scene;

@@ -4,7 +4,7 @@
 
 // Default constructor
 Grid::Grid(){
-
+    unassignedName = "UNASSIGNED";
 }
 
 Grid::Grid(QString catalogFilepath, QString componentsListFilepath) {
@@ -15,11 +15,15 @@ Grid::Grid(QString catalogFilepath, QString componentsListFilepath) {
     // Initiate the catalog and component list
 
 
+    unassignedName = "UNASSIGNED";
+
 }
 
 Grid::~Grid(){
     delete catalog;
     delete componentsList;
+    delete networkComponents;
+
 
 }
 
@@ -259,24 +263,108 @@ QString Grid::newName(QString type, QString inptName){
 
 // Returns the corresponding node
 gridNode* Grid::findNode(int SN){
+    if (allNodes.find(SN) == allNodes.end()){
+        qDebug() << "The queried serial number does not exist: " << QString::number(SN);
+        return nullptr;
+    }
     return allNodes[SN];
 }
 
-
+// Add a new system to the hierarchy
 Grid::systemHierNode* Grid::insertSystem(QString name_inpt){
     Grid::systemHierNode* newSys = new Grid::systemHierNode();
     newSys->name = name_inpt;
 
     systemHierarchyTreeParent->childs.insert(newSys);
+    newSys->parent = systemHierarchyTreeParent;
+
+
+    QString subsysName = name_inpt + "_Shared";
+    insertSubSystem(subsysName, newSys);
+
+
 
     return newSys;
 }
 
+// Add a new subsystem to the hierarchy
 Grid::systemHierNode* Grid::insertSubSystem(QString name_inpt, Grid::systemHierNode* selectedSys){
     Grid::systemHierNode* newSys = new Grid::systemHierNode();
     newSys->name = name_inpt;
 
     selectedSys->childs.insert(newSys);
+    newSys->parent = selectedSys;
 
     return newSys;
 }
+
+// -----
+// These two functions find the exact match by looking for a matching pointer to the same system node
+
+Grid::systemHierNode* Grid::findSystem(Grid::systemHierNode* name){
+    if (name == systemHierarchyTreeParent){
+        return systemHierarchyTreeParent;
+    }
+
+    for (auto it = systemHierarchyTreeParent->childs.begin(); it != systemHierarchyTreeParent->childs.end(); ++it) {
+        if (*it == name){
+            return(*it);
+        }
+    }
+    qDebug() << "Error: Could not find system";
+    return nullptr;
+}
+
+
+Grid::systemHierNode* Grid::findSubSystem(Grid::systemHierNode* systemName, Grid::systemHierNode* subsystemName){
+    for (auto it = systemHierarchyTreeParent->childs.begin(); it != systemHierarchyTreeParent->childs.end(); ++it) {
+        if (*it != systemName){
+            continue;
+        }
+
+        for (auto it_2 = (*it)->childs.begin(); it_2 != (*it)->childs.end(); ++it_2) {
+            if (*it_2 == subsystemName){
+                return (*it_2);
+            }
+        }
+    }
+    qDebug() << "Error: Could not find subsystem";
+    return nullptr;
+}
+
+
+
+// -----
+// These two functions find a match by looking for matching names. They rely on the assumption that system names are not duplicated
+Grid::systemHierNode* Grid::findSystem(QString name){
+    if (name == systemHierarchyTreeParent->name){
+        return systemHierarchyTreeParent;
+    }
+
+    for (auto it = systemHierarchyTreeParent->childs.begin(); it != systemHierarchyTreeParent->childs.end(); ++it) {
+        if ((*it)->name == name){
+            return(*it);
+        }
+    }
+    qDebug() << "Error: Could not find system";
+    return nullptr;
+}
+
+
+Grid::systemHierNode* Grid::findSubSystem(QString systemName, QString subsystemName){
+    for (auto it = systemHierarchyTreeParent->childs.begin(); it != systemHierarchyTreeParent->childs.end(); ++it) {
+        if ((*it)->name != systemName){
+            continue;
+        }
+
+        for (auto it_2 = (*it)->childs.begin(); it_2 != (*it)->childs.end(); ++it_2) {
+            if ((*it_2)->name == subsystemName){
+                return (*it_2);
+            }
+        }
+    }
+    qDebug() << "Error: Could not find subsystem";
+    return nullptr;
+}
+
+

@@ -5,6 +5,7 @@
 #include <grid.h>
 #include <QPoint>
 #include <cmath>
+#include "systemlabel.h"
 
 class systemHierarchyFrame : public QFrame
 {
@@ -19,9 +20,21 @@ public:
     Grid* myGridRef;
     Grid::systemHierNode* systemHierarchyTreeParent;
 
-private:
-    std::set<QLabel*> activeLabels;
+    Grid::systemHierNode* getSelection();
+    void setSelection(Grid::systemHierNode* newSelection);
 
+    void updateSystemList(Grid::systemHierNode* newSelection);
+
+    void deleteSystem(Grid::systemHierNode* newSelection);
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
+
+private:
+    std::set<systemLabel*> activeLabels;
+    Grid::systemHierNode* selectedNode;
+
+    Grid::systemHierNode* findSystem(Grid::systemHierNode* systemRef);
+    systemLabel* findLabel(Grid::systemHierNode* systemRef);
 
 
 };

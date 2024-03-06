@@ -40,6 +40,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         View/componentsListViewer.h View/componentsListViewer.cpp
         View/thumbnailImages/resources.qrc
         View/systemhierarchyframe.h View/systemhierarchyframe.cpp
+        View/systemlabel.h View/systemlabel.cpp
     )
 
 
